@@ -97,3 +97,9 @@ Check imgix's presence in Japanese AI answer engines and search AI features.
 - **One-time:** Hreflang verification (Task 4)
 - **Monthly:** Check Japanese search visibility for key terms
 - **Quarterly:** Refresh Japanese-localized content
+
+## Related Skills
+- **Discoverability/technical-seo** — Hreflang tags and locale configuration
+- **Content/copywriting** — Localized content creation
+- **imgix-brand-voice** (global) — Brand voice applies to all locales
+- **Discoverability/reporting** — Track international search visibility separately

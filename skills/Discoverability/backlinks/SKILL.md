@@ -107,3 +107,11 @@ Body: Hi [name], I'm on the marketing team at imgix. We'd love to feature how [c
 - **Monthly:** Follow up on outstanding outreach
 - **Monthly:** Check competitor backlink changes
 - **Quarterly:** Launch one digital PR content piece
+
+## Related Skills
+- **imgix-brand-voice** (global) — All outreach content follows brand guidelines
+- **Discoverability/content-gaps** — High-quality content attracts natural backlinks
+- **Discoverability/competitive-intel** — Identify competitor backlink sources to target
+- **Discoverability/distribution** — Content distribution creates backlink opportunities
+- **Content/case-studies** — Case studies earn links from customer domains
+- **Discoverability/reporting** — Track backlink growth over time

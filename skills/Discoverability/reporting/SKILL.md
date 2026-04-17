@@ -105,3 +105,10 @@ Keep reports scannable. Use this structure:
 ## Action Items
 [Numbered list, assigned to person or workstream]
 ```
+
+## Related Skills
+- **Discoverability/imgix-aeo** — AEO monitoring results feed into reports
+- **Conversion/analytics-tracking** — Tracking data flows into discoverability reports
+- **Discoverability/competitive-intel** — Competitive position changes tracked in reports
+- **Discoverability/content-gaps** — Gap closure progress reported
+- **Discoverability/technical-seo** — Technical health metrics in reports

@@ -103,3 +103,10 @@ All competitive intelligence updates should be:
 1. Written to this folder's STATUS.md
 2. Summarized in Slack for Michelle
 3. Actioned via Jira tickets when they reveal work to do
+
+## Related Skills
+- **Product-Marketing/competitor-alternatives** — Competitive intel feeds into comparison pages and battle cards
+- **Discoverability/imgix-aeo** — AEO monitoring reveals how AI models describe competitors
+- **Discoverability/content-gaps** — Competitor content analysis reveals keyword gaps
+- **Product-Marketing/win-loss-analysis** — Deal outcomes validate competitive positioning
+- **Product-Marketing/sales-enablement** — Competitive intel becomes sales collateral

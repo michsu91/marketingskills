@@ -93,3 +93,9 @@ When an issue is found, categorize and route it:
 | Slow TTFB | Dev / Infrastructure | CDN config, Webflow hosting settings |
 | Missing lazy loading | Claude via Webflow MCP | Add loading="lazy" to below-fold images |
 | Font loading issues | Dev team | Preload critical fonts, use font-display: swap |
+
+## Related Skills
+- **Discoverability/technical-seo** — Performance is a ranking factor
+- **Conversion/page-cro** — Page speed affects conversion rates
+- **Discoverability/reporting** — Core Web Vitals tracked in reports
+- **Discoverability/imgix-aeo** — Page speed under 2s is a Copilot ranking signal

@@ -239,3 +239,13 @@ After gathering information, create `.agents/product-marketing-context.md` with 
 - **Ask for examples**: "Can you give me an example?" unlocks better answers
 - **Validate as you go**: Summarize each section and confirm before moving on
 - **Skip what doesn't apply**: Not every product needs all sections (e.g., Personas for B2C)
+
+## Related Skills
+
+This is a **global skill** — it provides the foundational context (ICP, positioning, value props) that every system references.
+
+Key relationships:
+- **imgix-brand-voice** (global) — Context defines what we say; voice defines how
+- **Product-Marketing/positioning** — Positioning work updates this context doc
+- **Product-Marketing/customer-research** — Research validates and refines context
+- **All systems** — Every MANIFEST references this as a dependency

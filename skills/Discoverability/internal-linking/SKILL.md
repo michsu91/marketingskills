@@ -91,3 +91,10 @@ For each solution page and blog post, define what related content should be surf
 - **One-time:** Fix orphan pages (Task 3)
 - **Ongoing:** Every new piece of content should follow the linking rules before publishing
 - **Monthly:** Audit 10 existing pages for internal linking opportunities
+
+## Related Skills
+- **Discoverability/site-architecture** — Site architecture defines the hub-and-spoke model
+- **Discoverability/imgix-programmatic-seo** — New programmatic pages need internal links
+- **Discoverability/content-gaps** — New content needs to be linked into the existing structure
+- **Discoverability/technical-seo** — Internal linking affects crawlability and PageRank flow
+- **Discoverability/content-refresh** — Refreshed pages may need updated internal links

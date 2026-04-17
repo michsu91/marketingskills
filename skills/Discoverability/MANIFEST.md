@@ -31,6 +31,19 @@ This system is wired into imgix's actual infrastructure:
 - **Google Calendar** — Schedule content publication and review cycles
 - **Gmail** — Send outreach for backlink campaigns or partnership content
 
+## Global Dependencies
+
+These skills apply to ALL content this system produces:
+- **imgix-brand-voice** — Tone, terminology, capitalization rules
+- **product-marketing-context** — ICP, positioning, value propositions
+
+## Cross-System References
+
+- **Discoverability → Content:** Content-gaps identifies what to write; Content system creates it.
+- **Discoverability → Conversion:** Organic traffic feeds into pages Conversion optimizes.
+- **Product-Marketing → Discoverability:** Competitive intel informs comparison content and AEO narratives.
+- **Discoverability → Lifecycle:** New content triggers lifecycle nurture sequences.
+
 ## Subfolders (Priority Order)
 
 ### 1. `technical-seo/` — HIGH PRIORITY
@@ -39,13 +52,22 @@ Fix on-site technical SEO issues that are hurting crawlability and rankings. The
 ### 2. `content-gaps/` — HIGH PRIORITY
 Identify and fill keyword gaps where imgix should rank but doesn't. Create content briefs and draft content targeting high-intent terms.
 
-### 3. `aeo/` — MEDIUM-HIGH PRIORITY
-Optimize imgix's presence in AI-generated answers (ChatGPT, Perplexity, Gemini, Claude). This is the emerging frontier — most competitors aren't doing this yet.
+### 3. `imgix-aeo/` — MEDIUM-HIGH PRIORITY
+Answer Engine Optimization — ensure imgix is cited accurately across AI answer engines (ChatGPT, Perplexity, Gemini, Claude, Google AI Overviews). Enhanced with platform-specific optimization, content patterns, and monitoring. This is the emerging frontier — most competitors aren't doing this yet.
 
-### 4. `competitive-intel/` — MEDIUM PRIORITY
+### 4. `imgix-programmatic-seo/` — MEDIUM-HIGH PRIORITY
+Build SEO-optimized pages at scale using templates and data. Four playbooks: comparison pages, integration pages, persona/vertical pages, and glossary pages. Coordinates with content-gaps for what to build.
+
+### 5. `competitive-intel/` — MEDIUM PRIORITY
 Monitor competitor positioning, content strategy, and search visibility. Update battlecards and identify opportunities they're missing.
 
-### 5. `reporting/` — ONGOING
+### 6. `schema-markup/` — MEDIUM PRIORITY
+Structured data implementation (JSON-LD) across key pages. FAQ schema, product schema, organization schema. Coordinates with imgix-aeo for AI visibility.
+
+### 7. `site-architecture/` — MEDIUM PRIORITY
+Website page hierarchy, URL structure, navigation, and information architecture. Hub-and-spoke model coordinated with internal-linking.
+
+### 8. `reporting/` — ONGOING
 Track progress against the baseline. Generate weekly and monthly reports on ranking changes, traffic, and AEO citations.
 
 ## Brand Voice Reference

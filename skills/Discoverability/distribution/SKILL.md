@@ -93,3 +93,10 @@ For EVERY new piece of content published, run through this checklist:
 - **Weekly:** Review which distributed content is getting traction and double down
 - **Monthly:** Analyze which distribution channels drive the most traffic and leads
 - **Quarterly:** Update channel strategy based on what's working
+
+## Related Skills
+- **Content/social-content** — Social distribution of new content
+- **Discoverability/backlinks** — Distribution generates initial link signals
+- **Lifecycle/email-sequence** — Email distribution to subscriber list
+- **Content/content-strategy** — Distribution plan is part of content strategy
+- **Acquisition/paid-ads** — Paid promotion of high-value content

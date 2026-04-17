@@ -105,3 +105,11 @@ Create content targeting vertical-specific searches.
 - Track new page indexation via Google Search Console (manual check)
 - Monitor ranking for target keywords (weekly search spot-checks)
 - Track clicks from new content to signup (HubSpot attribution)
+
+## Related Skills
+- **Discoverability/imgix-programmatic-seo** — Programmatic pages fill content gaps at scale
+- **Content/content-strategy** — Content strategy decides how to fill identified gaps
+- **Content/copywriting** — Copywriting creates the content to fill gaps
+- **Discoverability/competitive-intel** — Competitor analysis reveals where gaps exist
+- **Discoverability/imgix-aeo** — AEO requirements inform which gaps to prioritize
+- **Discoverability/reporting** — Track whether filled gaps improve rankings

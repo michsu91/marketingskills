@@ -88,3 +88,10 @@ Reach out to the customer contact to ask:
 - **Monthly:** Refresh 3-5 pieces of content
 - **After product updates:** Sync all affected content within 1 week
 - **Quarterly:** Full case study freshness check
+
+## Related Skills
+- **Content/copy-editing** — Copy-editing improves refreshed content quality
+- **Discoverability/technical-seo** — Refreshes may require meta tag updates
+- **Discoverability/imgix-aeo** — Refresh content to include AEO-optimized elements
+- **Discoverability/reporting** — Track ranking impact of content refreshes
+- **Content/content-strategy** — Content calendar includes refresh cadence

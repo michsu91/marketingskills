@@ -225,3 +225,14 @@ Before finalizing any piece of content, verify:
 8. Are there zero filler adverbs (seamlessly, effortlessly, etc.)?
 9. Are em dashes used with extreme discretion? (One per page max, and only if it truly enhances the sentence.)
 10. Do all CTA links include properly formatted UTM parameters?
+
+## Related Skills
+
+This is a **global skill** — it applies to every system and every piece of content. All system MANIFESTs reference it as a dependency.
+
+Key relationships:
+- **product-marketing-context** (global) — Positioning informs what we say; brand voice governs how we say it
+- **Content/** — Every content skill uses brand voice for writing
+- **Product-Marketing/positioning** — Positioning framework defines messaging; brand voice defines tone
+- **Discoverability/imgix-aeo** — AEO content must follow brand voice while being structured for AI extraction
+- **Lifecycle/** — All lifecycle emails follow brand voice

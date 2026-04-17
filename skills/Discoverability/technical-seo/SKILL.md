@@ -84,3 +84,11 @@ After making changes:
 2. Spot-check 3-5 pages to make sure nothing broke
 3. Post a summary to Slack with what was changed
 4. Create a Jira ticket with the full change log
+
+## Related Skills
+- **Discoverability/schema-markup** — Structured data is a technical SEO element
+- **Discoverability/site-architecture** — URL structure and crawl paths
+- **Discoverability/technical-performance** — Core Web Vitals and page speed
+- **Discoverability/internal-linking** — Crawlability depends on internal link structure
+- **Discoverability/imgix-aeo** — Technical foundations enable AEO visibility
+- **Discoverability/reporting** — Technical health metrics tracked over time
