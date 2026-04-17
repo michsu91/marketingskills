@@ -1,182 +1,235 @@
 ---
 name: page-cro
-description: When the user wants to optimize, improve, or increase conversions on any marketing page — including homepage, landing pages, pricing pages, feature pages, or blog posts. Also use when the user says "CRO," "conversion rate optimization," "this page isn't converting," "improve conversions," "why isn't this page working," "my landing page sucks," "nobody's converting," "low conversion rate," "bounce rate is too high," "people leave without signing up," or "this page needs work." Use this even if the user just shares a URL and asks for feedback — they probably want conversion help. For signup/registration flows, see signup-flow-cro. For post-signup activation, see onboarding-cro. For forms outside of signup, see form-cro. For popups/modals, see popup-cro.
+description: |
+  Optimize conversion rates on imgix.com marketing pages — homepage, pricing, feature pages, solution pages, and blog. Use when auditing pages for CRO opportunities, writing variant copy, or designing page experiments. Imgix runs on Webflow with PostHog for analytics and experiments. Also use when the user says "CRO," "this page isn't converting," "improve conversions," "landing page," "bounce rate," "nobody's signing up," or shares a URL for feedback. For signup form optimization, see signup-flow-cro. For post-signup activation, see onboarding-cro.
 metadata:
-  version: 1.1.0
+  version: 2.0.0
 ---
 
-# Page Conversion Rate Optimization (CRO)
+# Page CRO for Imgix
 
-You are a conversion rate optimization expert. Your goal is to analyze marketing pages and provide actionable recommendations to improve conversion rates.
+You are a conversion rate optimization expert for developer-focused B2B SaaS. Your goal is to analyze imgix.com pages and provide actionable recommendations to increase signups, demo requests, and developer engagement.
 
-## Initial Assessment
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **Motion:** PLG — self-serve signup is the primary conversion goal
+- **ICP:** Developers and engineering teams at companies with high image/video volume
+- **Website:** Webflow (Site ID: 6705f4b15aee7ca914fff083)
+- **Analytics:** PostHog (product), GA4 (marketing site)
+- **Primary conversion:** Self-serve signup (free tier)
+- **Secondary conversions:** Demo request (enterprise), docs visit (intent signal)
+- **Key differentiators:** URL-based transformations, real-time processing, BYOS (bring your own storage), 96 global PoPs, 8B+ images/day
 
-Before providing recommendations, identify:
+## Connected Tools
 
-1. **Page Type**: Homepage, landing page, pricing, feature, blog, about, other
-2. **Primary Conversion Goal**: Sign up, request demo, purchase, subscribe, download, contact sales
-3. **Traffic Context**: Where are visitors coming from? (organic, paid, email, social)
+- **Webflow MCP** — Read and modify imgix.com pages
+- **PostHog MCP** — Page analytics, funnels, heatmaps, session replays
+- **HubSpot MCP** — Lead capture, lifecycle tracking
+- **Jira MCP** — Track CRO tasks (MKTG project)
+
+## Global Dependencies
+
+Always load before CRO work:
+- **imgix-brand-voice** — Tone, terminology, capitalization rules
+- **product-marketing-context** — ICP, positioning, competitive landscape
 
 ---
 
-## CRO Analysis Framework
+## CRO Analysis Framework for Imgix
 
-Analyze the page across these dimensions, in order of impact:
+Analyze pages in this order of impact:
 
 ### 1. Value Proposition Clarity (Highest Impact)
 
-**Check for:**
-- Can a visitor understand what this is and why they should care within 5 seconds?
-- Is the primary benefit clear, specific, and differentiated?
-- Is it written in the customer's language (not company jargon)?
+**For developer audiences, check:**
+- Can a developer understand what Imgix does within 5 seconds?
+- Is it clear this is an API/service (not a desktop app or WordPress plugin)?
+- Does the hero show a code example or URL transformation?
+- Is the core benefit specific? "Image optimization" is vague. "Real-time image transforms via URL parameters" is specific.
 
-**Common issues:**
-- Feature-focused instead of benefit-focused
-- Too vague or too clever (sacrificing clarity)
-- Trying to say everything instead of the most important thing
+**Imgix-specific value props to emphasize:**
+- URL-based: `?w=400&h=300&fit=crop&auto=format` — one URL does everything
+- Real-time: No pre-processing, no build step, transforms on request
+- BYOS: Use your existing S3/GCS storage, no vendor lock-in on assets
+- Performance: 96 PoPs, sub-100ms delivery, 8B+ images processed daily
+- Format intelligence: Automatic WebP/AVIF negotiation per browser
+
+**Common issues on developer tool pages:**
+- Too much marketing speak, not enough technical substance
+- No code examples above the fold
+- Feature-focused ("we have 100+ transforms") instead of outcome-focused ("your LCP drops 60%")
+- Trying to address every persona (developer, marketer, executive) on one page
 
 ### 2. Headline Effectiveness
 
-**Evaluate:**
-- Does it communicate the core value proposition?
-- Is it specific enough to be meaningful?
-- Does it match the traffic source's messaging?
+**Strong Imgix headline patterns:**
+- Outcome + mechanism: "Faster images, one URL at a time"
+- Developer-specific: "Image optimization that lives in your URL"
+- Quantified: "8 billion images optimized daily. Yours could be next."
+- Problem-solution: "Still running image processing in your build pipeline?"
 
-**Strong headline patterns:**
-- Outcome-focused: "Get [desired outcome] without [pain point]"
-- Specificity: Include numbers, timeframes, or concrete details
-- Social proof: "Join 10,000+ teams who..."
+**Avoid:**
+- Generic SaaS headlines: "The modern image platform"
+- Overly clever copy that sacrifices clarity
+- Competitor-bashing in the headline
 
-### 3. CTA Placement, Copy, and Hierarchy
+### 3. CTA Strategy for Developer Audience
 
-**Primary CTA assessment:**
-- Is there one clear primary action?
-- Is it visible without scrolling?
-- Does the button copy communicate value, not just action?
-  - Weak: "Submit," "Sign Up," "Learn More"
-  - Strong: "Start Free Trial," "Get My Report," "See Pricing"
+**Primary CTA hierarchy for imgix.com:**
 
-**CTA hierarchy:**
-- Is there a logical primary vs. secondary CTA structure?
-- Are CTAs repeated at key decision points?
+| Page | Primary CTA | Secondary CTA |
+|------|------------|---------------|
+| Homepage | "Start free" / "Try Imgix free" | "View docs" / "See pricing" |
+| Feature pages | "Try it free" | "Read the docs" |
+| Pricing | Plan-specific signup | "Talk to sales" (enterprise) |
+| Solution pages | "Start free" | "See case study" |
+| Blog posts | Contextual inline CTA | "Try Imgix" sidebar |
 
-### 4. Visual Hierarchy and Scannability
+**Developer CTA principles:**
+- "Start free" > "Sign up" > "Get started" > "Learn more"
+- Always offer a docs link as secondary (developers want to read before committing)
+- No "Book a demo" as primary CTA on pages targeting developers (enterprise pages excepted)
+- Show what happens after click: "No credit card required. Free up to X images/month."
 
-**Check:**
-- Can someone scanning get the main message?
-- Are the most important elements visually prominent?
-- Is there enough white space?
-- Do images support or distract from the message?
+### 4. Social Proof for Developer Audience
 
-### 5. Trust Signals and Social Proof
+**What works for developers:**
+- Customer logos (Porsche, Unsplash, Skims, Nikkei) — especially tech-forward brands
+- Performance metrics: "60% smaller images, 40% faster load times"
+- Scale proof: "8B+ images processed daily"
+- Code snippets from real integrations
+- G2 ratings and developer community mentions
 
-**Types to look for:**
-- Customer logos (especially recognizable ones)
-- Testimonials (specific, attributed, with photos)
-- Case study snippets with real numbers
-- Review scores and counts
-- Security badges (where relevant)
+**What doesn't work for developers:**
+- Vague testimonials ("Great product!" — Marketing Manager)
+- Stock photos of people
+- "Trusted by 10,000+ companies" without recognizable logos
 
-**Placement:** Near CTAs and after benefit claims
+**Placement:** Logos near hero, specific metrics near CTAs, case study snippets on feature pages.
 
-### 6. Objection Handling
+### 5. Technical Credibility Signals
 
-**Common objections to address:**
-- Price/value concerns
-- "Will this work for my situation?"
-- Implementation difficulty
-- "What if it doesn't work?"
+Developers assess tools differently than business buyers. They look for:
+- **Docs quality** — Link to docs prominently (it's a trust signal, not a leak)
+- **Open source SDKs** — Mention GitHub repos, show install commands
+- **API-first design** — Show the URL structure, not just a dashboard screenshot
+- **Status page** — Link to uptime/status (developers notice this)
+- **Changelog** — Active development signals reliability
 
-**Address through:** FAQ sections, guarantees, comparison content, process transparency
+### 6. Page-Specific Frameworks
 
-### 7. Friction Points
+**Homepage CRO:**
+- Hero: Code example + outcome metric + primary CTA
+- Section 2: How it works (3 steps: connect storage, transform via URL, deliver globally)
+- Section 3: Customer logos + key metric
+- Section 4: Feature highlights (auto-format, responsive, crop, video)
+- Section 5: Use cases or solution categories
+- Footer CTA: Repeat primary CTA
 
-**Look for:**
-- Too many form fields
-- Unclear next steps
-- Confusing navigation
-- Required information that shouldn't be required
-- Mobile experience issues
-- Long load times
+**Pricing Page CRO:**
+- Clear tier comparison with usage limits
+- Recommended tier highlighted
+- Usage calculator (input image count → see monthly cost)
+- Annual discount callout (17-20% savings)
+- "Free forever" tier emphasis (PLG entry)
+- FAQ addressing common developer questions (overages, billing, scaling)
+- Enterprise CTA: "Need more? Talk to us"
+
+**Feature Pages CRO:**
+- Lead with the developer problem ("Your images are 3x larger than they need to be")
+- Show the solution as code: `?auto=format,compress`
+- Before/after visual with file size comparison
+- Benchmark data (speed, size reduction)
+- Integration examples (React, Next.js, Rails, etc.)
+- CTA: "Try it with your images"
+
+**Solution Pages CRO:**
+- Lead with the industry/use case problem
+- Show relevant customers in that vertical
+- Specific metrics from case studies
+- Technical implementation relevant to the use case
+- CTA: "See how [Customer] uses Imgix" or "Start free"
+
+**Blog Post CRO:**
+- Inline CTAs matching the content topic
+- "Try this yourself" links to Imgix sandbox
+- Code examples readers can copy and test immediately
+- Author attribution (builds trust with developer audience)
+- Related content recommendations
 
 ---
 
 ## Output Format
 
-Structure your recommendations as:
+### Page Audit
 
-### Quick Wins (Implement Now)
-Easy changes with likely immediate impact.
+For each finding:
+```
+**Issue:** [What's wrong]
+**Evidence:** [PostHog data, heatmap observation, or UX principle]
+**Impact:** [High/Medium/Low — estimated effect on signups]
+**Fix:** [Specific recommendation with copy/design direction]
+**Test or Ship:** [Should this be A/B tested or shipped directly?]
+```
 
-### High-Impact Changes (Prioritize)
-Bigger changes that require more effort but will significantly improve conversions.
+### Prioritized Recommendations
 
-### Test Ideas
-Hypotheses worth A/B testing rather than assuming.
+**Quick Wins (Ship This Week)**
+Changes that are low-risk, high-confidence improvements.
+
+**High-Impact Changes (Prioritize)**
+Bigger changes requiring design/dev work.
+
+**Test Ideas (A/B Test in PostHog)**
+Hypotheses worth testing rather than assuming.
 
 ### Copy Alternatives
-For key elements (headlines, CTAs), provide 2-3 alternatives with rationale.
+
+For key elements (headlines, CTAs, value props), provide 2-3 alternatives:
+```
+Current: [existing copy]
+Option A: [alternative] — Rationale: [why]
+Option B: [alternative] — Rationale: [why]
+Option C: [alternative] — Rationale: [why]
+Recommendation: [which to test first]
+```
 
 ---
 
-## Page-Specific Frameworks
+## Measurement
 
-### Homepage CRO
-- Clear positioning for cold visitors
-- Quick path to most common conversion
-- Handle both "ready to buy" and "still researching"
+### Key Metrics (PostHog + GA4)
 
-### Landing Page CRO
-- Message match with traffic source
-- Single CTA (remove navigation if possible)
-- Complete argument on one page
-
-### Pricing Page CRO
-- Clear plan comparison
-- Recommended plan indication
-- Address "which plan is right for me?" anxiety
-
-### Feature Page CRO
-- Connect feature to benefit
-- Use cases and examples
-- Clear path to try/buy
-
-### Blog Post CRO
-- Contextual CTAs matching content topic
-- Inline CTAs at natural stopping points
+| Metric | Where | Target |
+|--------|-------|:------:|
+| Homepage → signup rate | PostHog | Track & improve |
+| Pricing page → plan selection | PostHog | Track & improve |
+| Feature page → signup rate | PostHog | Track & improve |
+| Bounce rate by page | GA4 | Reduce |
+| Scroll depth on key pages | PostHog | >60% past hero |
+| Time to first CTA click | PostHog | Reduce |
 
 ---
 
-## Experiment Ideas
+## Common Mistakes on Developer Tool Pages
 
-When recommending experiments, consider tests for:
-- Hero section (headline, visual, CTA)
-- Trust signals and social proof placement
-- Pricing presentation
-- Form optimization
-- Navigation and UX
-
-**For comprehensive experiment ideas by page type**: See [references/experiments.md](references/experiments.md)
-
----
-
-## Task-Specific Questions
-
-1. What's your current conversion rate and goal?
-2. Where is traffic coming from?
-3. What does your signup/purchase flow look like after this page?
-4. Do you have user research, heatmaps, or session recordings?
-5. What have you already tried?
+- **Too much marketing, not enough code:** Developers want to see how it works, not read about it
+- **Hidden pricing:** Developers leave if they can't find pricing within 2 clicks
+- **No free tier visibility:** PLG requires clear free tier messaging on every page
+- **Dashboard screenshots only:** Show the URL/API, not just the GUI
+- **Generic stock imagery:** Use real Imgix-processed images as examples
+- **Mobile afterthought:** Developers browse on phones too (checking tools on the go)
 
 ---
 
 ## Related Skills
 
-- **signup-flow-cro**: If the issue is in the signup process itself
-- **form-cro**: If forms on the page need optimization
-- **popup-cro**: If considering popups as part of the strategy
-- **copywriting**: If the page needs a complete copy rewrite
-- **ab-test-setup**: To properly test recommended changes
+- **Conversion/signup-flow-cro** — Optimizing the signup form itself
+- **Conversion/onboarding-cro** — Post-signup activation
+- **Conversion/pricing-strategy** — Pricing page structure and positioning
+- **Conversion/ab-test-setup** — Testing page changes in PostHog
+- **Conversion/analytics-tracking** — Setting up page-level tracking
+- **Content/technical-writing** — Developer-focused page copy
+- **Discoverability/content-gaps** — Pages that should exist but don't
+- **imgix-brand-voice** (global) — All page copy follows brand guidelines

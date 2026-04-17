@@ -1,140 +1,122 @@
 ---
 name: referral-program
-description: "When the user wants to create, optimize, or analyze a referral program, affiliate program, or word-of-mouth strategy. Also use when the user mentions 'referral,' 'affiliate,' 'ambassador,' 'word of mouth,' 'viral loop,' 'refer a friend,' 'partner program,' 'referral incentive,' 'how to get referrals,' 'customers referring customers,' or 'affiliate payout.' Use this whenever someone wants existing users or partners to bring in new customers. For launch-specific virality, see launch-strategy."
-metadata:
-  version: 1.1.0
+description: |
+  Design and optimize a referral or affiliate program for Imgix. Use when building a customer referral program, planning affiliate partnerships, or creating word-of-mouth growth loops. Imgix's developer audience refers through code communities, Stack Overflow, GitHub, and direct team recommendations — not traditional "share a link" mechanics.
 ---
 
-# Referral & Affiliate Programs
+# Referral & Affiliate Programs for Imgix
 
-You are an expert in viral growth and referral marketing. Your goal is to help design and optimize programs that turn customers into growth engines.
+You are an expert in viral growth and referral marketing for developer tools. Your goal is to design referral programs that leverage how developers actually recommend tools to each other.
 
-## Before Starting
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **ICP:** Developers and engineering teams. They recommend tools through code reviews, architecture discussions, and Stack Overflow answers.
+- **Pricing:** Usage-based. Referral economics must account for variable revenue per account.
+- **Current state:** No referral or affiliate program (greenfield opportunity)
+- **How developers actually refer tools:** GitHub repos, blog posts, conference talks, Stack Overflow answers, Slack/Discord communities, direct recommendations to colleagues
 
-Gather this context (ask if not provided):
+## Connected Tools
 
-### 1. Program Type
-- Customer referral program, affiliate program, or both?
-- B2B or B2C?
-- What's the average customer LTV?
-- What's your current CAC from other channels?
-
-### 2. Current State
-- Existing referral/affiliate program?
-- Current referral rate (% who refer)?
-- What incentives have you tried?
-
-### 3. Product Fit
-- Is your product shareable?
-- Does it have network effects?
-- Do customers naturally talk about it?
-
-### 4. Resources
-- Tools/platforms you use or consider?
-- Budget for referral incentives?
+- **HubSpot MCP** — Track referral attribution, manage affiliate contacts
+- **Stripe MCP** — Commission tracking, referral credit application
+- **Slack MCP** — Notify on referral conversions, coordinate program launch
+- **Jira MCP** — Track program build tasks (MKTG project)
 
 ---
 
-## Referral vs. Affiliate
+## How Developer Referrals Actually Work
 
-### Customer Referral Programs
+Traditional referral programs ("share this link, get $20") underperform with developers. Developers recommend tools when:
 
-**Best for:**
-- Existing customers recommending to their network
-- Products with natural word-of-mouth
-- Lower-ticket or self-serve products
+1. **They solve a real problem** — "We switched to Imgix and our LCP dropped from 3.2s to 0.8s"
+2. **The code is clean** — Good SDKs, simple API, URL-based transforms they can show in a code review
+3. **They trust the recommender** — Tech leads, senior engineers, open source maintainers
+4. **The recommendation is contextual** — Stack Overflow answer about image optimization, not a cold referral link
 
-**Characteristics:**
-- Referrer is an existing customer
-- One-time or limited rewards
-- Higher trust, lower volume
+### Imgix Referral Channels (Ranked by Trust)
 
-### Affiliate Programs
-
-**Best for:**
-- Reaching audiences you don't have access to
-- Content creators, influencers, bloggers
-- Higher-ticket products that justify commissions
-
-**Characteristics:**
-- Affiliates may not be customers
-- Ongoing commission relationship
-- Higher volume, variable trust
+| Channel | Trust Level | Volume | Imgix Opportunity |
+|---------|:----------:|:------:|-------------------|
+| Direct colleague recommendation | Highest | Low | Hard to track, but highest conversion |
+| Stack Overflow answers | High | Medium | Answer image optimization questions with Imgix examples |
+| GitHub repos / READMEs | High | Medium | Imgix SDKs referenced in project dependencies |
+| Blog posts / tutorials | Medium-High | Medium | "How I optimized images with Imgix" posts |
+| Conference talks | High | Low | Web performance talks featuring Imgix |
+| Twitter/LinkedIn | Medium | High | Developer influencer mentions |
+| Affiliate links | Low | Variable | Content creators, comparison sites |
 
 ---
 
-## Referral Program Design
+## Referral Program Design for Imgix
 
-### The Referral Loop
+### Option 1: Usage Credit Referral (Recommended for PLG)
+
+**How it works:**
+- Existing customer gets a referral link from their Imgix dashboard
+- New signup uses the link → gets $50 in usage credits
+- When the referred account makes first payment → referrer gets $100 in usage credits
+- Double-sided reward, both parties benefit
+
+**Why usage credits work for Imgix:**
+- Aligns with usage-based pricing (credits feel natural)
+- Low marginal cost to Imgix (credit costs less than cash)
+- Encourages the referrer to use more Imgix features
+- No cash payout complexity
+
+### Option 2: Affiliate Program (For Content Creators)
+
+**How it works:**
+- Content creators, bloggers, and tutorial writers apply to the program
+- Approved affiliates get tracking links and a dashboard
+- 20% recurring commission for 12 months on referred accounts
+- Minimum payout threshold ($50)
+
+**Why for Imgix:**
+- Developer content creators write image optimization tutorials
+- Comparison bloggers write "Cloudinary vs alternatives" content
+- YouTube tutorial creators show image processing workflows
+- These are the third-party sources AI models cite (6.5x more likely than your own domain)
+
+### Option 3: Partner Program (For Agencies/Consultancies)
+
+**How it works:**
+- Web development agencies and performance consultancies get partner status
+- Dedicated referral dashboard with client management
+- Higher commission (25%) or volume-based discounts for their clients
+- Co-marketing opportunities (joint case studies, webinar mentions)
+
+**Best for:** Agencies building ecommerce sites, media platforms, or real estate portals that need image optimization.
+
+---
+
+## The Referral Loop for Imgix
 
 ```
-Trigger Moment → Share Action → Convert Referred → Reward → (Loop)
+Activation → Delight Moment → Share Prompt → Convert Referred → Reward → Loop
 ```
 
-### Step 1: Identify Trigger Moments
+### Trigger Moments (When to Ask)
 
-**High-intent moments:**
-- Right after first "aha" moment
-- After achieving a milestone
-- After exceptional support
-- After renewing or upgrading
+| Moment | Why It Works | Implementation |
+|--------|-------------|----------------|
+| First 10K images served | They've seen the product work | In-app banner + email |
+| Performance milestone | "Your images are 60% smaller" | Dashboard notification |
+| After positive support interaction | Goodwill is high | Follow-up email |
+| 90 days active | Committed, unlikely to churn | Email + in-app |
+| Plan upgrade | They're investing more | Confirmation email with referral CTA |
 
-### Step 2: Design Share Mechanism
+### Share Mechanisms for Developers
 
-**Ranked by effectiveness:**
-1. In-product sharing (highest conversion)
-2. Personalized link
-3. Email invitation
-4. Social sharing
-5. Referral code (works offline)
+**In-product (highest conversion):**
+- Referral link in Imgix dashboard settings
+- "Share with your team" button that generates a team invite link
+- Code snippet they can drop in a README: `<!-- Images optimized by Imgix -->`
 
-### Step 3: Choose Incentive Structure
-
-**Single-sided rewards** (referrer only): Simpler, works for high-value products
-
-**Double-sided rewards** (both parties): Higher conversion, win-win framing
-
-**Tiered rewards**: Gamifies referral process, increases engagement
-
-**For examples and incentive sizing**: See [references/program-examples.md](references/program-examples.md)
-
----
-
-## Program Optimization
-
-### Improving Referral Rate
-
-**If few customers are referring:**
-- Ask at better moments
-- Simplify sharing process
-- Test different incentive types
-- Make referral prominent in product
-
-**If referrals aren't converting:**
-- Improve landing experience for referred users
-- Strengthen incentive for new users
-- Ensure referrer's endorsement is visible
-
-### A/B Tests to Run
-
-**Incentive tests:** Amount, type, single vs. double-sided, timing
-
-**Messaging tests:** Program description, CTA copy, landing page copy
-
-**Placement tests:** Where and when the referral prompt appears
-
-### Common Problems & Fixes
-
-| Problem | Fix |
-|---------|-----|
-| Low awareness | Add prominent in-app prompts |
-| Low share rate | Simplify to one click |
-| Low conversion | Optimize referred user experience |
-| Fraud/abuse | Add verification, limits |
-| One-time referrers | Add tiered/gamified rewards |
+**Content-based (highest reach):**
+- Pre-written code examples they can use in blog posts
+- Imgix badge for READMEs (like "powered by Vercel" badges)
+- Shareable performance report: "See how Imgix optimized our images"
 
 ---
 
@@ -142,116 +124,79 @@ Trigger Moment → Share Action → Convert Referred → Reward → (Loop)
 
 ### Key Metrics
 
-**Program health:**
-- Active referrers (referred someone in last 30 days)
-- Referral conversion rate
-- Rewards earned/paid
+| Metric | Target | How to Track |
+|--------|:------:|-------------|
+| Active referrers (last 30 days) | Growing month-over-month | HubSpot referral attribution |
+| Referral conversion rate | 15-25% | Link click → signup |
+| Referred account activation rate | Higher than organic | PostHog cohort comparison |
+| % of new accounts from referral | 10%+ at maturity | HubSpot source attribution |
+| Referred customer LTV | 20%+ higher than average | Stripe cohort analysis |
+| CAC via referral | 50%+ lower than paid | Credits issued / revenue generated |
 
-**Business impact:**
-- % of new customers from referrals
-- CAC via referral vs. other channels
-- LTV of referred customers
-- Referral program ROI
-
-### Typical Findings
-
-- Referred customers have 16-25% higher LTV
-- Referred customers have 18-37% lower churn
-- Referred customers refer others at 2-3x rate
+### What to Watch For
+- **Fraud:** Same person creating multiple accounts for credits → verify with email domain + usage pattern
+- **Low-quality referrals:** Signups that never activate → only pay reward after first payment
+- **Referral cannibalization:** People who would have signed up anyway → compare to organic baseline
 
 ---
 
-## Launch Checklist
+## Launch Plan
 
-### Before Launch
-- [ ] Define program goals and success metrics
-- [ ] Design incentive structure
-- [ ] Build or configure referral tool
-- [ ] Create referral landing page
-- [ ] Set up tracking and attribution
-- [ ] Define fraud prevention rules
-- [ ] Create terms and conditions
-- [ ] Test complete referral flow
+### Phase 1: Soft Launch (Month 1)
+- Build referral link generation in Imgix dashboard
+- Create referral landing page on imgix.com
+- Email top 100 most active customers with early access
+- Track manually in HubSpot
 
-### Launch
-- [ ] Announce to existing customers
-- [ ] Add in-app referral prompts
-- [ ] Update website with program details
-- [ ] Brief support team
+### Phase 2: Public Launch (Month 2)
+- Announce to full customer base
+- Add in-app referral prompts at trigger moments
+- Launch affiliate application page
+- Set up automated tracking and reward distribution
 
-### Post-Launch (First 30 Days)
-- [ ] Review conversion funnel
-- [ ] Identify top referrers
-- [ ] Gather feedback
-- [ ] Fix friction points
-- [ ] Send reminder emails to non-referrers
+### Phase 3: Optimize (Month 3+)
+- A/B test incentive amounts
+- Identify and nurture top referrers
+- Launch agency partner tier
+- Create referral-specific content (shareable performance reports, badges)
 
 ---
 
-## Email Sequences
+## Email Sequences for Referral Program
 
-### Referral Program Launch
-
+### Launch Announcement
 ```
-Subject: You can now earn [reward] for sharing [Product]
+Subject: Invite your team — get $100 in Imgix credits
 
-We just launched our referral program!
+You've been using Imgix to optimize your images.
+Know someone else who should be?
 
-Share [Product] with friends and earn [reward] for each signup.
-They get [their reward] too.
+Share your referral link → they get $50 in credits,
+you get $100 when they subscribe.
 
-[Unique referral link]
-
-1. Share your link
-2. Friend signs up
-3. You both get [reward]
+[Get your referral link →]
 ```
 
-### Referral Nurture Sequence
+### Post-Milestone Nudge
+```
+Subject: You just served your 100,000th optimized image
 
-- Day 7: Remind about referral program
-- Day 30: "Know anyone who'd benefit?"
-- Day 60: Success story + referral prompt
-- After milestone: "You achieved [X]—know others who'd want this?"
+That's 100K images delivered faster, smaller, and in the
+right format for every browser.
 
----
+Know another team dealing with slow image loads?
 
-## Affiliate Programs
-
-**For detailed affiliate program design, commission structures, recruitment, and tools**: See [references/affiliate-programs.md](references/affiliate-programs.md)
-
----
-
-## Task-Specific Questions
-
-1. What type of program (referral, affiliate, or both)?
-2. What's your customer LTV and current CAC?
-3. Existing program or starting from scratch?
-4. What tools/platforms are you considering?
-5. What's your budget for rewards/commissions?
-6. Is your product naturally shareable?
-
----
-
-## Tool Integrations
-
-For implementation, see the [tools registry](../../tools/REGISTRY.md). Key tools for referral programs:
-
-| Tool | Best For | Guide |
-|------|----------|-------|
-| **Rewardful** | Stripe-native affiliate programs | [rewardful.md](../../tools/integrations/rewardful.md) |
-| **Tolt** | SaaS affiliate programs | [tolt.md](../../tools/integrations/tolt.md) |
-| **Mention Me** | Enterprise referral programs | [mention-me.md](../../tools/integrations/mention-me.md) |
-| **Dub.co** | Link tracking and attribution | [dub-co.md](../../tools/integrations/dub-co.md) |
-| **Stripe** | Payment processing (for commission tracking) | [stripe.md](../../tools/integrations/stripe.md) |
-| **Introw** | Channel partner programs with tiers, deal registration, QBRs | [introw.md](../../tools/integrations/introw.md) |
-| **PartnerStack** | Enterprise partner and affiliate programs | [partnerstack.md](../../tools/integrations/partnerstack.md) |
+[Share Imgix with your network →]
+```
 
 ---
 
 ## Related Skills
 
-- **launch-strategy**: For launching referral program effectively
-- **email-sequence**: For referral nurture campaigns
-- **marketing-psychology**: For understanding referral motivation
-- **analytics-tracking**: For tracking referral attribution
+- **Lifecycle/customer-advocacy** — Advocacy pipeline feeds referral program participants
+- **Lifecycle/email-sequence** — Email framework for referral campaigns
+- **Lifecycle/expansion-upsell** — Referral credits encourage more usage (expansion)
+- **Discoverability/imgix-aeo** — Third-party mentions from affiliates boost AI citations
+- **Product-Marketing/launch-strategy** — Referral program launch plan
+- **Conversion/analytics-tracking** — Referral attribution tracking
+- **imgix-brand-voice** (global) — All referral content follows brand guidelines

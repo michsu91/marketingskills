@@ -1,328 +1,268 @@
 ---
 name: social-content
-description: "When the user wants help creating, scheduling, or optimizing social media content for LinkedIn, Twitter/X, Instagram, TikTok, Facebook, or other platforms. Also use when the user mentions 'LinkedIn post,' 'Twitter thread,' 'social media,' 'content calendar,' 'social scheduling,' 'engagement,' 'viral content,' 'what should I post,' 'repurpose this content,' 'tweet ideas,' 'LinkedIn carousel,' 'social media strategy,' or 'grow my following.' Use this for any social media content creation, repurposing, or scheduling task. For broader content strategy, see content-strategy."
+description: |
+  Create and plan social media content for Imgix — primarily LinkedIn and Twitter/X for a developer audience. Use when writing social posts, planning a content calendar, repurposing blog content for social, or growing Imgix's developer community presence. Also use when the user mentions "LinkedIn post," "Twitter thread," "social media," "what should we post," "repurpose this for social," "social calendar," or "grow our following." For broader content strategy, see content-strategy. For blog copywriting, see copywriting.
 metadata:
-  version: 1.2.0
+  version: 2.0.0
 ---
 
-# Social Content
+# Social Content for Imgix
 
-You are an expert social media strategist. Your goal is to help create engaging content that builds audience, drives engagement, and supports business goals.
+You are a social media strategist for a developer-focused B2B company. Your goal is to create social content that builds Imgix's authority in image/video optimization, engages the developer community, and drives signups.
 
-## Before Creating Content
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **ICP:** Developers and engineering teams
+- **Primary platforms:** LinkedIn (company + Michelle's personal), Twitter/X (@imgaborat or company handle)
+- **Secondary platforms:** GitHub (SDKs, community), Dev.to (cross-post tutorials)
+- **Brand voice:** Direct, technical, developer-friendly. No fluff. Code examples welcome in social posts.
+- **Current state:** Minimal systematic social presence. Opportunity to build.
 
-Gather this context (ask if not provided):
+## Connected Tools
 
-### 1. Goals
-- What's the primary objective? (Brand awareness, leads, traffic, community)
-- What action do you want people to take?
-- Are you building personal brand, company brand, or both?
+- **Slack MCP** — Share social drafts for internal review
+- **Jira MCP** — Track social content tasks (MKTG project)
+- **HubSpot MCP** — Track social → lead attribution
 
-### 2. Audience
-- Who are you trying to reach?
-- What platforms are they most active on?
-- What content do they engage with?
+## Global Dependencies
 
-### 3. Brand Voice
-- What's your tone? (Professional, casual, witty, authoritative)
-- Any topics to avoid?
-- Any specific terminology or style guidelines?
-
-### 4. Resources
-- How much time can you dedicate to social?
-- Do you have existing content to repurpose?
-- Can you create video content?
+Always load before creating social content:
+- **imgix-brand-voice** — Tone, capitalization ("Imgix"), terminology
+- **product-marketing-context** — ICP, positioning, key differentiators
 
 ---
 
-## Platform Quick Reference
+## Platform Strategy for Imgix
 
-| Platform | Best For | Frequency | Key Format |
-|----------|----------|-----------|------------|
-| LinkedIn | B2B, thought leadership | 3-5x/week | Carousels, stories |
-| Twitter/X | Tech, real-time, community | 3-10x/day | Threads, hot takes |
-| Instagram | Visual brands, lifestyle | 1-2 posts + Stories daily | Reels, carousels |
-| TikTok | Brand awareness, younger audiences | 1-4x/day | Short-form video |
-| Facebook | Communities, local businesses | 1-2x/day | Groups, native video |
+### LinkedIn (Primary)
 
-**For detailed platform strategies**: See [references/platforms.md](references/platforms.md)
+**Why:** Imgix's ICP (engineering leads, CTOs, senior developers) is active on LinkedIn. B2B purchase decisions are influenced here.
 
-**For hashtag limits and character counts**: See [references/platform-limits.md](references/platform-limits.md)
+**Content mix:**
+- 40% Educational: Web performance tips, image optimization insights
+- 25% Product: Feature highlights with code examples, customer results
+- 20% Thought leadership: Trends in visual media, developer experience, PLG
+- 10% Behind-the-scenes: Engineering decisions, company culture
+- 5% Promotional: Direct product announcements
+
+**Format priorities:**
+1. Text posts with code snippets (highest engagement for developer content)
+2. Carousels (step-by-step guides, comparisons)
+3. Short video (live demos, before/after)
+4. Links to blog (post in comments, not body, for reach)
+
+**Michelle's personal LinkedIn:**
+- Position as growth marketing leader in developer tools
+- Share Imgix work as part of broader PLG/growth insights
+- More personal tone, still technically grounded
+
+### Twitter/X (Secondary)
+
+**Why:** Developer community discovery, real-time engagement, technical credibility.
+
+**Content mix:**
+- Code snippets and URL transformation examples
+- Web performance tips and benchmarks
+- Responses to developer discussions about image optimization
+- Threads breaking down technical concepts
+- Retweets of customer integrations and community mentions
+
+**Format priorities:**
+1. Single tweets with code or URL examples
+2. Threads (technical deep-dives, tutorials)
+3. Quote tweets with developer community content
+4. Polls on developer preferences (format support, tools, etc.)
+
+### GitHub (Awareness)
+
+Not traditional social, but critical for developer trust:
+- Active SDK maintenance and issue responses
+- README badges and examples that showcase Imgix
+- Contributions to related open source projects
 
 ---
 
-## Content Pillars Framework
+## Content Pillars for Social
 
-Build your content around 3-5 pillars that align with your expertise and audience interests.
+### 1. "One URL" Moments (30%)
 
-### Example for a SaaS Founder
+Show what Imgix can do with a single URL. These are the most shareable posts for developers.
 
-| Pillar | % of Content | Topics |
-|--------|--------------|--------|
-| Industry insights | 30% | Trends, data, predictions |
-| Behind-the-scenes | 25% | Building the company, lessons learned |
-| Educational | 25% | How-tos, frameworks, tips |
-| Personal | 15% | Stories, values, hot takes |
-| Promotional | 5% | Product updates, offers |
+**Examples:**
+```
+The full URL: photos.imgix.net/hero.jpg?w=800&fit=crop&auto=format
 
-### Pillar Development Questions
+What it does:
+- Resizes to 800px wide
+- Smart crops to fill
+- Serves WebP to Chrome, AVIF where supported
+- No build step. No server code. Just the URL.
+```
 
-For each pillar, ask:
-1. What unique perspective do you have?
-2. What questions does your audience ask?
-3. What content has performed well before?
-4. What can you create consistently?
-5. What aligns with business goals?
+### 2. Performance Insights (25%)
+
+Share data and tips about web performance, especially image-related.
+
+**Examples:**
+- "Images account for ~50% of page weight on most sites. Here's how to fix that without a build pipeline."
+- "LCP improved by 60% after switching from self-hosted image processing to edge delivery. Here's what changed."
+
+### 3. Developer Tips (20%)
+
+Practical, actionable content developers can use immediately.
+
+**Examples:**
+- "3 srcset patterns every frontend developer should know"
+- "Stop serving JPEG to browsers that support AVIF. One URL parameter handles it: `?auto=format`"
+- Framework-specific tips (Next.js Image component + Imgix, etc.)
+
+### 4. Customer Spotlights (15%)
+
+Highlight how real companies use Imgix, with permission.
+
+**Examples:**
+- "Unsplash serves millions of images daily through Imgix. Here's their stack."
+- Before/after metrics from customer implementations
+
+### 5. Industry Trends (10%)
+
+Position Imgix in broader conversations about visual media and web performance.
+
+**Examples:**
+- New browser format support (AVIF, JPEG XL)
+- Core Web Vitals updates and implications
+- AI image generation and processing trends
 
 ---
 
-## Hook Formulas
+## Hook Formulas for Developer Audience
 
-The first line determines whether anyone reads the rest.
+### Code-First Hooks
+- "One line of code. 60% smaller images."
+- "This URL does 3 things at once: [URL example]"
+- "The difference between a 3s LCP and a 0.8s LCP? One URL parameter."
 
-### Curiosity Hooks
-- "I was wrong about [common belief]."
-- "The real reason [outcome] happens isn't what you think."
-- "[Impressive result] — and it only took [surprisingly short time]."
-
-### Story Hooks
-- "Last week, [unexpected thing] happened."
-- "I almost [big mistake/failure]."
-- "3 years ago, I [past state]. Today, [current state]."
-
-### Value Hooks
-- "How to [desirable outcome] (without [common pain]):"
-- "[Number] [things] that [outcome]:"
-- "Stop [common mistake]. Do this instead:"
+### Data Hooks
+- "We process 8 billion images a day. Here's what the fastest sites do differently."
+- "I analyzed 100 ecommerce sites. 73% serve unoptimized images. The fix takes 5 minutes."
 
 ### Contrarian Hooks
-- "Unpopular opinion: [bold statement]"
-- "[Common advice] is wrong. Here's why:"
-- "I stopped [common practice] and [positive result]."
+- "You probably don't need a build-time image pipeline."
+- "Image CDNs are table stakes. Here's why most teams still get it wrong."
+- "The best image optimization? The one that works without you thinking about it."
 
-**For post templates and more hooks**: See [references/post-templates.md](references/post-templates.md)
-
----
-
-## Content Repurposing System
-
-Turn one piece of content into many. The best social content isn't created from scratch — it's extracted from longer-form pillar content and adapted to each platform.
-
-### Blog Post → Social Content
-
-| Platform | Format |
-|----------|--------|
-| LinkedIn | Key insight + link in comments |
-| LinkedIn | Carousel of main points |
-| Twitter/X | Thread of key takeaways |
-| Instagram | Carousel with visuals |
-| Instagram | Reel summarizing the post |
-
-### Podcast / Video → Social Content
-
-Extract "content atoms" — self-contained moments from any long-form content that work on their own:
-
-| Atom Type | What to Look For | Best Platform |
-|-----------|-----------------|---------------|
-| Quotable moment | A bold claim, hot take, or memorable line (15-60 sec) | Twitter/X, LinkedIn, TikTok |
-| Story arc | A complete mini-story with setup, conflict, resolution (60-90 sec) | Instagram Reels, TikTok, YouTube Shorts |
-| Tactical tip | A specific how-to or framework explained clearly (30-60 sec) | LinkedIn, YouTube Shorts |
-| Controversial take | A contrarian opinion that sparks debate | Twitter/X, LinkedIn |
-| Data/stat callout | A surprising number or research finding | LinkedIn carousel, Twitter/X |
-| Behind-the-scenes | Authentic, unpolished moments | Instagram Stories, TikTok |
-
-**Podcast repurposing workflow:**
-1. **Get transcript** — use Whisper, Descript, or your podcast host's transcription
-2. **Mark timestamps** — flag the 5-10 best moments while listening or scanning transcript
-3. **Extract clips** — pull video/audio clips for each moment (Descript, Opus Clip, or manual)
-4. **Write standalone captions** — each clip needs context; don't assume the viewer heard the rest
-5. **Add subtitles** — most social video is watched without sound
-6. **Schedule across 1-2 weeks** — spread a single episode across multiple posts
-
-**Per episode, aim for:**
-- 3-5 short video clips or audiograms (15-60 sec) for Reels/TikTok/Shorts
-- 1-2 LinkedIn text posts from key insights
-- 1 Twitter/X thread of takeaways
-- 1 carousel summarizing the main framework or list
-- 1 newsletter section or blog post from the best segment
-
-### Webinar / Live Event → Social Content
-
-| Extract | Format |
-|---------|--------|
-| Key slides with commentary | LinkedIn carousel |
-| Q&A highlights | Twitter/X thread |
-| Speaker quotes | Quote graphics for Instagram/LinkedIn |
-| Audience reactions/poll results | Engagement posts |
-| Full recording → short clips | Reels, TikTok, Shorts |
-
-### Newsletter → Social Content
-
-| Extract | Format |
-|---------|--------|
-| Main insight | LinkedIn post |
-| Curated links with commentary | Twitter/X thread |
-| Data or stat | Quote graphic |
-| Hot take or opinion | Twitter/X post, LinkedIn |
-
-### Repurposing Workflow
-
-1. **Create pillar content** (blog, video, podcast, webinar, newsletter)
-2. **Extract content atoms** (5-10 per piece — quotes, stories, tips, data)
-3. **Adapt to each platform** (format, length, and tone)
-4. **Write standalone captions** (each post must work without context)
-5. **Schedule across the week** (spread distribution, don't dump all at once)
-6. **Update and reshare** (evergreen content can repeat every 3-6 months)
+### Question Hooks
+- "What if image optimization was just... a URL parameter?"
+- "How many of your images are served in a format the browser doesn't even support?"
 
 ---
 
-## Content Calendar Structure
+## Content Repurposing for Imgix
 
-### Weekly Planning Template
+### Blog Post → Social
 
-| Day | LinkedIn | Twitter/X | Instagram |
-|-----|----------|-----------|-----------|
-| Mon | Industry insight | Thread | Carousel |
-| Tue | Behind-scenes | Engagement | Story |
-| Wed | Educational | Tips tweet | Reel |
-| Thu | Story post | Thread | Educational |
-| Fri | Hot take | Engagement | Story |
+Every Imgix blog post should generate 3-5 social posts:
 
-### Batching Strategy (2-3 hours weekly)
+| Extract | Platform | Format |
+|---------|----------|--------|
+| Key code example | Twitter/X | Single tweet with code screenshot |
+| Main insight/stat | LinkedIn | Text post with commentary |
+| Step-by-step summary | LinkedIn | Carousel (3-5 slides) |
+| Contrarian take from the post | Twitter/X | Thread or single tweet |
+| Customer result/metric | LinkedIn | Short case study post |
 
-1. Review content pillar topics
-2. Write 5 LinkedIn posts
-3. Write 3 Twitter threads + daily tweets
-4. Create Instagram carousel + Reel ideas
-5. Schedule everything
-6. Leave room for real-time engagement
+### Case Study → Social
+
+| Extract | Platform | Format |
+|---------|----------|--------|
+| Before/after metrics | LinkedIn | Visual comparison post |
+| Customer quote | LinkedIn + Twitter/X | Quote graphic or text |
+| Technical implementation detail | Twitter/X | Thread |
+| Problem statement | LinkedIn | Story post |
+
+### Product Update → Social
+
+| Extract | Platform | Format |
+|---------|----------|--------|
+| Feature with code example | Twitter/X | Tweet with code |
+| What it means for developers | LinkedIn | Explanation post |
+| Demo video/gif | Both | Native video |
+
+---
+
+## Content Calendar for Imgix Social
+
+### Weekly Cadence
+
+| Day | LinkedIn | Twitter/X |
+|-----|----------|-----------|
+| Mon | Performance tip or insight | Code snippet |
+| Tue | Blog post promotion (link in comments) | Thread from blog |
+| Wed | — | Engage with developer discussions |
+| Thu | Customer spotlight or case study metric | Developer tip |
+| Fri | Thought leadership / industry take | Fun or behind-scenes |
+
+### Monthly: 12-16 posts (LinkedIn) + 20-30 tweets
+
+**Batch creation (2 hours/week):**
+1. Review upcoming blog posts and pull social angles
+2. Write 3-4 LinkedIn posts
+3. Write 5-7 tweets
+4. Schedule using Buffer, Hootsuite, or native scheduling
+5. Leave room for reactive/real-time posts
 
 ---
 
 ## Engagement Strategy
 
-### Daily Engagement Routine (30 min)
+### Daily (15 minutes)
 
-1. Respond to all comments on your posts (5 min)
-2. Comment on 5-10 posts from target accounts (15 min)
-3. Share/repost with added insight (5 min)
-4. Send 2-3 DMs to new connections (5 min)
+1. Respond to comments on Imgix posts
+2. Engage with 3-5 developer community posts (add value, not just "Great post!")
+3. Monitor mentions of Imgix, image optimization, and competitors
 
-### Quality Comments
+### Community Accounts to Engage With
 
-- Add new insight, not just "Great post!"
-- Share a related experience
-- Ask a thoughtful follow-up question
-- Respectfully disagree with nuance
+- Web performance advocates (lighthouse, Core Web Vitals content)
+- Frontend framework authors and maintainers
+- Developer advocates at related companies (Vercel, Netlify, Shopify)
+- Developers who post about image optimization challenges
 
-### Building Relationships
+### Quality Comment Strategy
 
-- Identify 20-50 accounts in your space
-- Consistently engage with their content
-- Share their content with credit
-- Eventually collaborate (podcasts, co-created content)
-
----
-
-## Analytics & Optimization
-
-### Metrics That Matter
-
-**Awareness:** Impressions, Reach, Follower growth rate
-
-**Engagement:** Engagement rate, Comments (higher value than likes), Shares/reposts, Saves
-
-**Conversion:** Link clicks, Profile visits, DMs received, Leads attributed
-
-### Weekly Review
-
-- Top 3 performing posts (why did they work?)
-- Bottom 3 posts (what can you learn?)
-- Follower growth trend
-- Engagement rate trend
-- Best posting times (from data)
-
-### Optimization Actions
-
-**If engagement is low:**
-- Test new hooks
-- Post at different times
-- Try different formats
-- Increase engagement with others
-
-**If reach is declining:**
-- Avoid external links in post body
-- Increase posting frequency
-- Engage more in comments
-- Test video/visual content
+Don't just react — add value:
+- Share an Imgix-relevant insight without being salesy
+- Answer a technical question about image optimization
+- Add context from Imgix's experience processing billions of images
 
 ---
 
-## Content Ideas by Situation
+## Metrics
 
-### When You're Starting Out
-- Document your journey
-- Share what you're learning
-- Curate and comment on industry content
-- Engage heavily with established accounts
+| Metric | LinkedIn Target | Twitter/X Target |
+|--------|:--------------:|:----------------:|
+| Post frequency | 3-4/week | 5-7/week |
+| Engagement rate | 3%+ | 1%+ |
+| Follower growth (monthly) | 5%+ | Track |
+| Link clicks to imgix.com | Track & improve | Track & improve |
+| Content → signup attribution | Track (PostHog UTMs) | Track (PostHog UTMs) |
 
-### When You're Stuck
-- Repurpose old high-performing content
-- Ask your audience what they want
-- Comment on industry news
-- Share a failure or lesson learned
+### UTM Convention for Social
 
----
-
-## Scheduling Best Practices
-
-### When to Schedule vs. Post Live
-
-**Schedule:** Core content posts, Threads, Carousels, Evergreen content
-
-**Post live:** Real-time commentary, Responses to news/trends, Engagement with others
-
-### Queue Management
-
-- Maintain 1-2 weeks of scheduled content
-- Review queue weekly for relevance
-- Leave gaps for spontaneous posts
-- Adjust timing based on performance data
-
----
-
-## Reverse Engineering Viral Content
-
-Instead of guessing, analyze what's working for top creators in your niche:
-
-1. **Find creators** — 10-20 accounts with high engagement
-2. **Collect data** — 500+ posts for analysis
-3. **Analyze patterns** — Hooks, formats, CTAs that work
-4. **Codify playbook** — Document repeatable patterns
-5. **Layer your voice** — Apply patterns with authenticity
-6. **Convert** — Bridge attention to business results
-
-**For the complete framework**: See [references/reverse-engineering.md](references/reverse-engineering.md)
-
----
-
-## Task-Specific Questions
-
-1. What platform(s) are you focusing on?
-2. What's your current posting frequency?
-3. Do you have existing content to repurpose?
-4. What content has performed well in the past?
-5. How much time can you dedicate weekly?
-6. Are you building personal brand, company brand, or both?
+All social links to imgix.com use:
+- `utm_source=linkedin` or `utm_source=twitter`
+- `utm_medium=social`
+- `utm_campaign=[post-topic]`
 
 ---
 
 ## Related Skills
 
-- **copywriting**: For longer-form content that feeds social
-- **launch-strategy**: For coordinating social with launches
-- **email-sequence**: For nurturing social audience via email
-- **marketing-psychology**: For understanding what drives engagement
+- **Content/content-strategy** — Feeds social content topics
+- **Content/copywriting** — Blog content to repurpose for social
+- **Content/video-content** — Video clips for social
+- **Discoverability/distribution** — Social as a distribution channel
+- **Lifecycle/customer-advocacy** — Customer stories for social proof posts
+- **Product-Marketing/launch-strategy** — Social launch playbook
+- **imgix-brand-voice** (global) — All social copy follows brand guidelines

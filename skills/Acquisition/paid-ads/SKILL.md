@@ -1,315 +1,260 @@
 ---
 name: paid-ads
-description: "When the user wants help with paid advertising campaigns on Google Ads, Meta (Facebook/Instagram), LinkedIn, Twitter/X, or other ad platforms. Also use when the user mentions 'PPC,' 'paid media,' 'ROAS,' 'CPA,' 'ad campaign,' 'retargeting,' 'audience targeting,' 'Google Ads,' 'Facebook ads,' 'LinkedIn ads,' 'ad budget,' 'cost per click,' 'ad spend,' or 'should I run ads.' Use this for campaign strategy, audience targeting, bidding, and optimization. For bulk ad creative generation and iteration, see ad-creative. For landing page optimization, see page-cro."
+description: |
+  Plan and optimize paid advertising for Imgix — Google Ads (search), LinkedIn (B2B targeting), and retargeting. Imgix's developer audience and PLG motion mean paid ads should drive free signups and tool trials, not demo requests. Also use when the user mentions "PPC," "Google Ads," "LinkedIn ads," "paid media," "ad budget," "retargeting," "CPA," "ROAS," or "should we run ads." For landing page optimization, see Conversion/page-cro.
 metadata:
-  version: 1.1.0
+  version: 2.0.0
 ---
 
-# Paid Ads
+# Paid Ads for Imgix
 
-You are an expert performance marketer with direct access to ad platform accounts. Your goal is to help create, optimize, and scale paid advertising campaigns that drive efficient customer acquisition.
+You are an expert performance marketer for developer-focused B2B SaaS. Your goal is to help Imgix run paid campaigns that drive efficient developer signups through high-intent search and targeted retargeting.
 
-## Before Starting
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **Motion:** PLG — ads should drive free signups, not demo requests
+- **ICP:** Developers and engineering teams at companies with high image/video volume
+- **Website:** Webflow (landing pages)
+- **Analytics:** PostHog (product), GA4 (marketing site), HubSpot (CRM)
+- **Budget consideration:** Likely modest paid budget — efficiency over volume
+- **Competitors bidding:** Cloudinary (heavy Google Ads presence), ImageKit, Cloudflare
 
-Gather this context (ask if not provided):
+## Connected Tools
 
-### 1. Campaign Goals
-- What's the primary objective? (Awareness, traffic, leads, sales, app installs)
-- What's the target CPA or ROAS?
-- What's the monthly/weekly budget?
-- Any constraints? (Brand guidelines, compliance, geographic)
-
-### 2. Product & Offer
-- What are you promoting? (Product, free trial, lead magnet, demo)
-- What's the landing page URL?
-- What makes this offer compelling?
-
-### 3. Audience
-- Who is the ideal customer?
-- What problem does your product solve for them?
-- What are they searching for or interested in?
-- Do you have existing customer data for lookalikes?
-
-### 4. Current State
-- Have you run ads before? What worked/didn't?
-- Do you have existing pixel/conversion data?
-- What's your current funnel conversion rate?
+- **PostHog MCP** — Conversion tracking, signup attribution, retargeting cohorts
+- **GA4 MCP** — Campaign performance, traffic attribution
+- **HubSpot MCP** — Lead tracking, deal attribution
+- **Jira MCP** — Track ad campaign tasks (MKTG project)
 
 ---
 
-## Platform Selection Guide
+## Platform Strategy for Imgix
 
-| Platform | Best For | Use When |
-|----------|----------|----------|
-| **Google Ads** | High-intent search traffic | People actively search for your solution |
-| **Meta** | Demand generation, visual products | Creating demand, strong creative assets |
-| **LinkedIn** | B2B, decision-makers | Job title/company targeting matters, higher price points |
-| **Twitter/X** | Tech audiences, thought leadership | Audience is active on X, timely content |
-| **TikTok** | Younger demographics, viral creative | Audience skews 18-34, video capacity |
+### Google Ads (Primary — Highest Intent)
+
+**Why:** Developers searching for image optimization solutions have the highest purchase intent. Google captures existing demand.
+
+**Campaign types:**
+1. **Brand search:** Capture "imgix" and "imgix pricing" searches
+2. **Competitor search:** "cloudinary alternative," "cloudinary vs" queries
+3. **Category search:** "image CDN," "image optimization API," "image processing service"
+4. **Problem search:** "slow image loading," "optimize images for web," "reduce image size"
+
+### LinkedIn (Secondary — B2B Targeting)
+
+**Why:** Target engineering leads and CTOs at companies that match Imgix's ICP. Good for awareness and retargeting.
+
+**Campaign types:**
+1. **Job title targeting:** Engineering managers, CTOs, VP Engineering at companies with 50-5000 employees
+2. **Skill targeting:** React, Next.js, frontend engineering
+3. **Retargeting:** Website visitors who didn't sign up
+
+### Retargeting (Essential)
+
+**Why:** Most developers research tools across multiple sessions. Retargeting captures return visits.
+
+**Platforms:** Google Display Network, LinkedIn, Meta (limited)
 
 ---
 
-## Campaign Structure Best Practices
+## Google Ads for Imgix
 
-### Account Organization
+### Keyword Strategy
 
+**Brand Keywords (Always On):**
+- `imgix`, `imgix pricing`, `imgix review`, `imgix vs cloudinary`
+- Bid: Moderate (protect brand, capture high-intent)
+
+**Competitor Keywords (High ROI):**
+- `cloudinary alternative`, `cloudinary pricing`, `cloudinary vs`
+- `imagekit alternative`, `cloudflare images alternative`
+- Bid: Aggressive — these are actively evaluating
+- Landing page: Comparison page showing Imgix advantages
+
+**Category Keywords (Core):**
+- `image CDN`, `image optimization API`, `image processing service`
+- `real-time image transformation`, `image delivery network`
+- `responsive image service`, `WebP CDN`
+- Bid: Moderate — broader intent but relevant
+
+**Problem Keywords (Top of Funnel):**
+- `slow images website`, `optimize images for web performance`
+- `reduce image load time`, `core web vitals images`
+- `how to serve WebP`, `responsive images solution`
+- Bid: Conservative — longer conversion path
+- Landing page: Blog content or free tool, not direct signup
+
+### Ad Copy for Developer Audience
+
+**Principles:**
+- Technical specificity over marketing fluff
+- Include "Free" and "No credit card" in description
+- Show technical credibility (8B+ images/day, 96 PoPs)
+- Link to docs as sitelink (developers click docs links)
+
+**Example ads:**
+
+**Category search:**
 ```
-Account
-├── Campaign 1: [Objective] - [Audience/Product]
-│   ├── Ad Set 1: [Targeting variation]
-│   │   ├── Ad 1: [Creative variation A]
-│   │   ├── Ad 2: [Creative variation B]
-│   │   └── Ad 3: [Creative variation C]
-│   └── Ad Set 2: [Targeting variation]
-└── Campaign 2...
+Image Optimization API | Imgix
+Real-time transforms via URL parameters.
+WebP/AVIF auto-negotiation. 96 global PoPs.
+Start free — no credit card required.
 ```
 
-### Naming Conventions
-
+**Competitor search:**
 ```
-[Platform]_[Objective]_[Audience]_[Offer]_[Date]
-
-Examples:
-META_Conv_Lookalike-Customers_FreeTrial_2024Q1
-GOOG_Search_Brand_Demo_Ongoing
-LI_LeadGen_CMOs-SaaS_Whitepaper_Mar24
+Cloudinary Alternative | Imgix
+URL-based transforms. Bring your own storage.
+No vendor lock-in. Free tier available.
+See why teams switch to Imgix.
 ```
 
-### Budget Allocation
+**Problem search:**
+```
+Fix Slow Image Loading | Imgix
+Add ?auto=format to any URL. 30-50% smaller.
+No build step. No server code. Works instantly.
+Free to start — optimize your first image today.
+```
 
-**Testing phase (first 2-4 weeks):**
-- 70% to proven/safe campaigns
-- 30% to testing new audiences/creative
+### Sitelinks
 
-**Scaling phase:**
-- Consolidate budget into winning combinations
-- Increase budgets 20-30% at a time
-- Wait 3-5 days between increases for algorithm learning
+- Pricing
+- Documentation
+- Image Sandbox (free tool)
+- Case Studies
+- GitHub SDKs
 
----
+### Negative Keywords
 
-## Ad Copy Frameworks
-
-### Key Formulas
-
-**Problem-Agitate-Solve (PAS):**
-> [Problem] → [Agitate the pain] → [Introduce solution] → [CTA]
-
-**Before-After-Bridge (BAB):**
-> [Current painful state] → [Desired future state] → [Your product as bridge]
-
-**Social Proof Lead:**
-> [Impressive stat or testimonial] → [What you do] → [CTA]
-
-**For detailed templates and headline formulas**: See [references/ad-copy-templates.md](references/ad-copy-templates.md)
+Exclude to save budget:
+- `free image editor`, `image editing software`, `photoshop`
+- `stock images`, `free images`, `image download`
+- `image viewer`, `image converter` (desktop tools)
+- `imgix careers`, `imgix jobs`
 
 ---
 
-## Audience Targeting Overview
-
-### Platform Strengths
-
-| Platform | Key Targeting | Best Signals |
-|----------|---------------|--------------|
-| Google | Keywords, search intent | What they're searching |
-| Meta | Interests, behaviors, lookalikes | Engagement patterns |
-| LinkedIn | Job titles, companies, industries | Professional identity |
-
-### Key Concepts
-
-- **Lookalikes**: Base on best customers (by LTV), not all customers
-- **Retargeting**: Segment by funnel stage (visitors vs. cart abandoners)
-- **Exclusions**: Exclude existing customers and recent converters — showing ads to people who already bought wastes spend
-
-**For detailed targeting strategies by platform**: See [references/audience-targeting.md](references/audience-targeting.md)
-
----
-
-## Creative Best Practices
-
-### Image Ads
-- Clear product screenshots showing UI
-- Before/after comparisons
-- Stats and numbers as focal point
-- Human faces (real, not stock)
-- Bold, readable text overlay (keep under 20%)
-
-### Video Ads Structure (15-30 sec)
-1. Hook (0-3 sec): Pattern interrupt, question, or bold statement
-2. Problem (3-8 sec): Relatable pain point
-3. Solution (8-20 sec): Show product/benefit
-4. CTA (20-30 sec): Clear next step
-
-**Production tips:**
-- Captions always (85% watch without sound)
-- Vertical for Stories/Reels, square for feed
-- Native feel outperforms polished
-- First 3 seconds determine if they watch
-
-### Creative Testing Hierarchy
-1. Concept/angle (biggest impact)
-2. Hook/headline
-3. Visual style
-4. Body copy
-5. CTA
-
----
-
-## Campaign Optimization
-
-### Key Metrics by Objective
-
-| Objective | Primary Metrics |
-|-----------|-----------------|
-| Awareness | CPM, Reach, Video view rate |
-| Consideration | CTR, CPC, Time on site |
-| Conversion | CPA, ROAS, Conversion rate |
-
-### Optimization Levers
-
-**If CPA is too high:**
-1. Check landing page (is the problem post-click?)
-2. Tighten audience targeting
-3. Test new creative angles
-4. Improve ad relevance/quality score
-5. Adjust bid strategy
-
-**If CTR is low:**
-- Creative isn't resonating → test new hooks/angles
-- Audience mismatch → refine targeting
-- Ad fatigue → refresh creative
-
-**If CPM is high:**
-- Audience too narrow → expand targeting
-- High competition → try different placements
-- Low relevance score → improve creative fit
-
-### Bid Strategy Progression
-1. Start with manual or cost caps
-2. Gather conversion data (50+ conversions)
-3. Switch to automated with targets based on historical data
-4. Monitor and adjust targets based on results
-
----
-
-## Retargeting Strategies
-
-### Funnel-Based Approach
-
-| Funnel Stage | Audience | Message | Goal |
-|--------------|----------|---------|------|
-| Top | Blog readers, video viewers | Educational, social proof | Move to consideration |
-| Middle | Pricing/feature page visitors | Case studies, demos | Move to decision |
-| Bottom | Cart abandoners, trial users | Urgency, objection handling | Convert |
-
-### Retargeting Windows
-
-| Stage | Window | Frequency Cap |
-|-------|--------|---------------|
-| Hot (cart/trial) | 1-7 days | Higher OK |
-| Warm (key pages) | 7-30 days | 3-5x/week |
-| Cold (any visit) | 30-90 days | 1-2x/week |
-
-### Exclusions to Set Up
-- Existing customers (unless upsell)
-- Recent converters (7-14 day window)
-- Bounced visitors (<10 sec)
-- Irrelevant pages (careers, support)
-
----
-
-## Reporting & Analysis
-
-### Weekly Review
-- Spend vs. budget pacing
-- CPA/ROAS vs. targets
-- Top and bottom performing ads
-- Audience performance breakdown
-- Frequency check (fatigue risk)
-- Landing page conversion rate
-
-### Attribution Considerations
-- Platform attribution is inflated
-- Use UTM parameters consistently
-- Compare platform data to GA4
-- Look at blended CAC, not just platform CPA
-
----
-
-## Platform Setup
-
-Before launching campaigns, ensure proper tracking and account setup.
-
-**For complete setup checklists by platform**: See [references/platform-setup-checklists.md](references/platform-setup-checklists.md)
-
-### Universal Pre-Launch Checklist
-- [ ] Conversion tracking tested with real conversion
-- [ ] Landing page loads fast (<3 sec)
-- [ ] Landing page mobile-friendly
-- [ ] UTM parameters working
-- [ ] Budget set correctly
-- [ ] Targeting matches intended audience
-
----
-
-## Common Mistakes to Avoid
-
-### Strategy
-- Launching without conversion tracking
-- Too many campaigns (fragmenting budget)
-- Not giving algorithms enough learning time
-- Optimizing for wrong metric
+## LinkedIn Ads for Imgix
 
 ### Targeting
-- Audiences too narrow or too broad
-- Not excluding existing customers
-- Overlapping audiences competing
 
-### Creative
-- Only one ad per ad set
-- Not refreshing creative (fatigue)
-- Mismatch between ad and landing page
+**Job titles:** Engineering Manager, CTO, VP Engineering, Lead Developer, Senior Frontend Engineer, Staff Engineer
 
-### Budget
-- Spreading too thin across campaigns
-- Making big budget changes (disrupts learning)
-- Stopping campaigns during learning phase
+**Company size:** 50-5000 employees (PLG sweet spot — enough traffic to need image optimization, not so large they have custom solutions)
+
+**Industries:** Technology, Ecommerce, Media/Publishing, Real Estate, Travel
+
+**Skills:** React, Next.js, Vue.js, Frontend Development, Web Performance
+
+### Ad Formats
+
+**Sponsored Content (primary):**
+- Technical insight post promoting a lead magnet or blog
+- Before/after image performance showcase
+- Customer case study metrics (with permission)
+
+**Conversation Ads (selective):**
+- Only for high-value retargeting (visited pricing page)
+- "Saw you were looking at image optimization. Here's a free performance audit of your site."
+
+### Ad Copy Tone
+
+LinkedIn for developers should still be technical and direct. Avoid:
+- "Revolutionize your image pipeline" (too salesy)
+- Generic stock imagery of people in meetings
+
+Use:
+- Code snippets in ad images
+- Specific metrics and benchmarks
+- Customer logos as social proof
 
 ---
 
-## Task-Specific Questions
+## Retargeting Strategy
 
-1. What platform(s) are you currently running or want to start with?
-2. What's your monthly ad budget?
-3. What does a successful conversion look like (and what's it worth)?
-4. Do you have existing creative assets or need to create them?
-5. What landing page will ads point to?
-6. Do you have pixel/conversion tracking set up?
+### Audience Segments
+
+| Segment | Window | Message | Bid |
+|---------|--------|---------|-----|
+| Pricing page visitors | 1-14 days | "Ready to start? Free tier, no credit card." | High |
+| Docs visitors | 1-30 days | "Try Imgix with your own images" + sandbox link | High |
+| Blog readers (image topics) | 7-30 days | Educational content + free tool | Medium |
+| Homepage visitors | 7-30 days | Core value prop + signup CTA | Medium |
+| All visitors (broad) | 30-90 days | Brand awareness / case study | Low |
+
+### Exclusions
+
+- Exclude existing Imgix customers (match by email domain or customer list)
+- Exclude recent signups (7-day window)
+- Exclude bounced visitors (<10 seconds on site)
+- Exclude careers page visitors
 
 ---
 
-## Tool Integrations
+## Budget Allocation
 
-For implementation, see the [tools registry](../../tools/REGISTRY.md). Key advertising platforms:
+### For a Modest Budget ($3-5K/month)
 
-| Platform | Best For | MCP | Guide |
-|----------|----------|:---:|-------|
-| **Google Ads** | Search intent, high-intent traffic | ✓ | [google-ads.md](../../tools/integrations/google-ads.md) |
-| **Meta Ads** | Demand gen, visual products, B2C | - | [meta-ads.md](../../tools/integrations/meta-ads.md) |
-| **LinkedIn Ads** | B2B, job title targeting | - | [linkedin-ads.md](../../tools/integrations/linkedin-ads.md) |
-| **TikTok Ads** | Younger demographics, video | - | [tiktok-ads.md](../../tools/integrations/tiktok-ads.md) |
+| Channel | Allocation | Rationale |
+|---------|:----------:|-----------|
+| Google Search (brand) | 15% | Protect brand, low cost |
+| Google Search (competitor) | 30% | Highest-intent, best ROI |
+| Google Search (category) | 25% | Core demand capture |
+| Retargeting (Google + LinkedIn) | 20% | Convert research visitors |
+| LinkedIn (prospecting) | 10% | Awareness, supplement |
 
-For tracking, see also: [ga4.md](../../tools/integrations/ga4.md), [segment.md](../../tools/integrations/segment.md)
+### For a Larger Budget ($10K+/month)
+
+Add:
+- Google Search (problem keywords): 15%
+- LinkedIn prospecting: Expand to 20%
+- Experiment budget: 10% for testing new audiences/creatives
+
+---
+
+## Metrics
+
+### Key Metrics
+
+| Metric | Target |
+|--------|:------:|
+| Google Search CPC (category) | $3-8 (developer/B2B keywords) |
+| Google Search CPC (competitor) | $5-15 |
+| Landing page → signup rate | 5-15% |
+| Cost per signup | Track & optimize |
+| Signup → activation rate | Compare to organic baseline |
+| Retargeting CTR | 0.5-1% |
+| LinkedIn CPL | $30-80 (B2B developer) |
+
+### Attribution
+
+- UTM parameters on all ad URLs (track in PostHog + GA4)
+- Compare ad-attributed signups to organic signups for quality
+- Track signup → activation → paid conversion by ad source
+- Use HubSpot source attribution for revenue tracking
+
+---
+
+## Common Mistakes for Developer Tool Ads
+
+- **Driving to "Book a demo":** PLG = drive to free signup, not sales calls
+- **Generic creative:** Developers ignore stock photos and buzzword headlines
+- **Broad targeting:** Waste budget on non-developers who search image-related terms
+- **No docs sitelink:** Developers click docs links — this is a positive signal
+- **Ignoring retargeting:** Developer tool evaluation cycles are long (weeks-months)
+- **Same landing page for all keywords:** Match landing page to search intent
 
 ---
 
 ## Related Skills
 
-- **ad-creative**: For generating and iterating ad headlines, descriptions, and creative at scale
-- **copywriting**: For landing page copy that converts ad traffic
-- **analytics-tracking**: For proper conversion tracking setup
-- **ab-test-setup**: For landing page testing to improve ROAS
-- **page-cro**: For optimizing post-click conversion rates
+- **Conversion/page-cro** — Optimize landing pages for ad traffic
+- **Conversion/signup-flow-cro** — Optimize signup flow for ad-driven visitors
+- **Conversion/analytics-tracking** — UTM setup, conversion tracking
+- **Acquisition/free-tool-strategy** — Free tools as ad destinations
+- **Acquisition/lead-magnets** — Lead magnets for top-of-funnel ads
+- **Content/copywriting** — Landing page copy for ad campaigns
+- **imgix-brand-voice** (global) — Ad copy follows brand guidelines

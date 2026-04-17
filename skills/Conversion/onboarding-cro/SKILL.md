@@ -1,220 +1,269 @@
 ---
 name: onboarding-cro
-description: When the user wants to optimize post-signup onboarding, user activation, first-run experience, or time-to-value. Also use when the user mentions "onboarding flow," "activation rate," "user activation," "first-run experience," "empty states," "onboarding checklist," "aha moment," "new user experience," "users aren't activating," "nobody completes setup," "low activation rate," "users sign up but don't use the product," "time to value," or "first session experience." Use this whenever users are signing up but not sticking around. For signup/registration optimization, see signup-flow-cro. For ongoing email sequences, see email-sequence.
+description: |
+  Optimize Imgix's post-signup onboarding and activation flow. Use when improving time-to-value, reducing activation drop-off, designing the first-run experience, or increasing the percentage of signups who serve their first transformed image. Imgix activation path: connect storage source → configure subdomain → serve first image → apply first transformation. Also use when the user mentions "activation rate," "onboarding," "users aren't activating," "nobody completes setup," "time to value," or "users sign up but don't use the product." For signup form optimization, see signup-flow-cro. For email onboarding sequences, see Lifecycle/trial-activation.
 metadata:
-  version: 1.1.0
+  version: 2.0.0
 ---
 
-# Onboarding CRO
+# Onboarding CRO for Imgix
 
-You are an expert in user onboarding and activation. Your goal is to help users reach their "aha moment" as quickly as possible and establish habits that lead to long-term retention.
+You are an expert in user onboarding and activation for developer-focused PLG products. Your goal is to help Imgix users reach their activation moment — serving their first transformed image — as quickly as possible.
 
-## Initial Assessment
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **Motion:** PLG — self-serve signup, usage-based pricing
+- **ICP:** Developers and engineering teams
+- **Activation event:** First image served through Imgix CDN with a URL transformation applied
+- **Product analytics:** PostHog (funnels, cohorts, session replay)
+- **Email platform:** HubSpot (onboarding email sequences)
+- **Dashboard:** Imgix dashboard (where onboarding happens)
 
-Before providing recommendations, understand:
+## Connected Tools
 
-1. **Product Context** - What type of product? B2B or B2C? Core value proposition?
-2. **Activation Definition** - What's the "aha moment"? What action indicates a user "gets it"?
-3. **Current State** - What happens after signup? Where do users drop off?
+- **PostHog MCP** — Track onboarding funnel, identify drop-offs, session replays of stuck users
+- **HubSpot MCP** — Trigger onboarding emails based on activation status
+- **Slack MCP** — Alert on onboarding issues, share activation metrics
+- **Jira MCP** — Track onboarding improvement tasks (MKTG project)
 
----
+## Global Dependencies
 
-## Core Principles
-
-### 1. Time-to-Value Is Everything
-Remove every step between signup and experiencing core value.
-
-### 2. One Goal Per Session
-Focus first session on one successful outcome. Save advanced features for later.
-
-### 3. Do, Don't Show
-Interactive > Tutorial. Doing the thing > Learning about the thing.
-
-### 4. Progress Creates Motivation
-Show advancement. Celebrate completions. Make the path visible.
+Always load before optimizing onboarding:
+- **imgix-brand-voice** — Developer-friendly, direct tone
+- **product-marketing-context** — ICP, value propositions, competitive positioning
 
 ---
 
-## Defining Activation
+## Imgix Activation Path
 
-### Find Your Aha Moment
+### The Critical Steps
 
-The action that correlates most strongly with retention:
-- What do retained users do that churned users don't?
-- What's the earliest indicator of future engagement?
+```
+Signup → Connect Storage → Configure Source → Serve First Image → Apply First Transform
+  100%       ?%                 ?%                  ?%                    ?%
+```
 
-**Examples by product type:**
-- Project management: Create first project + add team member
-- Analytics: Install tracking + see first report
-- Design tool: Create first design + export/share
-- Marketplace: Complete first transaction
+Each step has specific friction points for developers:
 
-### Activation Metrics
-- % of signups who reach activation
-- Time to activation
-- Steps to activation
-- Activation by cohort/source
+### Step 1: Signup → Connect Storage Source
+
+**What happens:** User needs to connect their existing image storage (S3, Google Cloud Storage, Azure Blob, or web folder).
+
+**Common friction:**
+- Don't know which source type to choose
+- AWS IAM permissions confusion for S3
+- GCS service account setup complexity
+- Fear of giving third-party access to their storage
+
+**Optimization opportunities:**
+- Pre-detect likely source type from signup data (email domain, stated use case)
+- Inline IAM policy template (copy-paste ready)
+- "Test connection" button with clear success/failure states
+- Video walkthrough for each source type (under 2 minutes)
+- Web folder option as lowest-friction starter path
+
+### Step 2: Configure Source → Subdomain
+
+**What happens:** User sets up their Imgix subdomain (e.g., `images.example.imgix.net`).
+
+**Common friction:**
+- Decision paralysis on naming
+- DNS configuration for custom domains
+- Not understanding the URL structure
+
+**Optimization opportunities:**
+- Auto-suggest subdomain based on company name
+- Show example URL immediately: `https://[your-name].imgix.net/photo.jpg`
+- Defer custom domain setup to later (don't block activation)
+
+### Step 3: Serve First Image
+
+**What happens:** User makes their first request to Imgix CDN to serve an image from their connected source.
+
+**Common friction:**
+- Not sure which image URL to try
+- Typo in image path
+- Source not synced yet
+- Unclear if it's "working"
+
+**Optimization opportunities:**
+- Auto-browse their source and show available images
+- One-click "try this image" with a real URL from their source
+- Clear loading/success states
+- Show before/after: original vs. Imgix-served (with size comparison)
+
+### Step 4: Apply First Transformation
+
+**What happens:** User adds URL parameters to transform an image (resize, crop, format conversion).
+
+**Common friction:**
+- Don't know what parameters are available
+- Syntax uncertainty
+- Can't see the result immediately
+
+**Optimization opportunities:**
+- Interactive sandbox: drag sliders, see URL update live
+- Pre-built "recipes" — "Responsive thumbnail: `?w=400&h=300&fit=crop&auto=format`"
+- Show URL + visual result side by side
+- Copy-paste ready code snippet for their framework (React, Next.js, etc.)
 
 ---
 
-## Onboarding Flow Design
+## Onboarding Checklist Design
 
-### Immediate Post-Signup (First 30 Seconds)
+### Recommended Items (4-5 Steps)
 
-| Approach | Best For | Risk |
-|----------|----------|------|
-| Product-first | Simple products, B2C, mobile | Blank slate overwhelm |
-| Guided setup | Products needing personalization | Adds friction before value |
-| Value-first | Products with demo data | May not feel "real" |
+1. **Connect your first source** — Link S3, GCS, or web folder
+2. **Serve your first image** — See it delivered through Imgix CDN
+3. **Try a transformation** — Resize, crop, or auto-format an image
+4. **Install the SDK** — Add Imgix to your codebase (optional but recommended)
+5. **Invite a teammate** — Share access with your team (optional)
 
-**Whatever you choose:**
-- Clear single next action
-- No dead ends
-- Progress indication if multi-step
+### Checklist Principles
 
-### Onboarding Checklist Pattern
+- Start with quick wins (web folder source = fastest)
+- Show progress percentage
+- Celebrate completion of each step (brief, not cheesy — developers don't want confetti)
+- Link each item to relevant docs
+- Allow dismissal (don't trap users who know what they're doing)
+- Persist across sessions (pick up where they left off)
 
-**When to use:**
-- Multiple setup steps required
-- Product has several features to discover
-- Self-serve B2B products
+---
 
-**Best practices:**
-- 3-7 items (not overwhelming)
-- Order by value (most impactful first)
-- Start with quick wins
-- Progress bar/completion %
-- Celebration on completion
-- Dismiss option (don't trap users)
+## Empty States
 
-### Empty States
+### Dashboard with No Sources
 
-Empty states are onboarding opportunities, not dead ends.
+**Bad:** "You have no sources. Add a source to get started."
 
-**Good empty state:**
-- Explains what this area is for
-- Shows what it looks like with data
-- Clear primary action to add first item
-- Optional: Pre-populate with example data
+**Good:**
+```
+Your images, optimized and delivered fast.
 
-### Tooltips and Guided Tours
+Connect your image storage and Imgix handles the rest —
+resizing, cropping, format conversion, and global CDN delivery.
 
-**When to use:** Complex UI, features that aren't self-evident, power features users might miss
+[Connect S3 bucket]  [Connect GCS]  [Use a web folder]
 
-**Best practices:**
-- Max 3-5 steps per tour
-- Dismissable at any time
-- Don't repeat for returning users
+Not sure which? Web folder is the fastest way to try Imgix.
+```
+
+### Source Connected but No Images Served
+
+```
+Your source is connected. Try your first image:
+
+https://[source].imgix.net/[path-to-image]?w=800&auto=format
+
+[Browse your images]  [Try the sandbox]
+```
 
 ---
 
 ## Multi-Channel Onboarding
 
-### Email + In-App Coordination
+### Email + In-App Coordination (HubSpot + Dashboard)
 
-**Trigger-based emails:**
-- Welcome email (immediate)
-- Incomplete onboarding (24h, 72h)
-- Activation achieved (celebration + next step)
-- Feature discovery (days 3, 7, 14)
+| Trigger | Email | In-App |
+|---------|-------|--------|
+| Signup (immediate) | Welcome + quickstart link | Onboarding checklist |
+| No source after 24h | "Connect your images in 2 minutes" + guide | Persistent banner |
+| Source connected, no image served | "Try your first transformation" + URL example | Sandbox prompt |
+| First transform applied | Celebration + "What's next" (auto=format, fit=crop) | Feature discovery tooltips |
+| No activity for 7 days | Re-engagement: "Your source is waiting" | Welcome back + resume |
+| Activated (all steps) | SDK installation guide for their language | Checklist complete state |
 
-**Email should:**
-- Reinforce in-app actions, not duplicate them
-- Drive back to product with specific CTA
-- Be personalized based on actions taken
+### Email Principles (from imgix-brand-voice)
+
+- Lead with code examples, not marketing copy
+- Show the URL transformation inline in the email
+- Link to docs, not landing pages
+- Keep under 100 words for onboarding emails
+- Send from a real person at Imgix, not "noreply"
 
 ---
 
 ## Handling Stalled Users
 
-### Detection
-Define "stalled" criteria (X days inactive, incomplete setup)
+### Detection (PostHog Cohorts)
 
-### Re-engagement Tactics
+| Stalled State | Definition | Intervention |
+|--------------|-----------|-------------|
+| No source (48h+) | Signup but no `source_connected` event | Email + in-app guide |
+| Source but no image (72h+) | `source_connected` but no `first_image_served` | Email with try-it URL |
+| Image but no transform (7d+) | `first_image_served` but no `first_transform_applied` | Email with transformation recipes |
+| Dashboard abandoned (14d+) | No `dashboard_login` in 14 days | Re-engagement sequence |
 
-1. **Email sequence** - Reminder of value, address blockers, offer help
-2. **In-app recovery** - Welcome back, pick up where left off
-3. **Human touch** - For high-value accounts, personal outreach
+### Re-engagement by Stall Reason
+
+**Stuck on source connection (most common):**
+- Email with step-by-step for their likely source type
+- Offer a 15-minute setup call
+- Suggest web folder as a quick-start alternative
+
+**Stuck on first image:**
+- Send a working URL example using their actual source
+- Link to troubleshooting docs
+- Offer to check their source configuration
+
+**Didn't try transforms:**
+- Send 3 transformation recipes (resize, smart crop, auto-format)
+- Link to interactive sandbox
+- Show bandwidth savings they're missing
 
 ---
 
 ## Measurement
 
-### Key Metrics
+### Key Metrics (PostHog)
 
-| Metric | Description |
-|--------|-------------|
-| Activation rate | % reaching activation event |
-| Time to activation | How long to first value |
-| Onboarding completion | % completing setup |
-| Day 1/7/30 retention | Return rate by timeframe |
+| Metric | Description | Target |
+|--------|-------------|:------:|
+| Signup → Source connected | % who connect within 7 days | Track & improve |
+| Source → First image | % who serve first image within 48h | Track & improve |
+| First image → First transform | % who apply transform within 7 days | Track & improve |
+| Overall activation rate | Signup → first transform within 14 days | Track & improve |
+| Time to activation | Median time from signup to first transform | Reduce |
+| Day 1 / Day 7 / Day 30 retention | Return rate by timeframe | Track & improve |
 
-### Funnel Analysis
+### Funnel Analysis in PostHog
 
-Track drop-off at each step:
-```
-Signup → Step 1 → Step 2 → Activation → Retention
-100%      80%       60%       40%         25%
-```
+Build these funnels:
+1. **Full activation funnel** — signup → source → image → transform
+2. **Source connection funnel** — by source type (S3 vs GCS vs web folder)
+3. **Time-to-activation** — distribution of hours/days to each step
+4. **Activation by cohort** — by signup source, company size, use case
 
-Identify biggest drops and focus there.
+### Session Replay
 
----
-
-## Output Format
-
-### Onboarding Audit
-For each issue: Finding → Impact → Recommendation → Priority
-
-### Onboarding Flow Design
-- Activation goal
-- Step-by-step flow
-- Checklist items (if applicable)
-- Empty state copy
-- Email sequence triggers
-- Metrics plan
+Use PostHog session replays filtered to:
+- Users who started but didn't complete source setup
+- Users who visited billing page during onboarding (potential pricing confusion)
+- Users who visited docs multiple times during a single onboarding session (potential UX issues)
 
 ---
 
-## Common Patterns by Product Type
+## Experiment Ideas for Imgix Onboarding
 
-| Product Type | Key Steps |
-|--------------|-----------|
-| B2B SaaS | Setup wizard → First value action → Team invite → Deep setup |
-| Marketplace | Complete profile → Browse → First transaction → Repeat loop |
-| Mobile App | Permissions → Quick win → Push setup → Habit loop |
-| Content Platform | Follow/customize → Consume → Create → Engage |
-
----
-
-## Experiment Ideas
-
-When recommending experiments, consider tests for:
-- Flow simplification (step count, ordering)
-- Progress and motivation mechanics
-- Personalization by role or goal
-- Support and help availability
-
-**For comprehensive experiment ideas**: See [references/experiments.md](references/experiments.md)
-
----
-
-## Task-Specific Questions
-
-1. What action most correlates with retention?
-2. What happens immediately after signup?
-3. Where do users currently drop off?
-4. What's your activation rate target?
-5. Do you have cohort analysis on successful vs. churned users?
+| Experiment | Primary Metric |
+|-----------|---------------|
+| Guided setup wizard vs. self-service dashboard | Activation rate |
+| Web folder first (easiest) vs. S3 first (most common) | Source connection rate |
+| Interactive sandbox in onboarding vs. docs link | First transform rate |
+| Video walkthrough vs. text guide for source setup | Source connection rate |
+| Simplified IAM policy template vs. full instructions | S3 connection rate |
+| Checklist with 4 items vs. 6 items | Completion rate |
+| Personal welcome email from founder vs. automated | Day 7 retention |
 
 ---
 
 ## Related Skills
 
-- **signup-flow-cro**: For optimizing the signup before onboarding
-- **email-sequence**: For onboarding email series
-- **paywall-upgrade-cro**: For converting to paid during/after onboarding
-- **ab-test-setup**: For testing onboarding changes
+- **Conversion/signup-flow-cro** — Optimizing the signup that precedes onboarding
+- **Conversion/ab-test-setup** — Testing onboarding changes in PostHog
+- **Conversion/analytics-tracking** — Setting up activation events
+- **Lifecycle/trial-activation** — Email sequences for activation
+- **Lifecycle/email-sequence** — Email framework for onboarding drips
+- **Lifecycle/churn-prevention** — "Not using it enough" churners get re-routed here
+- **imgix-brand-voice** (global) — Onboarding copy follows brand guidelines

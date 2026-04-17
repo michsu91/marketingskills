@@ -1,310 +1,195 @@
 ---
 name: lead-magnets
-description: When the user wants to create, plan, or optimize a lead magnet for email capture or lead generation. Also use when the user mentions "lead magnet," "gated content," "content upgrade," "downloadable," "ebook," "cheat sheet," "checklist," "template download," "opt-in," "freebie," "PDF download," "resource library," "content offer," "email capture content," "Notion template," "spreadsheet template," or "what should I give away for emails." Use this for planning what to create and how to distribute it. For interactive tools as lead magnets, see free-tool-strategy. For writing the actual content, see copywriting. For the email sequence after capture, see email-sequence.
+description: |
+  Create lead magnets for Imgix — downloadable guides, benchmarks, templates, and checklists that capture developer emails and drive signups. Imgix lead magnets must be technically substantive (developers don't download fluff). Also use when the user mentions "lead magnet," "gated content," "ebook," "guide download," "checklist," "content offer," or "what should we give away for emails." For interactive tools, see free-tool-strategy. For email sequences after capture, see Lifecycle/prospect-nurture.
 metadata:
-  version: 1.0.0
+  version: 2.0.0
 ---
 
-# Lead Magnets
+# Lead Magnets for Imgix
 
-You are an expert in lead magnet strategy. Your goal is to help plan lead magnets that capture emails, generate qualified leads, and naturally lead to product adoption.
+You are an expert in lead magnet strategy for developer-focused B2B SaaS. Your goal is to create lead magnets that capture qualified developer emails and naturally lead to Imgix product adoption.
 
-## Before Planning
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **ICP:** Developers and engineering teams at companies with high image/video volume
+- **Motion:** PLG — lead magnets should drive self-serve signups, not just emails
+- **Website:** Webflow (landing pages for lead magnets)
+- **Email platform:** HubSpot (delivery + nurture sequences)
+- **Key insight:** Developers are allergic to fluff. Lead magnets must be technically dense, actionable, and worth their email. Think "technical guide" not "marketing ebook."
 
-Gather this context (ask if not provided):
+## Connected Tools
 
-### 1. Business Context
-- What does the company do?
-- Who is the ideal customer?
-- What problems does your product solve?
+- **HubSpot MCP** — Landing page forms, email delivery, lead scoring
+- **Webflow MCP** — Landing pages on imgix.com
+- **PostHog MCP** — Download → signup → activation attribution
+- **Jira MCP** — Track lead magnet creation tasks (MKTG project)
 
-### 2. Current Lead Generation
-- How do you currently capture leads?
-- What lead magnets or offers do you have?
-- What's your current conversion rate on email capture?
+## Global Dependencies
 
-### 3. Content Assets
-- What existing content could be repurposed? (blog posts, guides, data)
-- What expertise can you package?
-- What templates or tools do you use internally?
-
-### 4. Goals
-- Primary goal: email list growth, lead quality, product education?
-- Target audience stage: awareness, consideration, or decision?
-- Timeline and resource constraints?
+Always load before creating lead magnets:
+- **imgix-brand-voice** — Technical tone, no marketing fluff
+- **product-marketing-context** — ICP, positioning, competitive landscape
 
 ---
 
-## Lead Magnet Principles
+## Lead Magnet Ideas for Imgix (Prioritized)
 
-### 1. Solve a Specific Problem
-- Address one clear pain point, not a broad topic
-- "How to write cold emails that get replies" > "Marketing guide"
+### Tier 1: High Value, Create First
 
-### 2. Match the Buyer Stage
-- Awareness leads need education
-- Consideration leads need comparison and evaluation
-- Decision leads need implementation help
+**1. "The Image Optimization Playbook" (Technical Guide)**
+- Format: PDF (30-40 pages) or web-based guide
+- Content: Complete technical guide to image optimization — formats (WebP, AVIF, JPEG XL), responsive images, lazy loading, CDN delivery, performance budgets
+- Includes: Code examples for React, Next.js, Vue; benchmark data; configuration templates
+- Why: Highest-value lead magnet. Positions Imgix as the authority on image optimization.
+- Imgix connection: Every technique naturally leads to "or just use Imgix URL parameters"
 
-### 3. High Perceived Value, Low Time Investment
-- Should look like it's worth paying for
-- Consumable in under 30 minutes (ideally under 10)
-- Immediate, actionable takeaway
+**2. "Core Web Vitals Image Audit Checklist" (Checklist)**
+- Format: PDF or Notion template (1-2 pages)
+- Content: Step-by-step checklist for auditing image performance on any site
+- Includes: LCP checks, format analysis, sizing audit, lazy loading verification, CDN evaluation
+- Why: Quick win, high download rate, directly relevant to developer pain
+- Imgix connection: "Fix all of these with one Imgix integration"
 
-### 4. Natural Path to Product
-- Solves a problem your product also solves
-- Creates awareness of a gap your product fills
-- Demonstrates your expertise in the space
+**3. "Image CDN Comparison Guide" (Comparison)**
+- Format: PDF or interactive web page
+- Content: Honest comparison of Imgix vs. Cloudinary vs. ImageKit vs. Cloudflare Images vs. self-hosted
+- Includes: Feature matrix, pricing comparison, migration complexity, developer experience rating
+- Why: Captures high-intent developers actively evaluating options
+- Imgix connection: Direct — Imgix is featured (honestly, with real differentiators)
 
-### 5. Easy to Consume
-- One clear format (don't mix ebook + video + spreadsheet)
-- Works on mobile
-- No special software required
+### Tier 2: Medium Value, Create Next
 
----
+**4. "Responsive Images Starter Kit" (Template/Code)**
+- Format: GitHub repo or downloadable package
+- Content: Copy-paste components for responsive images in React, Next.js, Vue, Svelte
+- Includes: srcset generators, picture element templates, lazy loading wrappers
+- Why: Immediately useful, shows Imgix integration in action
 
-## Lead Magnet Types
+**5. "Image Performance Benchmarks 2026" (Data Report)**
+- Format: PDF report (10-15 pages)
+- Content: Benchmark data from analyzing thousands of sites — image sizes, format adoption, CDN usage, Core Web Vitals by industry
+- Includes: Industry breakdowns (ecommerce, media, SaaS), trend data
+- Why: Original data is the most linked-to and cited content type. AEO gold.
 
-| Type | Best For | Effort | Time to Create |
-|------|----------|--------|----------------|
-| Checklist | Quick wins, process steps | Low | 1-2 hours |
-| Cheat sheet | Reference material, shortcuts | Low | 2-4 hours |
-| Template (doc/spreadsheet/Notion) | Repeatable processes, workflows | Low-Med | 2-8 hours |
-| Swipe file | Inspiration, examples | Medium | 4-8 hours |
-| Ebook/guide | Deep education, authority | High | 1-3 weeks |
-| Mini-course (email) | Education + nurture | Medium | 1-2 weeks |
-| Mini-course (video) | Education + personality | High | 2-4 weeks |
-| Quiz/assessment | Segmentation, engagement | Medium | 1-2 weeks |
-| Webinar | Authority, live engagement | Medium | 1 week prep |
-| Resource library | Ongoing value, return visits | High | Ongoing |
-| Free trial/community access | Product experience | Varies | Varies |
+**6. "Migration Guide: Cloudinary to Imgix" (Technical Guide)**
+- Format: PDF or web-based guide
+- Content: Step-by-step migration walkthrough with code examples
+- Includes: URL mapping, SDK migration, feature parity matrix, common gotchas
+- Why: Captures developers actively considering switching
 
-**For detailed creation guidance per format**: See [references/format-guide.md](references/format-guide.md)
+### Tier 3: Quick Wins
 
----
+**7. "Image Format Decision Tree" (Cheat Sheet)**
+- 1-page visual: When to use JPEG, PNG, WebP, AVIF, SVG, GIF
+- Quick to create, highly shareable, useful as a desk reference
 
-## Matching Lead Magnets to Buyer Stage
-
-### Awareness Stage
-Goal: Educate on the problem. Attract people who don't know you yet.
-
-| Format | Example |
-|--------|---------|
-| Checklist | "10-Point Website Audit Checklist" |
-| Cheat sheet | "SEO Cheat Sheet for Beginners" |
-| Ebook/guide | "The Complete Guide to Email Marketing" |
-| Quiz | "What Type of Marketer Are You?" |
-
-### Consideration Stage
-Goal: Help evaluate solutions. Build trust and demonstrate expertise.
-
-| Format | Example |
-|--------|---------|
-| Comparison template | "CRM Comparison Spreadsheet" |
-| Assessment | "Marketing Maturity Assessment" |
-| Case study collection | "5 Companies That 3x'd Their Pipeline" |
-| Webinar | "How to Choose the Right Analytics Tool" |
-
-### Decision Stage
-Goal: Help implement. Remove friction to purchase.
-
-| Format | Example |
-|--------|---------|
-| Template | "Ready-to-Use Sales Email Templates" |
-| Free trial | "14-Day Free Trial" |
-| Implementation guide | "Migration Checklist: Switch in 30 Minutes" |
-| ROI calculator | "Calculate Your Savings" (→ see **free-tool-strategy**) |
+**8. "URL Parameter Quick Reference" (Cheat Sheet)**
+- Imgix-specific: Most-used URL parameters with examples
+- Works as both lead magnet and product documentation
 
 ---
 
-## Gating Strategy
+## Developer Lead Magnet Principles
 
-### Gating Options
+### 1. Technical Depth > Marketing Polish
 
-| Approach | When to Use | Trade-off |
-|----------|-------------|-----------|
-| **Full gate** | High-value content, bottom-funnel | Max capture, lower reach |
-| **Partial gate** | Preview + full version | Balance of reach and capture |
-| **Ungated + optional** | Top-funnel education | Max reach, lower capture |
-| **Content upgrade** | Blog post + bonus | Contextual, high-intent |
+Developers evaluate lead magnets like they evaluate code: is it well-structured, accurate, and useful? They don't care about fancy design. They care about:
+- Accurate code examples (that actually run)
+- Real benchmarks and data (with methodology)
+- Practical, copy-paste-ready solutions
+- Honest assessments (including limitations)
 
-### What to Ask For
+### 2. Respect the Email Exchange
 
-- **Email only** — highest conversion, lowest friction
-- **Email + name** — enables personalization, slight friction increase
-- **Email + company/role** — better lead qualification, more friction
-- **Multi-field** — only for high-value offers (webinars, demos)
+Every developer evaluates: "Is this worth giving my email for?" The answer must be clearly yes:
+- Show a detailed table of contents or preview
+- Include specific metrics about what's inside
+- Make the value obvious: "42-page guide with code examples in 6 frameworks"
 
-Rule of thumb: Ask for the minimum needed. Every extra field reduces conversion by 5-10%.
+### 3. Minimal Gate, Maximum Value
 
-### How to Frame the Exchange
+| Gating Strategy | When to Use |
+|----------------|-------------|
+| Email only | Default — highest conversion |
+| Email + company (optional) | High-value guides you want to qualify |
+| Fully ungated | Cheat sheets, quick references (pure brand play) |
+| Email for "full version" | Show partial results/content free, email for complete |
 
-- Make the value obvious: "Get the full 25-page guide free"
-- Show a preview: table of contents, first page, sample results
-- Add social proof: "Downloaded by 5,000+ marketers"
-- Reduce risk: "No spam. Unsubscribe anytime."
+Never ask for: phone number, company size, role, or budget at the lead magnet stage.
 
-**For form optimization**: See **form-cro** skill
-**For popup implementation**: See **popup-cro** skill
+### 4. Format Matters for Developers
 
----
-
-## Landing Page & Delivery
-
-### Landing Page Structure
-
-1. **Headline** — Clear benefit: what they'll get and why it matters
-2. **Preview/mockup** — Visual of the lead magnet (cover, screenshot, sample page)
-3. **What's inside** — 3-5 bullet points of key takeaways
-4. **Social proof** — Download count, testimonials, logos
-5. **Form** — Minimal fields, clear CTA button
-6. **FAQ** — Address hesitations (Is it really free? What format?)
-
-**For landing page optimization**: See **page-cro** skill
-
-### Delivery Methods
-
-| Method | Pros | Cons |
-|--------|------|------|
-| **Instant download** | Immediate gratification | No email verification |
-| **Email delivery** | Verifies email, starts relationship | Slight delay |
-| **Thank you page + email** | Best of both—instant access + email copy | Slightly more complex |
-| **Drip delivery** | Builds habit, multiple touchpoints | Only for courses/series |
-
-### Thank You Page Optimization
-
-Don't waste the thank you page. After they've converted:
-- Confirm delivery ("Check your inbox")
-- Offer a next step (book a demo, start trial, join community)
-- Share on social (pre-written tweet/post)
-- Recommend related content
+| Format | Best For | Developer Preference |
+|--------|----------|:-------------------:|
+| Web-based guide | Searchable, updatable | Highest |
+| GitHub repo / code package | Code-heavy content | Highest |
+| PDF | Comprehensive guides, benchmarks | Medium |
+| Notion template | Checklists, frameworks | Medium |
+| Video course | Complex tutorials | Lower (but growing) |
 
 ---
 
-## Promotion & Distribution
+## Landing Page Structure for Imgix Lead Magnets
 
-### Blog CTAs & Content Upgrades
-
-- Add relevant CTAs within blog posts (inline, end-of-post)
-- Create post-specific content upgrades (bonus checklist for a how-to post)
-- Content upgrades convert 2-5x better than generic sidebar CTAs
-
-### Exit-Intent & Popups
-
-- Trigger on exit intent or scroll depth
-- Match the popup offer to the page content
-- **See popup-cro** for implementation
-
-### Social Media
-
-- Share snippets and teasers from the lead magnet
-- Create carousel posts from key points
-- Use the lead magnet as the CTA in your bio/profile
-- **See social-content** for social strategy
-
-### Paid Promotion
-
-- Facebook/Instagram lead ads for top-funnel lead magnets
-- Google Ads for high-intent lead magnets (templates, tools)
-- LinkedIn for B2B lead magnets
-- Retarget blog visitors with lead magnet ads
-- **See paid-ads** for campaign strategy
-
-### Partner Co-Promotion
-
-- Cross-promote with complementary brands
-- Guest webinars with partner audiences
-- Include in partner newsletters
-- Bundle in resource collections
+1. **Headline:** Specific benefit + format: "The Complete Image Optimization Playbook (with code for 6 frameworks)"
+2. **Preview:** Table of contents, sample page, or key stats
+3. **What you'll learn:** 4-5 technical bullet points
+4. **Social proof:** "Downloaded by X developers" or customer logos
+5. **Form:** Email field + CTA button ("Get the guide")
+6. **Trust signals:** "No spam. Unsubscribe anytime." + "We'll also send you one image optimization tip per week."
 
 ---
 
-## Measuring Success
+## Post-Download Flow
 
-### Key Metrics
-
-| Metric | What It Tells You | Benchmark |
-|--------|-------------------|-----------|
-| **Landing page conversion rate** | Offer attractiveness | 20-40% (warm traffic), 5-15% (cold) |
-| **Cost per lead** | Acquisition efficiency | Varies by channel and industry |
-| **Lead-to-customer rate** | Lead quality | 1-5% (B2B), varies widely |
-| **Email engagement** | Content relevance | 30-50% open, 2-5% click |
-| **Time to conversion** | Nurture effectiveness | Track by lead magnet source |
-
-**For detailed benchmarks by format and industry**: See [references/benchmarks.md](references/benchmarks.md)
-
-### A/B Testing Ideas
-
-- **Headline**: Benefit-focused vs. curiosity-driven
-- **Format**: Checklist vs. guide on same topic
-- **Gate level**: Full gate vs. partial preview
-- **Form fields**: Email-only vs. email + name
-- **CTA copy**: "Download Free Guide" vs. "Get Your Copy"
-- **Delivery**: Instant download vs. email delivery
-
-### Lead Quality Signals
-
-Good lead magnet attracted quality leads if:
-- Higher-than-average email engagement
-- Leads progress to trial/demo at expected rates
-- Low unsubscribe rate after delivery
-- Leads match ICP demographics
+1. **Immediate:** Email delivery (HubSpot) + thank you page
+2. **Thank you page:** Link to Imgix signup + related content
+3. **Day 1:** Welcome email confirming download
+4. **Day 3-14:** Enter prospect nurture sequence (see Lifecycle/prospect-nurture)
+5. **Track:** Download → signup → activation in PostHog
 
 ---
 
-## Output Format
+## Distribution
 
-When creating a lead magnet strategy, provide:
+### On imgix.com
 
-### 1. Lead Magnet Recommendation
-- Format and topic
-- Target buyer stage
-- Why this format for this audience
-- Estimated creation effort
+- Blog CTAs matching content topic
+- Inline content upgrades within relevant blog posts
+- Sidebar CTAs on high-traffic pages
+- Exit-intent popup (selective, not aggressive)
 
-### 2. Content Outline
-- Key sections/components
-- Length and scope
-- What makes it unique or valuable
+### External
 
-### 3. Gating & Capture Plan
-- What to gate and how
-- Form fields
-- Landing page structure
-
-### 4. Distribution Plan
-- Promotion channels
-- Content upgrade opportunities
-- Paid amplification (if applicable)
-
-### 5. Measurement Plan
-- KPIs and targets
-- What to A/B test first
+- Share on Hacker News, Reddit r/webdev, Dev.to
+- LinkedIn posts from Michelle + company page
+- Cross-promote in developer newsletters
+- Include in conference talk follow-ups
 
 ---
 
-## Task-Specific Questions
+## Metrics
 
-1. What existing content or expertise could you turn into a lead magnet?
-2. Where does your audience spend time online?
-3. What's the most common question prospects ask before buying?
-4. Do you have an email nurture sequence set up for new leads?
-5. What's your budget for design and promotion?
+| Metric | Target |
+|--------|:------:|
+| Landing page conversion rate | 15-25% (warm traffic), 5-10% (cold) |
+| Download → signup rate | 10-20% |
+| Download → activation rate | 5-10% |
+| Cost per lead (if promoted via paid) | Track |
+| Lead-to-customer rate | 2-5% |
 
 ---
 
 ## Related Skills
 
-- **free-tool-strategy**: For interactive tools as lead magnets (calculators, graders, quizzes)
-- **copywriting**: For writing the lead magnet content itself
-- **email-sequence**: For nurture sequences after lead capture
-- **page-cro**: For optimizing lead magnet landing pages
-- **popup-cro**: For popup-based lead capture
-- **form-cro**: For optimizing capture forms
-- **content-strategy**: For content planning and topic selection
-- **analytics-tracking**: For measuring lead magnet performance
-- **paid-ads**: For paid promotion of lead magnets
-- **social-content**: For social media promotion
+- **Acquisition/free-tool-strategy** — Interactive tools as lead magnets
+- **Acquisition/cold-email** — Lead magnets as follow-up resources in outreach
+- **Content/copywriting** — Writing the lead magnet content
+- **Content/technical-writing** — Technical depth for developer guides
+- **Lifecycle/prospect-nurture** — Nurture sequence after download
+- **Lifecycle/email-sequence** — Email delivery framework
+- **Conversion/page-cro** — Optimizing lead magnet landing pages
+- **Conversion/analytics-tracking** — Tracking download → signup attribution
+- **imgix-brand-voice** (global) — All content follows brand guidelines

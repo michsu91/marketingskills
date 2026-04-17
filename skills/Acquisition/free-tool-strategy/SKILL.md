@@ -1,179 +1,196 @@
 ---
 name: free-tool-strategy
-description: When the user wants to plan, evaluate, or build a free tool for marketing purposes — lead generation, SEO value, or brand awareness. Also use when the user mentions "engineering as marketing," "free tool," "marketing tool," "calculator," "generator," "interactive tool," "lead gen tool," "build a tool for leads," "free resource," "ROI calculator," "grader tool," "audit tool," "should I build a free tool," or "tools for lead gen." Use this whenever someone wants to build something useful and give it away to attract leads or earn links. For downloadable content lead magnets (ebooks, checklists, templates), see lead-magnets.
+description: |
+  Plan and evaluate free tools Imgix can build for developer acquisition — image audit tools, performance calculators, optimization analyzers, and interactive sandboxes. Engineering-as-marketing for a developer audience. Also use when the user mentions "free tool," "engineering as marketing," "calculator," "grader tool," "audit tool," "interactive tool," or "build something for leads." For downloadable content, see lead-magnets.
 metadata:
-  version: 1.1.0
+  version: 2.0.0
 ---
 
-# Free Tool Strategy (Engineering as Marketing)
+# Free Tool Strategy for Imgix
 
-You are an expert in engineering-as-marketing strategy. Your goal is to help plan and evaluate free tools that generate leads, attract organic traffic, and build brand awareness.
+You are an expert in engineering-as-marketing for developer tools. Your goal is to help Imgix plan free tools that generate developer signups, attract organic traffic, earn backlinks, and demonstrate Imgix's technical capabilities.
 
-## Initial Assessment
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **ICP:** Developers and engineering teams
+- **Motion:** PLG — free tools should drive self-serve signups
+- **Website:** Webflow (marketing pages) — tools may live on subdomain or be embedded
+- **Key insight:** Developers evaluate tools by using them, not reading about them. Free tools that showcase Imgix's capabilities are the highest-converting acquisition channel for a developer audience.
 
-Before designing a tool strategy, understand:
+## Connected Tools
 
-1. **Business Context** - What's the core product? Who is the target audience? What problems do they have?
-
-2. **Goals** - Lead generation? SEO/traffic? Brand awareness? Product education?
-
-3. **Resources** - Technical capacity to build? Ongoing maintenance bandwidth? Budget for promotion?
-
----
-
-## Core Principles
-
-### 1. Solve a Real Problem
-- Tool must provide genuine value
-- Solves a problem your audience actually has
-- Useful even without your main product
-
-### 2. Adjacent to Core Product
-- Related to what you sell
-- Natural path from tool to product
-- Educates on problem you solve
-
-### 3. Simple and Focused
-- Does one thing well
-- Low friction to use
-- Immediate value
-
-### 4. Worth the Investment
-- Lead value × expected leads > build cost + maintenance
+- **Webflow MCP** — Host tool landing pages
+- **PostHog MCP** — Track tool usage, tool → signup conversion
+- **HubSpot MCP** — Capture leads from gated results
+- **Jira MCP** — Track tool build tasks (MKTG project)
 
 ---
 
-## Tool Types Overview
+## Free Tool Ideas for Imgix (Prioritized)
 
-| Type | Examples | Best For |
-|------|----------|----------|
-| Calculators | ROI, savings, pricing estimators | Decisions involving numbers |
-| Generators | Templates, policies, names | Creating something quickly |
-| Analyzers | Website graders, SEO auditors | Evaluating existing work |
-| Testers | Meta tag preview, speed tests | Checking if something works |
-| Libraries | Icon sets, templates, snippets | Reference material |
-| Interactive | Tutorials, playgrounds, quizzes | Learning/understanding |
+### Tier 1: High Impact, Build Now
 
-**For detailed tool types and examples**: See [references/tool-types.md](references/tool-types.md)
+**1. Image Performance Analyzer**
+- Input: Any URL
+- Output: Image audit showing unoptimized images, format issues, oversized assets, estimated savings
+- Why: Directly demonstrates the problem Imgix solves
+- Lead capture: Full report requires email
+- SEO target: "image performance audit," "image optimization analyzer"
+- Technical: Use Lighthouse API or custom crawler to analyze images
+
+**2. Image Optimization Sandbox**
+- Input: Upload an image or paste a URL
+- Output: Interactive playground showing Imgix URL transformations live (resize, crop, format, blur, etc.)
+- Why: Lets developers experience Imgix's core feature without signing up
+- Lead capture: "Save and share your transformations" requires signup
+- SEO target: "image transformation tool," "image resize API playground"
+- Technical: Powered by Imgix API directly
+
+**3. Format Savings Calculator**
+- Input: Monthly image volume, current format mix, average image size
+- Output: Estimated bandwidth savings from WebP/AVIF conversion, monthly cost savings vs. current setup
+- Why: Makes the ROI argument concrete and personalized
+- Lead capture: Detailed report with cost comparison emailed
+- SEO target: "image CDN cost calculator," "WebP savings calculator"
+
+### Tier 2: Medium Impact, Build Next
+
+**4. Core Web Vitals Image Checker**
+- Input: URL
+- Output: LCP analysis focused specifically on image-related performance
+- Why: Targets a pain point every frontend developer has
+- SEO target: "LCP image optimization," "Core Web Vitals image check"
+
+**5. Responsive Image Generator**
+- Input: Source image + breakpoints
+- Output: Complete `<picture>` element or `srcset` with Imgix URLs
+- Why: Solves a tedious, error-prone task. Directly showcases Imgix URLs.
+- SEO target: "responsive image generator," "srcset generator"
+
+**6. Image CDN Migration Estimator**
+- Input: Current provider (Cloudinary, self-hosted, etc.) + usage data
+- Output: Migration complexity assessment, cost comparison, step-by-step migration plan
+- Why: Targets competitive steal traffic
+- SEO target: "Cloudinary migration tool," "image CDN comparison"
+
+### Tier 3: Lower Priority, Future
+
+**7. Image Compression Comparison**
+- Side-by-side visual quality comparison across formats (JPEG, WebP, AVIF) at different quality levels
+- SEO target: "image format comparison," "WebP vs AVIF quality"
+
+**8. Image SEO Checker**
+- Analyze a page's images for SEO issues (alt text, file names, lazy loading, structured data)
+- SEO target: "image SEO checker," "image alt text analyzer"
 
 ---
 
-## Ideation Framework
+## Tool Evaluation Scorecard
 
-### Start with Pain Points
+Rate each tool idea 1-5:
 
-1. **What problems does your audience Google?** - Search query research, common questions
+| Factor | Question |
+|--------|---------|
+| Developer value | Does this solve a real developer problem? |
+| Imgix demonstration | Does this showcase Imgix's capabilities? |
+| Search demand | Is there search volume for this type of tool? |
+| Signup conversion | Does this naturally lead to an Imgix signup? |
+| Build effort | How complex is the MVP? |
+| Link potential | Will developers link to and share this? |
+| AEO value | Will AI engines reference this tool? |
 
-2. **What manual processes are tedious?** - Spreadsheet tasks, repetitive calculations
+**28+:** Build immediately | **20-27:** Strong candidate | **<20:** Reconsider
 
-3. **What do they need before buying your product?** - Assessments, planning, comparisons
+---
 
-4. **What information do they wish they had?** - Data they can't easily access, benchmarks
+## Build Strategy
 
-### Validate the Idea
+### MVP First
 
-- **Search demand**: Is there search volume? How competitive?
-- **Uniqueness**: What exists? How can you be 10x better?
-- **Lead quality**: Does this audience match buyers?
-- **Build feasibility**: How complex? Can you scope an MVP?
+For each tool:
+1. Core functionality only — does the one thing, works reliably
+2. Clean developer-friendly UI (no marketing clutter)
+3. Basic lead capture (email for full results)
+4. PostHog tracking (tool usage → signup attribution)
+
+### What to Skip Initially
+
+- User accounts / saved results (add later if traction)
+- API access (add as premium feature)
+- Perfect design (developers care about function over form)
+- Every edge case (ship fast, iterate)
+
+### Build Options
+
+| Approach | When | Tools |
+|----------|------|-------|
+| Custom (React/Next.js) | Core strategic tools (sandbox, analyzer) | Vercel, Imgix API |
+| Webflow + embedded | Landing pages with embedded tool | Webflow + iframe |
+| No-code | Quick validation | Outgrow, Tally, Retool |
 
 ---
 
 ## Lead Capture Strategy
 
-### Gating Options
+### Gating Approach for Developer Audience
 
-| Approach | Pros | Cons |
-|----------|------|------|
-| Fully gated | Maximum capture | Lower usage |
-| Partially gated | Balance of both | Common pattern |
-| Ungated + optional | Maximum reach | Lower capture |
-| Ungated entirely | Pure SEO/brand | No direct leads |
+Developers hate gates. Balance capture with value:
 
-### Lead Capture Best Practices
-- Value exchange clear: "Get your full report"
-- Minimal friction: Email only
-- Show preview of what they'll get
-- Optional: Segment by asking one qualifying question
+| Approach | Best For |
+|----------|----------|
+| Ungated basic results + gated full report | Analyzers, auditors |
+| Fully ungated + "save results" requires email | Sandboxes, playgrounds |
+| Ungated tool + email for tips/guide | Calculators |
+| Fully ungated (pure brand/SEO play) | Comparison tools |
 
----
+### What to Ask For
 
-## SEO Considerations
-
-### Keyword Strategy
-**Tool landing page**: "[thing] calculator", "[thing] generator", "free [tool type]"
-
-**Supporting content**: "How to [use case]", "What is [concept]"
-
-### Link Building
-Free tools attract links because:
-- Genuinely useful (people reference them)
-- Unique (can't link to just any page)
-- Shareable (social amplification)
+- **Email only** — highest conversion, minimal friction
+- Never ask for company name, phone, or role on a free tool
+- If you need qualification data, infer from email domain
 
 ---
 
-## Build vs. Buy
+## Promotion
 
-### Build Custom
-When: Unique concept, core to brand, high strategic value, have dev capacity
+### Launch
 
-### Use No-Code Tools
-Options: Outgrow, Involve.me, Typeform, Tally, Bubble, Webflow
-When: Speed to market, limited dev resources, testing concept
+1. Product Hunt launch (developer tools category)
+2. Post on Hacker News (Show HN)
+3. Submit to Dev.to and developer newsletters
+4. Share on Reddit (r/webdev, r/frontend, r/nextjs)
+5. LinkedIn post from Michelle + company page
+6. Email to existing Imgix customer base
 
-### Embed Existing
-When: Something good exists, white-label available, not core differentiator
+### Ongoing
 
----
-
-## MVP Scope
-
-### Minimum Viable Tool
-1. Core functionality only—does the one thing, works reliably
-2. Essential UX—clear input, obvious output, mobile works
-3. Basic lead capture—email collection, leads go somewhere useful
-
-### What to Skip Initially
-Account creation, saving results, advanced features, perfect design, every edge case
+- Blog post about the methodology behind the tool
+- SEO-optimized landing page targeting tool keywords
+- Cross-link from related blog content
+- Include in email sequences (prospect nurture, onboarding)
 
 ---
 
-## Evaluation Scorecard
+## Metrics
 
-Rate each factor 1-5:
-
-| Factor | Score |
-|--------|-------|
-| Search demand exists | ___ |
-| Audience match to buyers | ___ |
-| Uniqueness vs. existing | ___ |
-| Natural path to product | ___ |
-| Build feasibility | ___ |
-| Maintenance burden (inverse) | ___ |
-| Link-building potential | ___ |
-| Share-worthiness | ___ |
-
-**25+**: Strong candidate | **15-24**: Promising | **<15**: Reconsider
-
----
-
-## Task-Specific Questions
-
-1. What existing tools does your audience use for workarounds?
-2. How do you currently generate leads?
-3. What technical resources are available?
-4. What's the timeline and budget?
+| Metric | Target |
+|--------|:------:|
+| Monthly unique tool users | Track & grow |
+| Tool → signup conversion | 5-15% |
+| Tool → activated user (first transform) | Track |
+| Organic traffic to tool pages | Growing MoM |
+| Backlinks earned | 10+ in first 3 months |
+| Email capture rate | 10-20% (ungated basic + gated full) |
 
 ---
 
 ## Related Skills
 
-- **lead-magnets**: For downloadable content lead magnets (ebooks, checklists, templates)
-- **page-cro**: For optimizing the tool's landing page
-- **seo-audit**: For SEO-optimizing the tool
-- **analytics-tracking**: For measuring tool usage
-- **email-sequence**: For nurturing leads from the tool
+- **Acquisition/lead-magnets** — Downloadable content magnets (different from interactive tools)
+- **Conversion/page-cro** — Optimizing tool landing pages
+- **Conversion/analytics-tracking** — Tracking tool usage in PostHog
+- **Discoverability/imgix-aeo** — Tools that get cited by AI engines
+- **Discoverability/backlinks** — Tools earn high-quality backlinks
+- **Content/content-strategy** — Tools as part of content plan
+- **imgix-brand-voice** (global) — Tool copy follows brand guidelines

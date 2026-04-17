@@ -99,7 +99,7 @@ Create content targeting vertical-specific searches.
 - Use specific numbers: "8B+ images daily," "60,000+ customers," "millisecond delivery"
 - Developer tone: direct, no fluff, show don't tell
 - Include code examples where relevant (URL parameter examples are imgix's strength)
-- Always lowercase "imgix"
+- Always capitalize "Imgix" (capital I, lowercase mgix)
 
 ## Measurement
 - Track new page indexation via Google Search Console (manual check)

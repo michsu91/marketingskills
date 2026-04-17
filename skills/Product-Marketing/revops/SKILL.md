@@ -1,345 +1,200 @@
 ---
 name: revops
-description: "When the user wants help with revenue operations, lead lifecycle management, or marketing-to-sales handoff processes. Also use when the user mentions 'RevOps,' 'revenue operations,' 'lead scoring,' 'lead routing,' 'MQL,' 'SQL,' 'pipeline stages,' 'deal desk,' 'CRM automation,' 'marketing-to-sales handoff,' 'data hygiene,' 'leads aren't getting to sales,' 'pipeline management,' 'lead qualification,' or 'when should marketing hand off to sales.' Use this for anything involving the systems and processes that connect marketing to revenue. For cold outreach emails, see cold-email. For email drip campaigns, see email-sequence. For pricing decisions, see pricing-strategy."
+description: |
+  Design revenue operations for Imgix's hybrid PLG + sales-assisted motion. Covers lead lifecycle management, scoring for a usage-based product, PQL (product-qualified lead) identification from PostHog data, HubSpot CRM configuration, and marketing-to-sales handoff for enterprise deals. Also use when the user mentions "RevOps," "lead scoring," "PQL," "MQL," "pipeline," "lead routing," "CRM automation," "marketing-to-sales handoff," or "leads aren't getting to sales." For cold outreach, see Acquisition/cold-email.
 metadata:
-  version: 1.1.0
+  version: 2.0.0
 ---
 
-# RevOps
+# RevOps for Imgix
 
-You are an expert in revenue operations. Your goal is to help design and optimize the systems that connect marketing, sales, and customer success into a unified revenue engine.
+You are an expert in revenue operations for PLG SaaS with a sales-assisted enterprise motion. Your goal is to design systems that identify the right accounts for sales attention while letting the majority self-serve through PLG.
 
-## Before Starting
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **Motion:** PLG primary (self-serve signup, free tier, usage-based expansion) + sales-assisted for enterprise
+- **Pricing:** Usage-based (images processed)
+- **CRM:** HubSpot (contacts, deals, lifecycle stages, workflows)
+- **Product analytics:** PostHog (usage data, feature adoption, activation events)
+- **Billing:** Stripe (usage tracking, plan management)
+- **Team:** Small marketing team (Michelle), sales involvement for enterprise deals only
+- **Key insight:** In PLG, the product IS the sales motion. RevOps should surface the right accounts for human attention, not gate the self-serve path.
 
-Gather this context (ask if not provided):
+## Connected Tools
 
-1. **GTM motion** — Product-led (PLG), sales-led, or hybrid?
-2. **ACV range** — What's the average contract value?
-3. **Sales cycle length** — Days from first touch to closed-won?
-4. **Current stack** — CRM, marketing automation, scheduling, enrichment tools?
-5. **Current state** — How are leads managed today? What's working and what's not?
-6. **Goals** — Increase conversion? Reduce speed-to-lead? Fix handoff leaks? Build from scratch?
-
-Work with whatever the user gives you. If they have a clear problem area, start there. Don't block on missing inputs — use what you have and note what would strengthen the solution.
-
----
-
-## Core Principles
-
-### Single Source of Truth
-One system of record for every lead and account. If data lives in multiple places, it will conflict. Pick a CRM as the canonical source and sync everything to it.
-
-### Define Before Automate
-Get stage definitions, scoring criteria, and routing rules right on paper before building workflows. Automating a broken process just creates broken results faster.
-
-### Measure Every Handoff
-Every handoff between teams is a potential leak. Marketing-to-sales, SDR-to-AE, AE-to-CS — each needs an SLA, a tracking mechanism, and someone accountable for follow-through.
-
-### Revenue Team Alignment
-Marketing, sales, and customer success must agree on definitions. If marketing calls something an MQL but sales won't work it, the definition is wrong. Alignment meetings aren't optional.
+- **HubSpot MCP** — CRM management, lifecycle stages, workflows, lead scoring
+- **PostHog MCP** — Product usage data for PQL identification
+- **Stripe MCP** — Revenue data, plan info, usage metrics
+- **Slack MCP** — Alert on PQL triggers, deal stage changes
+- **Jira MCP** — Track RevOps tasks (MKTG project)
 
 ---
 
-## Lead Lifecycle Framework
+## Imgix PLG Lead Lifecycle
 
 ### Stage Definitions
 
-| Stage | Entry Criteria | Exit Criteria | Owner |
-|-------|---------------|---------------|-------|
-| **Subscriber** | Opts in to content (blog, newsletter) | Provides company info or shows engagement | Marketing |
-| **Lead** | Identified contact with basic info | Meets minimum fit criteria | Marketing |
-| **MQL** | Passes fit + engagement threshold | Sales accepts or rejects within SLA | Marketing |
-| **SQL** | Sales accepts and qualifies via conversation | Opportunity created or recycled | Sales (SDR/AE) |
-| **Opportunity** | Budget, authority, need, timeline confirmed | Closed-won or closed-lost | Sales (AE) |
-| **Customer** | Closed-won deal | Expands, renews, or churns | CS / Account Mgmt |
-| **Evangelist** | High NPS, referral activity, case study | Ongoing program participation | CS / Marketing |
+| Stage | Entry Criteria | Owner | Action |
+|-------|---------------|-------|--------|
+| **Visitor** | Hit imgix.com, identified via PostHog | Marketing | Retargeting, content |
+| **Signup** | Created Imgix account | Product (automated) | Onboarding sequence |
+| **Activated** | First transform served through Imgix CDN | Product (automated) | Feature discovery emails |
+| **Product-Qualified (PQL)** | Meets PQL criteria (see below) | Marketing → Sales | Evaluate for sales outreach |
+| **Sales-Accepted (SAL)** | Sales confirms PQL is worth pursuing | Sales | Discovery call |
+| **Opportunity** | Active deal, enterprise tier | Sales | Deal management |
+| **Customer** | Paying account | Product + CS | Expansion, retention |
+| **Advocate** | NPS 9-10, high usage, willing to reference | Marketing | Review asks, case study, referral |
 
-### MQL Definition
+### Key Difference from Traditional RevOps
 
-An MQL requires both **fit** and **engagement**:
-
-- **Fit score** — Does this person match your ICP? (company size, industry, role, tech stack)
-- **Engagement score** — Have they shown buying intent? (pricing page, demo request, multiple visits)
-
-Neither alone is sufficient. A perfect-fit company that never engages isn't an MQL. A student downloading every ebook isn't an MQL.
-
-### MQL-to-SQL Handoff SLA
-
-Define response times and document them:
-- MQL alert sent to assigned rep
-- Rep contacts within **4 hours** (business hours)
-- Rep qualifies or rejects within **48 hours**
-- Rejected MQLs go to recycling nurture with reason code
-
-**For complete lifecycle stage templates and SLA examples**: See [references/lifecycle-definitions.md](references/lifecycle-definitions.md)
+In PLG, there is no MQL stage in the traditional sense. Instead:
+- Most users self-serve through the entire journey (signup → paid) without sales
+- Sales only gets involved when product usage signals indicate enterprise potential
+- The product qualifies leads, not marketing content engagement
 
 ---
 
-## Lead Scoring
+## PQL (Product-Qualified Lead) Criteria for Imgix
 
-### Scoring Dimensions
+### PQL Definition
 
-**Explicit scoring (fit)** — Who they are:
-- Company size, industry, revenue
-- Job title, seniority, department
-- Tech stack, geography
+A PQL is a signup that shows enterprise buying signals through product usage. This replaces the traditional MQL for PLG.
 
-**Implicit scoring (engagement)** — What they do:
-- Page visits (especially pricing, demo, case studies)
-- Content downloads, webinar attendance
-- Email engagement (opens, clicks)
-- Product usage (for PLG)
+### PQL Scoring Model
 
-**Negative scoring** — Disqualifying signals:
-- Competitor email domains
-- Student/personal email
-- Unsubscribes, spam complaints
-- Job title mismatches (intern, student)
+**Usage signals (PostHog):**
 
-### Building a Scoring Model
+| Signal | Points | Rationale |
+|--------|:------:|-----------|
+| >50K images processed/month | 20 | High volume = potential enterprise |
+| 3+ sources connected | 15 | Multi-project usage |
+| 5+ unique transforms used | 10 | Deep feature adoption |
+| Team members invited | 15 | Organizational adoption |
+| API key created | 10 | Developer integration |
+| Dashboard login 3+ days/week | 5 | Active engagement |
+| Billing page visited 2+ times | 10 | Evaluating upgrade |
 
-1. Define your ICP attributes and weight them
-2. Identify high-intent behavioral signals from closed-won data
-3. Set point values for each attribute and behavior
-4. Set MQL threshold (typically 50-80 points on a 100-point scale)
-5. Test against historical data — does the model correctly identify past wins?
-6. Launch, measure, and recalibrate quarterly
+**Fit signals (HubSpot + enrichment):**
 
-### Common Scoring Mistakes
+| Signal | Points | Rationale |
+|--------|:------:|-----------|
+| Company size 200+ employees | 15 | Enterprise potential |
+| Company domain matches known enterprise | 20 | Named account |
+| Email domain is business (not Gmail) | 5 | B2B signal |
+| Industry: ecommerce, media, real estate | 10 | Imgix sweet spot |
+| Technology: React, Next.js, Shopify Plus | 5 | Good integration fit |
 
-- Weighting content downloads too heavily (research ≠ buying intent)
-- Not including negative scoring (lets bad leads through)
-- Setting and forgetting (buyer behavior changes; recalibrate quarterly)
-- Scoring all page visits equally (pricing page ≠ blog post)
+**Negative signals:**
 
-**For detailed scoring templates and example models**: See [references/scoring-models.md](references/scoring-models.md)
+| Signal | Points | Rationale |
+|--------|:------:|-----------|
+| Personal email (Gmail, Yahoo) | -10 | Likely individual/hobbyist |
+| No activity in 14+ days | -15 | Disengaged |
+| Student/edu email | -10 | Not a buyer |
+| < 1K images/month after 30 days | -5 | Low-value account |
 
----
+**PQL Threshold:** 50+ points → route to sales for evaluation
 
-## Lead Routing
+### PQL Workflow
 
-### Routing Methods
-
-| Method | How It Works | Best For |
-|--------|-------------|----------|
-| **Round-robin** | Distribute evenly across reps | Equal territories, similar deal sizes |
-| **Territory-based** | Assign by geography, vertical, or segment | Regional teams, industry specialists |
-| **Account-based** | Named accounts go to named reps | ABM motions, strategic accounts |
-| **Skill-based** | Route by deal complexity, product line, or language | Diverse product lines, global teams |
-
-### Routing Rules Essentials
-
-- Route to the **most specific match** first, then fall back to general
-- Include a **fallback owner** — unassigned leads go cold fast and waste pipeline
-- Round-robin should account for **rep capacity and availability** (PTO, quota attainment)
-- Log every routing decision for audit and optimization
-
-### Speed-to-Lead
-
-Response time is the single biggest factor in lead conversion:
-- Contact within **5 minutes** = 21x more likely to qualify (Lead Connect)
-- After **30 minutes**, conversion drops by 10x
-- After **24 hours**, the lead is effectively cold
-
-Build routing rules that prioritize speed. Alert reps immediately. Escalate if SLA is missed.
-
-**For routing decision trees and platform-specific setup**: See [references/routing-rules.md](references/routing-rules.md)
+```
+PostHog usage event → HubSpot property update → Score recalculation → PQL threshold reached → Slack alert to sales → HubSpot task created
+```
 
 ---
 
-## Pipeline Stage Management
+## HubSpot Configuration for Imgix
 
-### Pipeline Stages
+### Custom Properties
 
-| Stage | Required Fields | Exit Criteria |
-|-------|----------------|---------------|
-| **Qualified** | Contact info, company, source, fit score | Discovery call scheduled |
-| **Discovery** | Pain points, current solution, timeline | Needs confirmed, demo scheduled |
-| **Demo/Evaluation** | Technical requirements, decision makers | Positive evaluation, proposal requested |
-| **Proposal** | Pricing, terms, stakeholder map | Proposal delivered and reviewed |
-| **Negotiation** | Redlines, approval chain, close date | Terms agreed, contract sent |
-| **Closed Won** | Signed contract, payment terms | Handoff to CS complete |
-| **Closed Lost** | Loss reason, competitor (if any) | Post-mortem logged |
+| Property | Type | Source | Purpose |
+|----------|------|--------|---------|
+| `images_processed_monthly` | Number | PostHog sync | Usage tracking |
+| `sources_connected` | Number | PostHog sync | Depth of integration |
+| `activation_status` | Dropdown | PostHog sync | signed_up / source_connected / activated / power_user |
+| `pql_score` | Number | Calculated | Lead scoring |
+| `plan_type` | Dropdown | Stripe sync | free / growth / enterprise |
+| `signup_source` | String | PostHog UTM | Attribution |
+| `churn_risk_score` | Number | PostHog sync | Retention signal |
 
-### Stage Hygiene
+### Workflows
 
-- **Required fields per stage** — Don't let reps advance a deal without filling in required data
-- **Stale deal alerts** — Flag deals that sit in a stage beyond the average time (e.g., 2x average days)
-- **Stage skip detection** — Alert when deals jump stages (Qualified → Proposal skipping Discovery)
-- **Close date discipline** — Push dates must include a reason; no silent pushes
+**1. Signup → Onboarding:**
+- Trigger: `signup_completed` event
+- Action: Set lifecycle stage to "Signup," enroll in onboarding email sequence
 
-### Pipeline Metrics
+**2. Activation Tracking:**
+- Trigger: `first_transform_applied` event
+- Action: Set `activation_status` to "activated," update lifecycle stage
 
-| Metric | What It Tells You |
-|--------|-------------------|
-| Stage conversion rates | Where deals die |
-| Average time in stage | Where deals stall |
-| Pipeline velocity | Revenue per day through the funnel |
-| Coverage ratio | Pipeline value vs. quota (target 3-4x) |
-| Win rate by source | Which channels produce real revenue |
+**3. PQL Alert:**
+- Trigger: `pql_score` crosses 50
+- Action: Set lifecycle stage to "PQL," create task for sales, send Slack alert
 
----
+**4. Expansion Signal:**
+- Trigger: `images_processed_monthly` exceeds 80% of plan limit
+- Action: Send upgrade nudge email, flag for account review
 
-## CRM Automation Workflows
-
-### Essential Automations
-
-- **Lifecycle stage updates** — Auto-advance stages when criteria are met
-- **Task creation on handoff** — Create follow-up task when MQL assigned to rep
-- **SLA alerts** — Notify manager if rep misses response time SLA
-- **Deal stage triggers** — Auto-send proposals, update forecasts, notify CS on close
-
-### Marketing-to-Sales Automations
-
-- **MQL alert** — Instant notification to assigned rep with lead context
-- **Meeting booked** — Notify AE when prospect books via scheduling tool
-- **Lead activity digest** — Daily summary of high-intent actions by active leads
-- **Re-engagement trigger** — Alert sales when a dormant lead returns to site
-
-### Calendar Scheduling Integration
-
-- **Round-robin scheduling** — Distribute meetings evenly across team
-- **Routing by criteria** — Send enterprise leads to senior AEs, SMB to junior reps
-- **Pre-meeting enrichment** — Auto-populate CRM record before the call
-- **No-show workflows** — Auto-follow-up if prospect misses meeting
-
-**For platform-specific workflow recipes**: See [references/automation-playbooks.md](references/automation-playbooks.md)
+**5. Churn Risk Alert:**
+- Trigger: `churn_risk_score` exceeds threshold (API calls drop 50%+ WoW)
+- Action: Send Slack alert, create retention task
 
 ---
 
-## Deal Desk Processes
+## Pipeline Stages (Enterprise Deals Only)
 
-### When You Need a Deal Desk
+Most Imgix revenue comes through PLG self-serve. Pipeline stages apply only to enterprise deals:
 
-- ACV above **$25K** (or your threshold for non-standard deals)
-- Non-standard payment terms (net-90, quarterly billing)
-- Multi-year contracts with custom pricing
-- Volume discounts beyond published tiers
-- Custom legal terms or SLAs
-
-### Approval Workflow Tiers
-
-| Deal Size | Approval Required |
-|-----------|-------------------|
-| Standard pricing | Auto-approved |
-| 10-20% discount | Sales manager |
-| 20-40% discount | VP Sales |
-| 40%+ discount or custom terms | Deal desk review |
-| Multi-year / enterprise | Finance + Legal |
-
-### Non-Standard Terms Handling
-
-Document every exception. Track which non-standard terms get requested most — if everyone asks for the same exception, it should become standard. Review quarterly.
+| Stage | Entry Criteria | Exit Criteria |
+|-------|---------------|---------------|
+| **PQL Review** | PQL score 50+ | Sales accepts or rejects |
+| **Discovery** | Initial conversation, needs confirmed | Demo scheduled |
+| **Evaluation** | Technical evaluation in progress | Positive eval, proposal requested |
+| **Proposal** | Custom pricing/terms proposed | Terms agreed |
+| **Closed Won** | Contract signed | Onboarded |
+| **Closed Lost** | Deal lost | Reason documented |
 
 ---
 
-## Data Hygiene & Enrichment
+## Metrics Dashboard
 
-### Dedup Strategy
+### PLG Funnel (Primary)
 
-- **Matching rules** — Email domain + company name + phone as primary match keys
-- **Merge priority** — CRM record wins over marketing automation; most recent activity wins for fields
-- **Scheduled dedup** — Run weekly automated dedup with manual review for edge cases
+| Metric | Source | Target |
+|--------|--------|:------:|
+| Signups/month | PostHog | Growing |
+| Signup → activation rate | PostHog | Track & improve |
+| Free → paid conversion | Stripe | 5-10% |
+| Net revenue retention | Stripe | 110%+ |
+| Self-serve revenue % | Stripe | 70%+ of total |
 
-### Required Fields Enforcement
+### Sales-Assisted (Secondary)
 
-- Enforce required fields at each lifecycle stage
-- Block stage advancement if fields are empty
-- Use progressive profiling — don't require everything upfront
+| Metric | Source | Target |
+|--------|--------|:------:|
+| PQLs/month | HubSpot | Track |
+| PQL → opportunity rate | HubSpot | 30-50% |
+| Enterprise deal velocity | HubSpot | Track |
+| Enterprise ACV | HubSpot | Track |
+| Win rate | HubSpot | 25-35% |
 
-### Enrichment Tools
+### RevOps Health
 
-| Tool | Strength |
-|------|----------|
-| Clearbit | Real-time enrichment, good for tech companies |
-| Apollo | Contact data + sequences, strong for prospecting |
-| ZoomInfo | Enterprise-grade, largest B2B database |
-
-### Quarterly Audit Checklist
-
-- Review and merge duplicates
-- Validate email deliverability on stale contacts
-- Archive contacts with no activity in 12+ months
-- Audit lifecycle stage distribution (look for bottlenecks)
-- Verify enrichment data accuracy on a sample set
-
----
-
-## RevOps Metrics Dashboard
-
-### Key Metrics
-
-| Metric | Formula / Definition | Benchmark |
-|--------|---------------------|-----------|
-| Lead-to-MQL rate | MQLs / Total leads | 5-15% |
-| MQL-to-SQL rate | SQLs / MQLs | 30-50% |
-| SQL-to-Opportunity | Opportunities / SQLs | 50-70% |
-| Pipeline velocity | (# deals x avg deal size x win rate) / avg sales cycle | Varies by ACV |
-| CAC | Total sales + marketing spend / new customers | LTV:CAC > 3:1 |
-| LTV:CAC ratio | Customer lifetime value / CAC | 3:1 to 5:1 healthy |
-| Speed-to-lead | Time from form fill to first rep contact | < 5 minutes ideal |
-| Win rate | Closed-won / total opportunities | 20-30% (varies) |
-
-### Dashboard Structure
-
-Build three views:
-1. **Marketing view** — Lead volume, MQL rate, source attribution, cost per MQL
-2. **Sales view** — Pipeline value, stage conversion, velocity, forecast accuracy
-3. **Executive view** — CAC, LTV:CAC, revenue vs. target, pipeline coverage
-
----
-
-## Output Format
-
-When delivering RevOps recommendations, provide:
-
-1. **Lifecycle stage document** — Stage definitions with entry/exit criteria, owners, and SLAs
-2. **Scoring specification** — Fit and engagement attributes with point values and MQL threshold
-3. **Routing rules document** — Decision tree with assignment logic and fallbacks
-4. **Pipeline configuration** — Stage definitions, required fields, and automation triggers
-5. **Metrics dashboard spec** — Key metrics, data sources, and target benchmarks
-
-Format each as a standalone document the user can implement directly. Include platform-specific guidance when the CRM is known.
-
----
-
-## Task-Specific Questions
-
-1. What CRM platform are you using (or planning to use)?
-2. How many leads per month do you generate?
-3. What's your current MQL definition?
-4. Where do leads get stuck in your funnel?
-5. Do you have SLAs between marketing and sales today?
-
----
-
-## Tool Integrations
-
-For implementation, see the [tools registry](../../tools/REGISTRY.md). Key RevOps tools:
-
-| Tool | What It Does | Guide |
-|------|-------------|-------|
-| **HubSpot** | CRM, marketing automation, lead scoring, workflows | [hubspot.md](../../tools/integrations/hubspot.md) |
-| **Salesforce** | Enterprise CRM, pipeline management, reporting | [salesforce.md](../../tools/integrations/salesforce.md) |
-| **Calendly** | Meeting scheduling, round-robin routing | [calendly.md](../../tools/integrations/calendly.md) |
-| **SavvyCal** | Scheduling with priority-based availability | [savvycal.md](../../tools/integrations/savvycal.md) |
-| **Clearbit** | Real-time lead enrichment and scoring | [clearbit.md](../../tools/integrations/clearbit.md) |
-| **Apollo** | Contact data, enrichment, and outbound sequences | [apollo.md](../../tools/integrations/apollo.md) |
-| **ActiveCampaign** | Marketing automation for SMBs, lead scoring | [activecampaign.md](../../tools/integrations/activecampaign.md) |
-| **Zapier** | Cross-tool automation and workflow glue | [zapier.md](../../tools/integrations/zapier.md) |
-| **Introw** | Partner-sourced pipeline, commissions, deal registration, QBRs | [introw.md](../../tools/integrations/introw.md) |
-| **Crossbeam** | Partner account overlaps and co-sell identification | [crossbeam.md](../../tools/integrations/crossbeam.md) |
+| Metric | Source | Target |
+|--------|--------|:------:|
+| Speed-to-contact (PQL) | HubSpot | <24 hours |
+| Data freshness (PostHog → HubSpot) | Sync tool | Real-time or hourly |
+| PQL score accuracy | Quarterly audit | False positive rate <30% |
 
 ---
 
 ## Related Skills
 
-- **cold-email**: For outbound prospecting emails
-- **email-sequence**: For lifecycle and nurture email flows
-- **pricing-strategy**: For pricing decisions and packaging
-- **analytics-tracking**: For tracking pipeline metrics and attribution
-- **launch-strategy**: For go-to-market launch planning
-- **sales-enablement**: For sales collateral, decks, and objection handling
+- **Conversion/analytics-tracking** — PostHog events that feed PQL scoring
+- **Conversion/pricing-strategy** — Pricing tiers define upgrade triggers
+- **Lifecycle/expansion-upsell** — Usage-based expansion automation
+- **Lifecycle/churn-prevention** — Churn signals feed RevOps alerts
+- **Acquisition/cold-email** — Outbound for enterprise targets
+- **Product-Marketing/sales-enablement** — Collateral for enterprise deals
+- **imgix-brand-voice** (global) — CRM email templates follow brand voice

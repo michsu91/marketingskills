@@ -1,256 +1,216 @@
 ---
 name: competitor-alternatives
-description: "When the user wants to create competitor comparison or alternative pages for SEO and sales enablement. Also use when the user mentions 'alternative page,' 'vs page,' 'competitor comparison,' 'comparison page,' '[Product] vs [Product],' '[Product] alternative,' 'competitive landing pages,' 'how do we compare to X,' 'battle card,' or 'competitor teardown.' Use this for any content that positions your product against competitors. Covers four formats: singular alternative, plural alternatives, you vs competitor, and competitor vs competitor. For sales-specific competitor docs, see sales-enablement."
+description: |
+  Create competitor comparison and alternative pages for Imgix — "Imgix vs Cloudinary," "Cloudinary alternatives," battle cards, and competitive content. These pages rank for high-intent search terms and arm developers evaluating image CDNs. Also use when the user mentions "vs page," "competitor comparison," "battle card," "competitive landing page," "how do we compare," or "alternative page." For internal sales docs, see sales-enablement.
 metadata:
-  version: 1.1.0
+  version: 2.0.0
 ---
 
-# Competitor & Alternative Pages
+# Competitor & Alternative Pages for Imgix
 
-You are an expert in creating competitor comparison and alternative pages. Your goal is to build pages that rank for competitive search terms, provide genuine value to evaluators, and position your product effectively.
+You are an expert in creating competitor comparison content for developer-focused B2B SaaS. Your goal is to build honest, technically detailed comparison pages that rank for competitive search terms and help developers make informed decisions.
 
-## Initial Assessment
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **Motion:** PLG — comparison pages should drive free signups
+- **Website:** Webflow (Site ID: 6705f4b15aee7ca914fff083)
+- **Key differentiators vs. all competitors:** URL-based transforms (simplest API surface), BYOS (bring your own storage), real-time processing (no pre-generation), 96 PoPs, 8B+ images/day
 
-Before creating competitor pages, understand:
+## Competitor Landscape
 
-1. **Your Product**
-   - Core value proposition
-   - Key differentiators
-   - Ideal customer profile
-   - Pricing model
-   - Strengths and honest weaknesses
+### Tier 1: Direct Competitors
 
-2. **Competitive Landscape**
-   - Direct competitors
-   - Indirect/adjacent competitors
-   - Market positioning of each
-   - Search volume for competitor terms
+**Cloudinary** (Primary)
+- Largest competitor. Extensive feature set. Complex credit-based pricing.
+- Imgix wins on: URL simplicity, BYOS (no vendor lock-in on storage), cleaner API surface, developer experience
+- Cloudinary wins on: Feature breadth, AI features, larger marketing presence, video maturity
+- Search targets: "Cloudinary alternative," "Imgix vs Cloudinary"
 
-3. **Goals**
-   - SEO traffic capture
-   - Sales enablement
-   - Conversion from competitor users
-   - Brand positioning
+**ImageKit**
+- Growing competitor. Similar URL-based approach.
+- Imgix wins on: Scale (8B+ images/day), PoP count (96), enterprise maturity, reliability track record
+- ImageKit wins on: Price (cheaper for small volumes), bundled storage
+- Search targets: "ImageKit alternative," "Imgix vs ImageKit"
 
----
+### Tier 2: Adjacent Competitors
 
-## Core Principles
+**Cloudflare Images**
+- Bundled with Cloudflare CDN. Simpler feature set.
+- Imgix wins on: Transformation depth, BYOS, dedicated image platform vs. bundled feature
+- Cloudflare wins on: Price (if already on Cloudflare), bundling convenience
+- Search targets: "Cloudflare Images alternative," "Cloudflare Images vs Imgix"
 
-### 1. Honesty Builds Trust
-- Acknowledge competitor strengths
-- Be accurate about your limitations
-- Don't misrepresent competitor features
-- Readers are comparing—they'll verify claims
+**BunnyCDN**
+- Budget CDN with image optimization features.
+- Imgix wins on: Feature depth, enterprise reliability, transformation capabilities
+- BunnyCDN wins on: Price (significantly cheaper for basic needs)
 
-### 2. Depth Over Surface
-- Go beyond feature checklists
-- Explain *why* differences matter
-- Include use cases and scenarios
-- Show, don't just tell
+### Tier 3: Self-Hosted / DIY
 
-### 3. Help Them Decide
-- Different tools fit different needs
-- Be clear about who you're best for
-- Be clear about who competitor is best for
-- Reduce evaluation friction
+**Self-hosted (ImageMagick, Sharp, Thumbor)**
+- Many potential Imgix customers are processing images themselves
+- Imgix wins on: No infrastructure management, real-time (no batch), edge delivery, maintenance-free
+- Self-hosted wins on: Full control, no per-image costs at very high volume
+- Content angle: "Why you should stop running your own image pipeline"
 
-### 4. Modular Content Architecture
-- Competitor data should be centralized
-- Updates propagate to all pages
-- Single source of truth per competitor
+## Connected Tools
 
----
-
-## Page Formats
-
-### Format 1: [Competitor] Alternative (Singular)
-
-**Search intent**: User is actively looking to switch from a specific competitor
-
-**URL pattern**: `/alternatives/[competitor]` or `/[competitor]-alternative`
-
-**Target keywords**: "[Competitor] alternative", "alternative to [Competitor]", "switch from [Competitor]"
-
-**Page structure**:
-1. Why people look for alternatives (validate their pain)
-2. Summary: You as the alternative (quick positioning)
-3. Detailed comparison (features, service, pricing)
-4. Who should switch (and who shouldn't)
-5. Migration path
-6. Social proof from switchers
-7. CTA
+- **Webflow MCP** — Publish comparison pages on imgix.com
+- **PostHog MCP** — Track comparison page → signup conversion
+- **HubSpot MCP** — Competitive deal tracking
+- **Jira MCP** — Track competitive content tasks (MKTG project)
 
 ---
 
-### Format 2: [Competitor] Alternatives (Plural)
+## Pages to Build (Prioritized)
 
-**Search intent**: User is researching options, earlier in journey
+### Must-Have
 
-**URL pattern**: `/alternatives/[competitor]-alternatives`
+1. **Imgix vs Cloudinary** — Highest search volume, primary competitor
+2. **Cloudinary Alternatives** — Captures evaluation-stage traffic
+3. **Imgix vs Self-Hosted** — Unique angle competitors won't write
 
-**Target keywords**: "[Competitor] alternatives", "best [Competitor] alternatives", "tools like [Competitor]"
+### Should-Have
 
-**Page structure**:
-1. Why people look for alternatives (common pain points)
-2. What to look for in an alternative (criteria framework)
-3. List of alternatives (you first, but include real options)
-4. Comparison table (summary)
-5. Detailed breakdown of each alternative
+4. **Imgix vs ImageKit** — Growing competitor
+5. **Imgix vs Cloudflare Images** — Common question
+6. **Best Image CDNs [Year]** — Captures broad category search
+7. **Image CDN Comparison** — Hub page linking to all comparisons
+
+### Nice-to-Have
+
+8. **Cloudinary vs ImageKit** (with Imgix as third option)
+9. **Migration from Cloudinary to Imgix** — Action-oriented, captures switchers
+
+---
+
+## Page Templates for Imgix
+
+### Imgix vs [Competitor]
+
+**Structure:**
+1. TL;DR (3-sentence summary of key differences)
+2. At-a-glance comparison table
+3. **Architecture approach** — How each handles image processing (Imgix: URL-based, real-time, BYOS)
+4. **Feature comparison** — Transformations, format support, video, AI
+5. **Developer experience** — API design, SDKs, docs quality, integration effort
+6. **Pricing comparison** — Model, calculator, total cost analysis
+7. **Performance** — PoPs, delivery speed, uptime
+8. **Who Imgix is best for** (be specific)
+9. **Who [Competitor] is best for** (be honest)
+10. **Migration path** — How to switch, level of effort
+11. Customer quotes from teams that switched
+12. CTA: "Try Imgix free — no credit card required"
+
+**Key principle:** Be technically honest. Developers will verify every claim. Acknowledge where competitors are strong. Win on the dimensions that matter most (developer experience, BYOS, URL simplicity).
+
+### [Competitor] Alternatives
+
+**Structure:**
+1. Why developers look for alternatives (common pain points)
+2. What to look for in an image CDN (evaluation criteria)
+3. **Imgix** (positioned first with honest detail)
+4. 4-6 other real alternatives (ImageKit, Cloudflare Images, BunnyCDN, self-hosted, etc.)
+5. Comparison table (all options)
 6. Recommendation by use case
 7. CTA
 
-**Important**: Include 4-7 real alternatives. Being genuinely helpful builds trust and ranks better.
+### Best Image CDNs [Year]
+
+**Structure:**
+1. What an image CDN does (brief, for SEO)
+2. Evaluation criteria
+3. Detailed review of each option (Imgix, Cloudinary, ImageKit, Cloudflare Images, BunnyCDN)
+4. Comparison table
+5. Recommendations by scenario (ecommerce, media, startup, enterprise)
 
 ---
 
-### Format 3: You vs [Competitor]
+## Comparison Table Template
 
-**Search intent**: User is directly comparing you to a specific competitor
+| Feature | Imgix | Cloudinary | ImageKit | Cloudflare Images |
+|---------|:-----:|:----------:|:--------:|:-----------------:|
+| URL-based transforms | Yes (native) | Yes (complex URL scheme) | Yes | Limited |
+| Bring your own storage | Yes (S3, GCS, Azure) | No (must upload) | Optional | No |
+| Real-time processing | Yes | Yes | Yes | Pre-processing |
+| Global PoPs | 96 | 80+ | ? | 300+ (shared CDN) |
+| Auto format (WebP/AVIF) | `?auto=format` | Via URL or API | Via URL | Automatic |
+| Video processing | Growing | Mature | Basic | Basic |
+| Free tier | Yes | Yes (25 credits) | Yes (20GB) | No |
+| Pricing model | Per-image | Credit-based | Bandwidth | Per-image stored |
 
-**URL pattern**: `/vs/[competitor]` or `/compare/[you]-vs-[competitor]`
-
-**Target keywords**: "[You] vs [Competitor]", "[Competitor] vs [You]"
-
-**Page structure**:
-1. TL;DR summary (key differences in 2-3 sentences)
-2. At-a-glance comparison table
-3. Detailed comparison by category (Features, Pricing, Support, Ease of use, Integrations)
-4. Who [You] is best for
-5. Who [Competitor] is best for (be honest)
-6. What customers say (testimonials from switchers)
-7. Migration support
-8. CTA
+*Update this table quarterly as competitors change.*
 
 ---
 
-### Format 4: [Competitor A] vs [Competitor B]
+## Competitive Content Principles for Developer Audience
 
-**Search intent**: User comparing two competitors (not you directly)
+### 1. Technical Accuracy Is Non-Negotiable
 
-**URL pattern**: `/compare/[competitor-a]-vs-[competitor-b]`
+Developers will test claims. Never overstate Imgix capabilities or misrepresent competitors. A single inaccuracy destroys credibility for the entire page.
 
-**Page structure**:
-1. Overview of both products
-2. Comparison by category
-3. Who each is best for
-4. The third option (introduce yourself)
-5. Comparison table (all three)
-6. CTA
+### 2. Show, Don't Just Compare
 
-**Why this works**: Captures search traffic for competitor terms, positions you as knowledgeable.
+Include code examples showing the same task in both products:
 
----
+```
+# Imgix: Resize + auto-format
+https://photos.imgix.net/hero.jpg?w=800&auto=format
 
-## Essential Sections
+# Cloudinary: Same operation
+https://res.cloudinary.com/demo/image/upload/w_800,f_auto/hero.jpg
+```
 
-### TL;DR Summary
-Start every page with a quick summary for scanners—key differences in 2-3 sentences.
+Let developers see the syntax difference and decide.
 
-### Paragraph Comparisons
-Go beyond tables. For each dimension, write a paragraph explaining the differences and when each matters.
+### 3. Honest "Who It's Best For" Sections
 
-### Feature Comparison
-For each category: describe how each handles it, list strengths and limitations, give bottom line recommendation.
+Developers respect honesty. Saying "Cloudinary is better for teams that need extensive video processing" builds trust and makes "Imgix is better for teams that value URL simplicity and BYOS" more credible.
 
-### Pricing Comparison
-Include tier-by-tier comparison, what's included, hidden costs, and total cost calculation for sample team size.
+### 4. Keep Updated
 
-### Who It's For
-Be explicit about ideal customer for each option. Honest recommendations build trust.
-
-### Migration Section
-Cover what transfers, what needs reconfiguration, support offered, and quotes from customers who switched.
-
-**For detailed templates**: See [references/templates.md](references/templates.md)
+Competitors ship features. Review and update all competitive pages quarterly. Flag outdated claims. Track competitor changelog pages.
 
 ---
 
-## Content Architecture
+## SEO for Competitive Pages
 
-### Centralized Competitor Data
-Create a single source of truth for each competitor with:
-- Positioning and target audience
-- Pricing (all tiers)
-- Feature ratings
-- Strengths and weaknesses
-- Best for / not ideal for
-- Common complaints (from reviews)
-- Migration notes
+### Target Keywords
 
-**For data structure and examples**: See [references/content-architecture.md](references/content-architecture.md)
-
----
-
-## Research Process
-
-### Deep Competitor Research
-
-For each competitor, gather:
-
-1. **Product research**: Sign up, use it, document features/UX/limitations
-2. **Pricing research**: Current pricing, what's included, hidden costs
-3. **Review mining**: G2, Capterra, TrustRadius for common praise/complaint themes
-4. **Customer feedback**: Talk to customers who switched (both directions)
-5. **Content research**: Their positioning, their comparison pages, their changelog
-
-### Ongoing Updates
-
-- **Quarterly**: Verify pricing, check for major feature changes
-- **When notified**: Customer mentions competitor change
-- **Annually**: Full refresh of all competitor data
-
----
-
-## SEO Considerations
-
-### Keyword Targeting
-
-| Format | Primary Keywords |
-|--------|-----------------|
-| Alternative (singular) | [Competitor] alternative, alternative to [Competitor] |
-| Alternatives (plural) | [Competitor] alternatives, best [Competitor] alternatives |
-| You vs Competitor | [You] vs [Competitor], [Competitor] vs [You] |
-| Competitor vs Competitor | [A] vs [B], [B] vs [A] |
+| Page | Primary Keywords |
+|------|-----------------|
+| Imgix vs Cloudinary | `imgix vs cloudinary`, `cloudinary vs imgix` |
+| Cloudinary Alternatives | `cloudinary alternative`, `cloudinary alternatives` |
+| Best Image CDNs | `best image cdn`, `image cdn comparison` |
+| Imgix vs Self-Hosted | `image cdn vs self hosted`, `why use an image cdn` |
 
 ### Internal Linking
-- Link between related competitor pages
+
 - Link from feature pages to relevant comparisons
-- Create hub page linking to all competitor content
-
-### Schema Markup
-Consider FAQ schema for common questions like "What is the best alternative to [Competitor]?"
-
----
-
-## Output Format
-
-### Competitor Data File
-Complete competitor profile in YAML format for use across all comparison pages.
-
-### Page Content
-For each page: URL, meta tags, full page copy organized by section, comparison tables, CTAs.
-
-### Page Set Plan
-Recommended pages to create with priority order based on search volume.
+- Link from blog posts about image optimization to comparison hub
+- Cross-link between related competitor pages
+- Add FAQ schema for questions like "What is the best alternative to Cloudinary?"
 
 ---
 
-## Task-Specific Questions
+## Metrics
 
-1. What are common reasons people switch to you?
-2. Do you have customer quotes about switching?
-3. What's your pricing vs. competitors?
-4. Do you offer migration support?
+| Metric | Target |
+|--------|:------:|
+| Organic traffic to competitive pages | Growing MoM |
+| Competitive page → signup rate | 5-15% (high intent) |
+| Ranking for primary keywords | Top 5 |
+| AEO citations when asked "Imgix vs Cloudinary" | Track |
 
 ---
 
 ## Related Skills
 
-- **programmatic-seo**: For building competitor pages at scale
-- **copywriting**: For writing compelling comparison copy
-- **seo-audit**: For optimizing competitor pages
-- **schema-markup**: For FAQ and comparison schema
-- **sales-enablement**: For internal sales collateral, decks, and objection docs
+- **Product-Marketing/sales-enablement** — Internal battle cards (not public)
+- **Product-Marketing/positioning** — Competitive positioning informs these pages
+- **Product-Marketing/win-loss-analysis** — Real deal outcomes inform comparison accuracy
+- **Discoverability/imgix-aeo** — Competitive pages shape AI engine responses
+- **Content/copywriting** — Writing compelling comparison copy
+- **Conversion/page-cro** — Optimizing comparison page conversion
+- **imgix-brand-voice** (global) — Comparison copy follows brand guidelines

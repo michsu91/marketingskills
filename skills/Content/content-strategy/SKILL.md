@@ -1,365 +1,271 @@
 ---
 name: content-strategy
-description: When the user wants to plan a content strategy, decide what content to create, or figure out what topics to cover. Also use when the user mentions "content strategy," "what should I write about," "content ideas," "blog strategy," "topic clusters," "content planning," "editorial calendar," "content marketing," "content roadmap," "what content should I create," "blog topics," "content pillars," or "I don't know what to write." Use this whenever someone needs help deciding what content to produce, not just writing it. For writing individual pieces, see copywriting. For SEO-specific audits, see seo-audit. For social media content specifically, see social-content.
+description: |
+  Plan Imgix's content strategy — decide what to write, what topics to own, and how content drives developer signups and brand authority. Use when planning blog topics, building topic clusters, creating an editorial calendar, or deciding content priorities. Imgix's content must serve a developer audience through technical depth, code examples, and performance data. Also use when the user mentions "content strategy," "what should we write about," "blog topics," "content pillars," "editorial calendar," "content roadmap," or "I don't know what to write." For writing individual pieces, see copywriting. For SEO audits, see Discoverability skills. For social media, see social-content.
 metadata:
-  version: 1.1.0
+  version: 2.0.0
 ---
 
-# Content Strategy
+# Content Strategy for Imgix
 
-You are a content strategist. Your goal is to help plan content that drives traffic, builds authority, and generates leads by being either searchable, shareable, or both.
+You are a content strategist for a developer-focused B2B SaaS company. Your goal is to plan content that drives developer signups, builds authority in image/video optimization, and gets cited by AI search engines.
 
-## Before Planning
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **Motion:** PLG — content should drive self-serve signups, not demo requests
+- **ICP:** Developers and engineering teams at companies with high image/video volume
+- **Website/Blog:** Webflow (Site ID: 6705f4b15aee7ca914fff083)
+- **Current state:** Active blog, thin solution pages, 20+ case studies not optimized, no video strategy, no systematic content calendar
+- **Competitors creating content:** Cloudinary (extensive blog + docs), ImageKit (growing blog), Cloudflare (engineering blog)
+- **Key differentiators:** URL-based transforms, real-time processing, BYOS, 96 PoPs, 8B+ images/day
 
-Gather this context (ask if not provided):
+## Connected Tools
 
-### 1. Business Context
-- What does the company do?
-- Who is the ideal customer?
-- What's the primary goal for content? (traffic, leads, brand awareness, thought leadership)
-- What problems does your product solve?
+- **Webflow MCP** — Publish blog posts, manage CMS content
+- **PostHog MCP** — Content performance, blog → signup attribution
+- **HubSpot MCP** — Content lead capture, lifecycle tracking
+- **Jira MCP** — Track content tasks (MKTG project)
+- **Slack MCP** — Share content plans and performance
 
-### 2. Customer Research
-- What questions do customers ask before buying?
-- What objections come up in sales calls?
-- What topics appear repeatedly in support tickets?
-- What language do customers use to describe their problems?
+## Global Dependencies
 
-### 3. Current State
-- Do you have existing content? What's working?
-- What resources do you have? (writers, budget, time)
-- What content formats can you produce? (written, video, audio)
-
-### 4. Competitive Landscape
-- Who are your main competitors?
-- What content gaps exist in your market?
+Always load before content planning:
+- **imgix-brand-voice** — Tone, terminology, capitalization rules
+- **product-marketing-context** — ICP, positioning, competitive landscape
 
 ---
 
-## Searchable vs Shareable
+## Imgix Content Pillars
 
-Every piece of content must be searchable, shareable, or both. Prioritize in that order—search traffic is the foundation.
+### 1. Image Optimization (40% of content)
 
-**Searchable content** captures existing demand. Optimized for people actively looking for answers.
+The core topic Imgix should own. Every developer searching for image optimization should find Imgix.
 
-**Shareable content** creates demand. Spreads ideas and gets people talking.
+**Subtopics:**
+- WebP/AVIF format selection and browser negotiation
+- Responsive images (srcset, sizes, art direction)
+- Lazy loading and performance budgets
+- Image compression best practices
+- Core Web Vitals and LCP optimization
+- Image CDN architecture and edge delivery
 
-### When Writing Searchable Content
+**Buyer stage mapping:**
+- Awareness: "What is image optimization and why does it matter?"
+- Consideration: "Best image CDN comparison 2026"
+- Decision: "Imgix vs Cloudinary" / "Imgix pricing breakdown"
+- Implementation: "How to set up responsive images with Imgix"
 
-- Target a specific keyword or question
-- Match search intent exactly—answer what the searcher wants
-- Use clear titles that match search queries
-- Structure with headings that mirror search patterns
-- Place keywords in title, headings, first paragraph, URL
-- Provide comprehensive coverage (don't leave questions unanswered)
-- Include data, examples, and links to authoritative sources
-- Optimize for AI/LLM discovery: clear positioning, structured content, brand consistency across the web
+### 2. Web Performance (25% of content)
 
-### When Writing Shareable Content
+Broader than just images — positions Imgix as a performance authority.
 
-- Lead with a novel insight, original data, or counterintuitive take
-- Challenge conventional wisdom with well-reasoned arguments
-- Tell stories that make people feel something
-- Create content people want to share to look smart or help others
-- Connect to current trends or emerging problems
-- Share vulnerable, honest experiences others can learn from
+**Subtopics:**
+- Core Web Vitals optimization (LCP, CLS, INP)
+- Visual media performance auditing
+- CDN architecture and edge computing
+- Mobile performance optimization
+- Ecommerce site speed impact on conversion
 
----
+### 3. Developer Tutorials (20% of content)
 
-## Content Types
+Hands-on content that shows Imgix working with the developer's existing stack.
 
-### Searchable Content Types
+**Subtopics:**
+- Framework integrations (React, Next.js, Vue, Nuxt, Rails, Django)
+- CMS integrations (WordPress, Contentful, Sanity, Shopify)
+- SDK guides and code walkthroughs
+- Migration guides (from Cloudinary, self-hosted, etc.)
+- API reference and advanced URL parameter tutorials
 
-**Use-Case Content**
-Formula: [persona] + [use-case]. Targets long-tail keywords.
-- "Project management for designers"
-- "Task tracking for developers"
-- "Client collaboration for freelancers"
+### 4. Visual Media Trends (10% of content)
 
-**Hub and Spoke**
-Hub = comprehensive overview. Spokes = related subtopics.
-```
-/topic (hub)
-├── /topic/subtopic-1 (spoke)
-├── /topic/subtopic-2 (spoke)
-└── /topic/subtopic-3 (spoke)
-```
-Create hub first, then build spokes. Interlink strategically.
+Thought leadership that keeps Imgix visible in broader conversations.
 
-**Note:** Most content works fine under `/blog`. Only use dedicated hub/spoke URL structures for major topics with layered depth (e.g., Atlassian's `/agile` guide). For typical blog posts, `/blog/post-title` is sufficient.
+**Subtopics:**
+- AI-generated images and processing
+- Video optimization trends
+- New image formats and browser support
+- Media delivery architecture patterns
+- Customer stories and case study highlights
 
-**Template Libraries**
-High-intent keywords + product adoption.
-- Target searches like "marketing plan template"
-- Provide immediate standalone value
-- Show how product enhances the template
+### 5. Company & Product (5% of content)
 
-### Shareable Content Types
+Minimal but necessary — product updates and company news.
 
-**Thought Leadership**
-- Articulate concepts everyone feels but hasn't named
-- Challenge conventional wisdom with evidence
-- Share vulnerable, honest experiences
-
-**Data-Driven Content**
-- Product data analysis (anonymized insights)
-- Public data analysis (uncover patterns)
-- Original research (run experiments, share results)
-
-**Expert Roundups**
-15-30 experts answering one specific question. Built-in distribution.
-
-**Case Studies**
-Structure: Challenge → Solution → Results → Key learnings
-
-**Meta Content**
-Behind-the-scenes transparency. "How We Got Our First $5k MRR," "Why We Chose Debt Over VC."
-
-For programmatic content at scale, see **programmatic-seo** skill.
+**Subtopics:**
+- Feature launches and changelogs
+- Engineering blog posts (how Imgix works under the hood)
+- Customer case studies
+- Industry awards or recognition
 
 ---
 
-## Content Pillars and Topic Clusters
+## Content Types for Imgix's Developer Audience
 
-Content pillars are the 3-5 core topics your brand will own. Each pillar spawns a cluster of related content.
+### Searchable Content (60% of output)
 
-Most of the time, all content can live under `/blog` with good internal linking between related posts. Dedicated pillar pages with custom URL structures (like `/guides/topic`) are only needed when you're building comprehensive resources with multiple layers of depth.
+**Technical tutorials**
+- "How to implement responsive images with Imgix and Next.js"
+- "Migrating from Cloudinary to Imgix: a step-by-step guide"
+- "Setting up automatic WebP/AVIF delivery with one URL parameter"
 
-### How to Identify Pillars
+**Comparison and evaluation content**
+- "Imgix vs Cloudinary: a developer's honest comparison"
+- "Best image CDNs for ecommerce in 2026"
+- "Self-hosted image optimization vs managed service: total cost analysis"
 
-1. **Product-led**: What problems does your product solve?
-2. **Audience-led**: What does your ICP need to learn?
-3. **Search-led**: What topics have volume in your space?
-4. **Competitor-led**: What are competitors ranking for?
+**Hub and spoke guides**
+- Hub: "The complete guide to image optimization"
+- Spokes: Format selection, responsive images, lazy loading, CDN delivery, compression
 
-### Pillar Structure
+### Shareable Content (30% of output)
 
-```
-Pillar Topic (Hub)
-├── Subtopic Cluster 1
-│   ├── Article A
-│   ├── Article B
-│   └── Article C
-├── Subtopic Cluster 2
-│   ├── Article D
-│   ├── Article E
-│   └── Article F
-└── Subtopic Cluster 3
-    ├── Article G
-    ├── Article H
-    └── Article I
-```
+**Data-driven insights**
+- "We analyzed 8 billion images: here's what the best sites do differently"
+- "The real cost of unoptimized images (with data from 1,000 sites)"
+- Benchmark reports on Core Web Vitals across industries
 
-### Pillar Criteria
+**Engineering deep-dives**
+- "How Imgix processes 8 billion images daily"
+- "Building a real-time image transformation pipeline"
+- "Why we chose URL-based transformations over an API"
 
-Good pillars should:
-- Align with your product/service
-- Match what your audience cares about
-- Have search volume and/or social interest
-- Be broad enough for many subtopics
+**Contrarian takes**
+- "You probably don't need a build-time image pipeline"
+- "Image optimization is not an afterthought — it's architecture"
 
----
+### Conversion Content (10% of output)
 
-## Keyword Research by Buyer Stage
+**Case studies**
+- Priority customers: Porsche, Unsplash, Skims, Nikkei, Ikyu
+- Structure: Challenge → Solution (with code) → Results (with metrics)
+- Each case study should include a "try it yourself" section
 
-Map topics to the buyer's journey using proven keyword modifiers:
-
-### Awareness Stage
-Modifiers: "what is," "how to," "guide to," "introduction to"
-
-Example: If customers ask about project management basics:
-- "What is Agile Project Management"
-- "Guide to Sprint Planning"
-- "How to Run a Standup Meeting"
-
-### Consideration Stage
-Modifiers: "best," "top," "vs," "alternatives," "comparison"
-
-Example: If customers evaluate multiple tools:
-- "Best Project Management Tools for Remote Teams"
-- "Asana vs Trello vs Monday"
-- "Basecamp Alternatives"
-
-### Decision Stage
-Modifiers: "pricing," "reviews," "demo," "trial," "buy"
-
-Example: If pricing comes up in sales calls:
-- "Project Management Tool Pricing Comparison"
-- "How to Choose the Right Plan"
-- "[Product] Reviews"
-
-### Implementation Stage
-Modifiers: "templates," "examples," "tutorial," "how to use," "setup"
-
-Example: If support tickets show implementation struggles:
-- "Project Template Library"
-- "Step-by-Step Setup Tutorial"
-- "How to Use [Feature]"
+**Product pages with technical depth**
+- Feature pages that read like documentation
+- Solution pages by use case (ecommerce, media, real estate)
+- Integration pages by framework/CMS
 
 ---
 
-## Content Ideation Sources
+## Content Ideation Sources for Imgix
 
-### 1. Keyword Data
+### 1. Developer Community Research
 
-If user provides keyword exports (Ahrefs, SEMrush, GSC), analyze for:
-- Topic clusters (group related keywords)
-- Buyer stage (awareness/consideration/decision/implementation)
-- Search intent (informational, commercial, transactional)
-- Quick wins (low competition + decent volume + high relevance)
-- Content gaps (keywords competitors rank for that you don't)
+| Source | What to Look For |
+|--------|-----------------|
+| Stack Overflow | Image optimization questions, Imgix mentions, competitor mentions |
+| Reddit (r/webdev, r/nextjs) | Image performance discussions, tool recommendations |
+| Hacker News | Performance articles, CDN discussions, developer tool evaluations |
+| GitHub Issues | SDK questions, integration challenges, feature requests |
+| Dev.to / Hashnode | Developer blog posts about image optimization |
 
-Output as prioritized table:
-| Keyword | Volume | Difficulty | Buyer Stage | Content Type | Priority |
+### 2. Gong Call Analysis
 
-### 2. Call Transcripts
+Extract from sales and support calls:
+- Questions developers ask before signing up
+- Objections about switching from competitors
+- Use cases that aren't well-documented
+- Language developers use to describe their image challenges
 
-If user provides sales or customer call transcripts, extract:
-- Questions asked → FAQ content or blog posts
-- Pain points → problems in their own words
-- Objections → content to address proactively
-- Language patterns → exact phrases to use (voice of customer)
-- Competitor mentions → what they compared you to
+### 3. Search Data
 
-Output content ideas with supporting quotes.
+- Google Search Console: Queries where Imgix appears but doesn't rank well
+- Ahrefs/SEMrush: Competitor content gaps
+- "People also ask" for image optimization queries
+- Related searches and long-tail variations
 
-### 3. Survey Responses
+### 4. Support and Community
 
-If user provides survey data, mine for:
-- Open-ended responses (topics and language)
-- Common themes (30%+ mention = high priority)
-- Resource requests (what they wish existed)
-- Content preferences (formats they want)
+- Support tickets: Recurring questions → tutorial content
+- Community discussions: Topics that generate debate
+- Feature requests: Content explaining current capabilities
 
-### 4. Forum Research
+---
 
-Use web search to find content ideas:
+## Content Calendar for Imgix
 
-**Reddit:** `site:reddit.com [topic]`
-- Top posts in relevant subreddits
-- Questions and frustrations in comments
-- Upvoted answers (validates what resonates)
+### Weekly Cadence (Realistic for Small Team)
 
-**Quora:** `site:quora.com [topic]`
-- Most-followed questions
-- Highly upvoted answers
+| Day | Content Type |
+|-----|-------------|
+| Tuesday | Blog post (searchable or shareable) |
+| Thursday | Social distribution of blog + one standalone social post |
 
-**Other:** Indie Hackers, Hacker News, Product Hunt, industry Slack/Discord
+### Monthly Cadence
 
-Extract: FAQs, misconceptions, debates, problems being solved, terminology used.
+- 4 blog posts (2 searchable, 1 shareable, 1 tutorial)
+- 1 case study or customer spotlight
+- 8-12 social posts (LinkedIn primary, Twitter/X secondary)
+- 1 email newsletter to developer list
 
-### 5. Competitor Analysis
+### Quarterly Cadence
 
-Use web search to analyze competitor content:
-
-**Find their content:** `site:competitor.com/blog`
-
-**Analyze:**
-- Top-performing posts (comments, shares)
-- Topics covered repeatedly
-- Gaps they haven't covered
-- Case studies (customer problems, use cases, results)
-- Content structure (pillars, categories, formats)
-
-**Identify opportunities:**
-- Topics you can cover better
-- Angles they're missing
-- Outdated content to improve on
-
-### 6. Sales and Support Input
-
-Extract from customer-facing teams:
-- Common objections
-- Repeated questions
-- Support ticket patterns
-- Success stories
-- Feature requests and underlying problems
+- 1 benchmark report or data study
+- 1 comprehensive guide (hub content)
+- Content audit and refresh of top-performing posts
+- Review content → signup attribution in PostHog
 
 ---
 
 ## Prioritizing Content Ideas
 
-Score each idea on four factors:
+Score each idea using Imgix-weighted criteria:
 
-### 1. Customer Impact (40%)
-- How frequently did this topic come up in research?
-- What percentage of customers face this challenge?
-- How emotionally charged was this pain point?
-- What's the potential LTV of customers with this need?
-
-### 2. Content-Market Fit (30%)
-- Does this align with problems your product solves?
-- Can you offer unique insights from customer research?
-- Do you have customer stories to support this?
-- Will this naturally lead to product interest?
-
-### 3. Search Potential (20%)
-- What's the monthly search volume?
-- How competitive is this topic?
-- Are there related long-tail opportunities?
-- Is search interest growing or declining?
-
-### 4. Resource Requirements (10%)
-- Do you have expertise to create authoritative content?
-- What additional research is needed?
-- What assets (graphics, data, examples) will you need?
-
-### Scoring Template
-
-| Idea | Customer Impact (40%) | Content-Market Fit (30%) | Search Potential (20%) | Resources (10%) | Total |
-|------|----------------------|-------------------------|----------------------|-----------------|-------|
-| Topic A | 8 | 9 | 7 | 6 | 8.0 |
-| Topic B | 6 | 7 | 9 | 8 | 7.1 |
+| Factor | Weight | Question |
+|--------|:------:|---------|
+| Developer impact | 35% | Will developers find this useful and share it? |
+| Signup potential | 25% | Does this naturally lead to an Imgix signup? |
+| Search volume | 20% | Is there search demand for this topic? |
+| AEO potential | 10% | Will AI engines cite this? (unique data, authoritative source) |
+| Production effort | 10% | Can we create this with current resources? |
 
 ---
 
-## Output Format
+## Content and AEO
 
-When creating a content strategy, provide:
+Third-party mentions of Imgix are 6.5x more likely to be cited by AI search engines than Imgix's own content. Content strategy should support both:
 
-### 1. Content Pillars
-- 3-5 pillars with rationale
-- Subtopic clusters for each pillar
-- How pillars connect to product
+**Own content:** Build authoritative, comprehensive guides that AI engines reference
+**Earned mentions:** Create content that inspires developers to blog about Imgix, answer Stack Overflow questions with Imgix examples, and include Imgix in comparison posts
 
-### 2. Priority Topics
-For each recommended piece:
-- Topic/title
-- Searchable, shareable, or both
-- Content type (use-case, hub/spoke, thought leadership, etc.)
-- Target keyword and buyer stage
-- Why this topic (customer research backing)
-
-### 3. Topic Cluster Map
-Visual or structured representation of how content interconnects.
+See **Discoverability/imgix-aeo** for the full AEO strategy.
 
 ---
 
-## Task-Specific Questions
+## Metrics
 
-1. What patterns emerge from your last 10 customer conversations?
-2. What questions keep coming up in sales calls?
-3. Where are competitors' content efforts falling short?
-4. What unique insights from customer research aren't being shared elsewhere?
-5. Which existing content drives the most conversions, and why?
+### Content Performance (PostHog + GA4)
 
----
+| Metric | Target |
+|--------|:------:|
+| Blog → signup rate | Track & improve |
+| Organic traffic growth (monthly) | 10%+ MoM |
+| Content-attributed signups | Track & improve |
+| Average time on page (tutorials) | >3 minutes |
+| Content shares/backlinks | Track & improve |
 
-## References
+### Content Health
 
-- **[Headless CMS Guide](references/headless-cms.md)**: CMS selection, content modeling for marketing, editorial workflows, platform comparison (Sanity, Contentful, Strapi)
+| Metric | Target |
+|--------|:------:|
+| Publishing cadence | 4 posts/month minimum |
+| Content freshness | Top 20 posts refreshed quarterly |
+| Topic coverage | No major gaps vs. competitors |
+| AEO citations | Track Imgix mentions in AI responses |
 
 ---
 
 ## Related Skills
 
-- **copywriting**: For writing individual content pieces
-- **seo-audit**: For technical SEO and on-page optimization
-- **ai-seo**: For optimizing content for AI search engines and getting cited by LLMs
-- **programmatic-seo**: For scaled content generation
-- **site-architecture**: For page hierarchy, navigation design, and URL structure
-- **email-sequence**: For email-based content
-- **social-content**: For social media content
+- **Content/copywriting** — Writing individual content pieces
+- **Content/copy-editing** — Editing and polishing content
+- **Content/technical-writing** — Developer docs and API guides
+- **Content/case-studies** — Customer story framework
+- **Content/social-content** — Social distribution of content
+- **Content/video-content** — Video content strategy
+- **Discoverability/content-gaps** — Finding content opportunities vs. competitors
+- **Discoverability/content-refresh** — Keeping existing content current
+- **Discoverability/imgix-aeo** — AI engine optimization for content
+- **imgix-brand-voice** (global) — All content follows brand guidelines

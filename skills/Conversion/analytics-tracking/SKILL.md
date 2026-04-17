@@ -1,309 +1,299 @@
 ---
 name: analytics-tracking
-description: When the user wants to set up, improve, or audit analytics tracking and measurement. Also use when the user mentions "set up tracking," "GA4," "Google Analytics," "conversion tracking," "event tracking," "UTM parameters," "tag manager," "GTM," "analytics implementation," "tracking plan," "how do I measure this," "track conversions," "attribution," "Mixpanel," "Segment," "are my events firing," or "analytics isn't working." Use this whenever someone asks how to know if something is working or wants to measure marketing results. For A/B test measurement, see ab-test-setup.
+description: |
+  Set up, improve, or audit analytics tracking for Imgix across PostHog (product analytics), GA4 (marketing site), HubSpot (lifecycle), and Stripe (revenue). Use when implementing event tracking, building dashboards, setting up conversion funnels, configuring UTM parameters, or debugging tracking issues. Also use when the user mentions "tracking," "PostHog," "GA4," "events," "conversion tracking," "UTM," "attribution," "analytics implementation," "tracking plan," or "are my events firing."
 metadata:
-  version: 1.1.0
+  version: 2.0.0
 ---
 
-# Analytics Tracking
+# Analytics Tracking for Imgix
 
-You are an expert in analytics implementation and measurement. Your goal is to help set up tracking that provides actionable insights for marketing and product decisions.
+You are an expert in analytics implementation for developer-focused PLG products. Your goal is to set up tracking that provides actionable insights across Imgix's full funnel, from first website visit through activation, expansion, and retention.
 
-## Initial Assessment
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **Motion:** PLG — self-serve signup, usage-based pricing
+- **Marketing site:** Webflow (GA4 + PostHog tracking)
+- **Product analytics:** PostHog (primary — events, funnels, cohorts, session replay, feature flags)
+- **Web analytics:** GA4 (marketing site traffic, SEO performance, campaign attribution)
+- **CRM/Lifecycle:** HubSpot (lifecycle stages, email engagement, lead scoring)
+- **Revenue:** Stripe (usage, MRR, churn, expansion)
+- **Key activation metric:** First image served through Imgix CDN with a transformation applied
 
-Before implementing tracking, understand:
+## Connected Tools
 
-1. **Business Context** - What decisions will this data inform? What are key conversions?
-2. **Current State** - What tracking exists? What tools are in use?
-3. **Technical Context** - What's the tech stack? Any privacy/compliance requirements?
-
----
-
-## Core Principles
-
-### 1. Track for Decisions, Not Data
-- Every event should inform a decision
-- Avoid vanity metrics
-- Quality > quantity of events
-
-### 2. Start with the Questions
-- What do you need to know?
-- What actions will you take based on this data?
-- Work backwards to what you need to track
-
-### 3. Name Things Consistently
-- Naming conventions matter
-- Establish patterns before implementing
-- Document everything
-
-### 4. Maintain Data Quality
-- Validate implementation
-- Monitor for issues
-- Clean data > more data
+- **PostHog MCP** — Query events, create insights, build funnels, analyze cohorts
+- **HubSpot MCP** — Lifecycle stage tracking, email metrics, contact properties
+- **Jira MCP** — Track analytics implementation tasks (MKTG project)
+- **Slack MCP** — Alert on tracking issues or metric anomalies
 
 ---
 
-## Tracking Plan Framework
+## Imgix Analytics Stack
 
-### Structure
+### Tool Responsibilities
+
+| Tool | What It Tracks | Key Events |
+|------|---------------|------------|
+| **PostHog** | Product behavior, experiments, funnels | Signup, source connected, first transform, feature usage |
+| **GA4** | Marketing site traffic, campaigns, SEO | Page views, CTA clicks, form submissions, traffic sources |
+| **HubSpot** | Lifecycle stages, email engagement | MQL, SQL, lifecycle transitions, email opens/clicks |
+| **Stripe** | Revenue, usage, billing | Payment, plan change, usage milestones, churn |
+
+### Data Flow
 
 ```
-Event Name | Category | Properties | Trigger | Notes
----------- | -------- | ---------- | ------- | -----
+GA4 (marketing site) → PostHog (product) → HubSpot (lifecycle) → Stripe (revenue)
+         |                    |                    |                    |
+    Traffic source      Activation          Lead stage           Revenue
+    Campaign attr.      Feature usage       Email engage.        Expansion
+    SEO performance     Experiments         Contact props        Churn
 ```
 
-### Event Types
+---
 
-| Type | Examples |
-|------|----------|
-| Pageviews | Automatic, enhanced with metadata |
-| User Actions | Button clicks, form submissions, feature usage |
-| System Events | Signup completed, purchase, subscription changed |
-| Custom Conversions | Goal completions, funnel stages |
+## Imgix Tracking Plan
 
-**For comprehensive event lists**: See [references/event-library.md](references/event-library.md)
+### Marketing Site Events (GA4 + PostHog)
+
+| Event | Properties | Trigger |
+|-------|-----------|---------|
+| `page_view` | page_title, page_path, referrer | Automatic (GA4 enhanced) |
+| `cta_clicked` | button_text, location, page_path | Any CTA click |
+| `pricing_page_viewed` | referrer, utm_source | Pricing page load |
+| `plan_compared` | plans_viewed | Pricing toggle/tab interaction |
+| `signup_started` | source_page, utm_source, utm_medium | Signup form focus |
+| `signup_completed` | method (email/google/github), utm_source | Account created |
+| `demo_requested` | company_size, use_case | Demo form submitted |
+| `docs_clicked` | doc_section, source_page | Link to docs |
+| `content_downloaded` | asset_name, asset_type | Gated content download |
+
+### Product Events (PostHog)
+
+| Event | Properties | Trigger |
+|-------|-----------|---------|
+| `source_connected` | source_type (S3/GCS/Azure), time_since_signup | Storage source added |
+| `source_configured` | source_name, subdomain | Source settings saved |
+| `first_image_served` | source_type, time_since_signup | First CDN request |
+| `first_transform_applied` | transform_type (resize/crop/format/etc), time_since_signup | First URL parameter used |
+| `transform_used` | transform_type, count | Any transformation |
+| `api_call_made` | endpoint, sdk_language | API request |
+| `dashboard_login` | login_method | Dashboard access |
+| `billing_page_viewed` | current_plan, usage_percent | Billing page visit |
+| `plan_upgraded` | from_plan, to_plan, trigger | Plan change |
+| `plan_downgraded` | from_plan, to_plan, reason | Plan change |
+| `team_member_invited` | role, count | Team invite sent |
+| `source_deleted` | source_type, images_count | Source removed (churn signal) |
+
+### Lifecycle Events (HubSpot)
+
+| Event | Properties | Trigger |
+|-------|-----------|---------|
+| `lifecycle_stage_changed` | from_stage, to_stage | Automated workflow |
+| `email_opened` | email_name, sequence_name | HubSpot tracking |
+| `email_clicked` | email_name, cta_text, link_url | HubSpot tracking |
+| `meeting_booked` | meeting_type, rep | Calendar booking |
+
+### Revenue Events (Stripe)
+
+| Event | Properties | Trigger |
+|-------|-----------|---------|
+| `payment_succeeded` | amount, plan, payment_method | Stripe webhook |
+| `payment_failed` | amount, failure_reason | Stripe webhook |
+| `subscription_created` | plan, billing_cycle, trial | Stripe webhook |
+| `subscription_cancelled` | plan, cancel_reason, tenure | Stripe webhook |
+| `usage_milestone` | milestone (10K/100K/1M images), current_plan | Usage threshold |
 
 ---
 
 ## Event Naming Conventions
 
-### Recommended Format: Object-Action
+### Imgix Standard
 
 ```
-signup_completed
-button_clicked
-form_submitted
-article_read
-checkout_payment_completed
+object_action
 ```
 
-### Best Practices
 - Lowercase with underscores
-- Be specific: `cta_hero_clicked` vs. `button_clicked`
+- Object first, then action: `source_connected`, `plan_upgraded`
+- Be specific: `cta_hero_clicked` not `button_clicked`
 - Include context in properties, not event name
-- Avoid spaces and special characters
-- Document decisions
+
+### Property Naming
+
+- `snake_case` for all properties
+- Prefix with category when helpful: `utm_source`, `plan_type`
+- Use consistent values: `source_type` always uses `s3`, `gcs`, `azure` (not mixed casing)
+- Never include PII in event properties (no email addresses in PostHog events)
 
 ---
 
-## Essential Events
+## Key Funnels to Build in PostHog
 
-### Marketing Site
+### 1. Visitor → Activated User
 
-| Event | Properties |
-|-------|------------|
-| cta_clicked | button_text, location |
-| form_submitted | form_type |
-| signup_completed | method, source |
-| demo_requested | - |
-
-### Product/App
-
-| Event | Properties |
-|-------|------------|
-| onboarding_step_completed | step_number, step_name |
-| feature_used | feature_name |
-| purchase_completed | plan, value |
-| subscription_cancelled | reason |
-
-**For full event library by business type**: See [references/event-library.md](references/event-library.md)
-
----
-
-## Event Properties
-
-### Standard Properties
-
-| Category | Properties |
-|----------|------------|
-| Page | page_title, page_location, page_referrer |
-| User | user_id, user_type, account_id, plan_type |
-| Campaign | source, medium, campaign, content, term |
-| Product | product_id, product_name, category, price |
-
-### Best Practices
-- Use consistent property names
-- Include relevant context
-- Don't duplicate automatic properties
-- Avoid PII in properties
-
----
-
-## GA4 Implementation
-
-### Quick Setup
-
-1. Create GA4 property and data stream
-2. Install gtag.js or GTM
-3. Enable enhanced measurement
-4. Configure custom events
-5. Mark conversions in Admin
-
-### Custom Event Example
-
-```javascript
-gtag('event', 'signup_completed', {
-  'method': 'email',
-  'plan': 'free'
-});
+```
+page_view (imgix.com) → signup_completed → source_connected → first_image_served → first_transform_applied
 ```
 
-**For detailed GA4 implementation**: See [references/ga4-implementation.md](references/ga4-implementation.md)
+### 2. Free → Paid
 
----
-
-## Google Tag Manager
-
-### Container Structure
-
-| Component | Purpose |
-|-----------|---------|
-| Tags | Code that executes (GA4, pixels) |
-| Triggers | When tags fire (page view, click) |
-| Variables | Dynamic values (click text, data layer) |
-
-### Data Layer Pattern
-
-```javascript
-dataLayer.push({
-  'event': 'form_submitted',
-  'form_name': 'contact',
-  'form_location': 'footer'
-});
+```
+signup_completed → activation (first_transform) → usage_milestone_10K → billing_page_viewed → plan_upgraded
 ```
 
-**For detailed GTM implementation**: See [references/gtm-implementation.md](references/gtm-implementation.md)
+### 3. Onboarding Completion
+
+```
+signup_completed → dashboard_login → source_connected → source_configured → first_image_served
+```
+
+### 4. Expansion Path
+
+```
+usage_milestone_100K → billing_page_viewed → plan_upgraded
+```
 
 ---
 
-## UTM Parameter Strategy
+## UTM Parameter Strategy for Imgix
 
 ### Standard Parameters
 
-| Parameter | Purpose | Example |
-|-----------|---------|---------|
-| utm_source | Traffic source | google, newsletter |
-| utm_medium | Marketing medium | cpc, email, social |
-| utm_campaign | Campaign name | spring_sale |
-| utm_content | Differentiate versions | hero_cta |
-| utm_term | Paid search keywords | running+shoes |
+| Parameter | Convention | Examples |
+|-----------|-----------|---------|
+| `utm_source` | Platform name | `google`, `linkedin`, `newsletter`, `stackoverflow` |
+| `utm_medium` | Channel type | `cpc`, `email`, `social`, `referral`, `organic` |
+| `utm_campaign` | Campaign name | `image_optimization_guide`, `webp_launch`, `q2_retargeting` |
+| `utm_content` | Variant/placement | `hero_cta`, `sidebar_banner`, `footer_link` |
+| `utm_term` | Paid keyword | `image_cdn`, `image_optimization_api` |
 
-### Naming Conventions
-- Lowercase everything
-- Use underscores or hyphens consistently
-- Be specific but concise: `blog_footer_cta`, not `cta1`
-- Document all UTMs in a spreadsheet
+### Imgix UTM Rules
+
+- Always lowercase, underscores not hyphens
+- Document all UTMs in a shared sheet (HubSpot or Google Sheets)
+- Include UTMs on all external links: blog distribution, email CTAs, social posts, paid ads
+- PostHog captures UTMs automatically on first pageview — use for cohort analysis
+
+---
+
+## PostHog Configuration
+
+### Custom Properties to Set
+
+| Property | Scope | Value |
+|----------|-------|-------|
+| `plan_type` | Person | free, starter, growth, enterprise |
+| `signup_source` | Person | organic, paid, referral, direct |
+| `activation_status` | Person | signed_up, source_connected, activated, power_user |
+| `company_size` | Person | From signup or enrichment |
+| `industry` | Person | From signup or enrichment |
+
+### Cohorts to Create
+
+| Cohort | Definition |
+|--------|-----------|
+| Activated users | `first_transform_applied` in last 90 days |
+| At-risk accounts | API calls dropped 50%+ week-over-week |
+| Power users | 10+ unique transforms used |
+| Expansion candidates | Usage > 80% of plan limit |
+| Stalled signups | Signed up > 7 days ago, no `source_connected` |
+
+### Dashboards to Build
+
+1. **PLG Funnel** — Visitor → signup → activation → paid (weekly)
+2. **Feature Adoption** — Transform types used, SDK adoption, API endpoints
+3. **Churn Signals** — Usage drops, billing page visits, source deletions
+4. **Marketing Attribution** — Signups by source/medium/campaign
+5. **Experiment Results** — Running experiments, concluded experiments, cumulative lift
+
+---
+
+## GA4 Configuration for imgix.com
+
+### Custom Events (Webflow)
+
+Add to Webflow custom code section:
+
+```javascript
+// Track CTA clicks
+document.querySelectorAll('[data-track="cta"]').forEach(el => {
+  el.addEventListener('click', () => {
+    gtag('event', 'cta_clicked', {
+      'button_text': el.textContent.trim(),
+      'location': el.dataset.location || 'unknown',
+      'page_path': window.location.pathname
+    });
+  });
+});
+```
+
+### Conversions to Mark in GA4
+
+- `signup_completed`
+- `demo_requested`
+- `pricing_page_viewed`
+- `docs_clicked` (intent signal)
 
 ---
 
 ## Debugging and Validation
 
-### Testing Tools
+### PostHog
 
-| Tool | Use For |
-|------|---------|
-| GA4 DebugView | Real-time event monitoring |
-| GTM Preview Mode | Test triggers before publish |
-| Browser Extensions | Tag Assistant, dataLayer Inspector |
+- Use PostHog toolbar (browser extension) for live event inspection
+- Check Events tab for real-time event stream
+- Verify person properties are set correctly
+- Test feature flags with override URLs
+
+### GA4
+
+- GA4 DebugView for real-time monitoring
+- GTM Preview Mode if using Tag Manager
+- Check Realtime report for event confirmation
 
 ### Validation Checklist
 
-- [ ] Events firing on correct triggers
-- [ ] Property values populating correctly
-- [ ] No duplicate events
-- [ ] Works across browsers and mobile
-- [ ] Conversions recorded correctly
-- [ ] No PII leaking
-
-### Common Issues
-
-| Issue | Check |
-|-------|-------|
-| Events not firing | Trigger config, GTM loaded |
-| Wrong values | Variable path, data layer structure |
-| Duplicate events | Multiple containers, trigger firing twice |
+- [ ] PostHog events firing on correct triggers
+- [ ] Event properties populating with correct values
+- [ ] No duplicate events (check for double-firing)
+- [ ] UTM parameters captured on first touch
+- [ ] PostHog person properties updating correctly
+- [ ] GA4 conversions recording
+- [ ] HubSpot lifecycle stages transitioning
+- [ ] No PII in analytics properties
+- [ ] Works on mobile and desktop
 
 ---
 
 ## Privacy and Compliance
 
-### Considerations
-- Cookie consent required in EU/UK/CA
-- No PII in analytics properties
-- Data retention settings
-- User deletion capabilities
-
-### Implementation
-- Use consent mode (wait for consent)
-- IP anonymization
-- Only collect what you need
-- Integrate with consent management platform
+- PostHog can be configured for cookieless tracking (first-party data)
+- GA4 requires cookie consent for EU/UK visitors
+- No PII in event properties (use internal user IDs, not emails)
+- Respect DNT headers where applicable
+- Data retention: Configure in PostHog and GA4 settings
 
 ---
 
-## Output Format
+## Metrics
 
-### Tracking Plan Document
-
-```markdown
-# [Site/Product] Tracking Plan
-
-## Overview
-- Tools: GA4, GTM
-- Last updated: [Date]
-
-## Events
-
-| Event Name | Description | Properties | Trigger |
-|------------|-------------|------------|---------|
-| signup_completed | User completes signup | method, plan | Success page |
-
-## Custom Dimensions
-
-| Name | Scope | Parameter |
-|------|-------|-----------|
-| user_type | User | user_type |
-
-## Conversions
-
-| Conversion | Event | Counting |
-|------------|-------|----------|
-| Signup | signup_completed | Once per session |
-```
-
----
-
-## Task-Specific Questions
-
-1. What tools are you using (GA4, Mixpanel, etc.)?
-2. What key actions do you want to track?
-3. What decisions will this data inform?
-4. Who implements - dev team or marketing?
-5. Are there privacy/consent requirements?
-6. What's already tracked?
-
----
-
-## Tool Integrations
-
-For implementation, see the [tools registry](../../tools/REGISTRY.md). Key analytics tools:
-
-| Tool | Best For | MCP | Guide |
-|------|----------|:---:|-------|
-| **GA4** | Web analytics, Google ecosystem | ✓ | [ga4.md](../../tools/integrations/ga4.md) |
-| **Mixpanel** | Product analytics, event tracking | - | [mixpanel.md](../../tools/integrations/mixpanel.md) |
-| **Amplitude** | Product analytics, cohort analysis | - | [amplitude.md](../../tools/integrations/amplitude.md) |
-| **PostHog** | Open-source analytics, session replay | - | [posthog.md](../../tools/integrations/posthog.md) |
-| **Segment** | Customer data platform, routing | - | [segment.md](../../tools/integrations/segment.md) |
+| Metric | Where | Target |
+|--------|-------|:------:|
+| Tracking coverage | PostHog | 95%+ of key actions tracked |
+| Data freshness | PostHog | Real-time |
+| Event accuracy | All | Zero duplicate events |
+| Attribution coverage | GA4 | UTMs on 90%+ of external links |
 
 ---
 
 ## Related Skills
 
-- **ab-test-setup**: For experiment tracking
-- **seo-audit**: For organic traffic analysis
-- **page-cro**: For conversion optimization (uses this data)
-- **revops**: For pipeline metrics, CRM tracking, and revenue attribution
+- **Conversion/ab-test-setup** — PostHog experiments rely on this tracking
+- **Conversion/page-cro** — CRO analysis uses analytics data
+- **Conversion/onboarding-cro** — Activation funnel tracking
+- **Lifecycle/churn-prevention** — Churn signal detection in PostHog
+- **Lifecycle/expansion-upsell** — Usage threshold tracking
+- **Discoverability/reporting** — SEO and content performance in GA4
+- **imgix-brand-voice** (global) — Dashboard and report naming conventions

@@ -1,248 +1,302 @@
 ---
 name: product-marketing-context
-description: "When the user wants to create or update their product marketing context document. Also use when the user mentions 'product context,' 'marketing context,' 'set up context,' 'positioning,' 'who is my target audience,' 'describe my product,' 'ICP,' 'ideal customer profile,' or wants to avoid repeating foundational information across marketing tasks. Use this at the start of any new project before using other marketing skills — it creates `.agents/product-marketing-context.md` that all other skills reference for product, audience, and positioning context."
+description: |
+  Imgix's foundational product marketing context — positioning, ICP, competitive landscape, objections, customer language, and proof points. This file provides the context that all other marketing skills reference. Update when positioning changes, new competitors emerge, or customer research reveals new insights. Also use when the user mentions "product context," "marketing context," "positioning," "ICP," "ideal customer profile," or wants to review/update foundational marketing information.
 metadata:
-  version: 1.1.0
+  version: 2.0.0
 ---
 
-# Product Marketing Context
+# Product Marketing Context: Imgix
 
-You help users create and maintain a product marketing context document. This captures foundational positioning and messaging information that other marketing skills reference, so users don't repeat themselves.
+*Last updated: April 2026*
 
-The document is stored at `.agents/product-marketing-context.md`.
-
-## Workflow
-
-### Step 1: Check for Existing Context
-
-First, check if `.agents/product-marketing-context.md` already exists. Also check `.claude/product-marketing-context.md` for older setups — if found there but not in `.agents/`, offer to move it.
-
-**If it exists:**
-- Read it and summarize what's captured
-- Ask which sections they want to update
-- Only gather info for those sections
-
-**If it doesn't exist, offer two options:**
-
-1. **Auto-draft from codebase** (recommended): You'll study the repo—README, landing pages, marketing copy, package.json, etc.—and draft a V1 of the context document. The user then reviews, corrects, and fills gaps. This is faster than starting from scratch.
-
-2. **Start from scratch**: Walk through each section conversationally, gathering info one section at a time.
-
-Most users prefer option 1. After presenting the draft, ask: "What needs correcting? What's missing?"
-
-### Step 2: Gather Information
-
-**If auto-drafting:**
-1. Read the codebase: README, landing pages, marketing copy, about pages, meta descriptions, package.json, any existing docs
-2. Draft all sections based on what you find
-3. Present the draft and ask what needs correcting or is missing
-4. Iterate until the user is satisfied
-
-**If starting from scratch:**
-Walk through each section below conversationally, one at a time. Don't dump all questions at once.
-
-For each section:
-1. Briefly explain what you're capturing
-2. Ask relevant questions
-3. Confirm accuracy
-4. Move to the next
-
-Push for verbatim customer language — exact phrases are more valuable than polished descriptions because they reflect how customers actually think and speak, which makes copy more resonant.
+This is the foundational context document that all marketing skills reference. It captures Imgix's positioning, ICP, competitive landscape, and messaging so every skill has consistent context without re-gathering it each time.
 
 ---
-
-## Sections to Capture
-
-### 1. Product Overview
-- One-line description
-- What it does (2-3 sentences)
-- Product category (what "shelf" you sit on—how customers search for you)
-- Product type (SaaS, marketplace, e-commerce, service, etc.)
-- Business model and pricing
-
-### 2. Target Audience
-- Target company type (industry, size, stage)
-- Target decision-makers (roles, departments)
-- Primary use case (the main problem you solve)
-- Jobs to be done (2-3 things customers "hire" you for)
-- Specific use cases or scenarios
-
-### 3. Personas (B2B only)
-If multiple stakeholders are involved in buying, capture for each:
-- User, Champion, Decision Maker, Financial Buyer, Technical Influencer
-- What each cares about, their challenge, and the value you promise them
-
-### 4. Problems & Pain Points
-- Core challenge customers face before finding you
-- Why current solutions fall short
-- What it costs them (time, money, opportunities)
-- Emotional tension (stress, fear, doubt)
-
-### 5. Competitive Landscape
-- **Direct competitors**: Same solution, same problem (e.g., Calendly vs SavvyCal)
-- **Secondary competitors**: Different solution, same problem (e.g., Calendly vs Superhuman scheduling)
-- **Indirect competitors**: Conflicting approach (e.g., Calendly vs personal assistant)
-- How each falls short for customers
-
-### 6. Differentiation
-- Key differentiators (capabilities alternatives lack)
-- How you solve it differently
-- Why that's better (benefits)
-- Why customers choose you over alternatives
-
-### 7. Objections & Anti-Personas
-- Top 3 objections heard in sales and how to address them
-- Who is NOT a good fit (anti-persona)
-
-### 8. Switching Dynamics
-The JTBD Four Forces:
-- **Push**: What frustrations drive them away from current solution
-- **Pull**: What attracts them to you
-- **Habit**: What keeps them stuck with current approach
-- **Anxiety**: What worries them about switching
-
-### 9. Customer Language
-- How customers describe the problem (verbatim)
-- How they describe your solution (verbatim)
-- Words/phrases to use
-- Words/phrases to avoid
-- Glossary of product-specific terms
-
-### 10. Brand Voice
-- Tone (professional, casual, playful, etc.)
-- Communication style (direct, conversational, technical)
-- Brand personality (3-5 adjectives)
-
-### 11. Proof Points
-- Key metrics or results to cite
-- Notable customers/logos
-- Testimonial snippets
-- Main value themes and supporting evidence
-
-### 12. Goals
-- Primary business goal
-- Key conversion action (what you want people to do)
-- Current metrics (if known)
-
----
-
-## Step 3: Create the Document
-
-After gathering information, create `.agents/product-marketing-context.md` with this structure:
-
-```markdown
-# Product Marketing Context
-
-*Last updated: [date]*
 
 ## Product Overview
-**One-liner:**
-**What it does:**
-**Product category:**
-**Product type:**
-**Business model:**
+
+**One-liner:** Imgix is the visual media platform for real-time image and video processing and CDN delivery.
+
+**What it does:** Imgix connects to your existing image storage (S3, GCS, Azure), processes images in real time via URL-based parameters, and delivers them from 96 global PoPs. No build step, no pre-generation, no vendor lock-in on storage.
+
+**Product category:** Image CDN / Image Optimization Platform / Visual Media Platform
+
+**Product type:** B2B SaaS (developer tool)
+
+**Business model:** Usage-based pricing (images processed). Free tier available. Growth and Enterprise plans for higher volume and features.
+
+---
 
 ## Target Audience
+
 **Target companies:**
+- 100-5,000+ employees
+- High image/video volume (ecommerce, media/publishing, real estate, travel, UGC platforms)
+- Series B+ or established
+- Tech stack includes cloud storage (AWS S3, GCS, Azure)
+
 **Decision-makers:**
-**Primary use case:**
+- Primary: Senior Software Engineer, Staff Engineer, Frontend Lead (evaluator/champion)
+- Secondary: Engineering Manager, VP Engineering (budget approval)
+- Tertiary: CTO (final sign-off for enterprise)
+
+**Primary use case:** Serve optimized, transformed images at scale without building or maintaining an image processing pipeline.
+
 **Jobs to be done:**
--
-**Use cases:**
--
+- Serve images in the right format and size for every device and browser automatically
+- Resize, crop, and transform images on-the-fly without pre-generating variants
+- Reduce bandwidth costs and improve page load times
+- Eliminate maintenance burden of self-hosted image processing infrastructure
+
+**Industries:**
+- Ecommerce (product images, user-generated reviews)
+- Media and publishing (editorial images, responsive delivery)
+- Real estate (listing photos, virtual tours)
+- Automotive (inventory images, 360-degree views)
+- Travel and hospitality (property images, destination content)
+- User-generated content platforms (profile photos, uploads)
+
+---
 
 ## Personas
-| Persona | Cares about | Challenge | Value we promise |
-|---------|-------------|-----------|------------------|
-| | | | |
 
-## Problems & Pain Points
-**Core problem:**
-**Why alternatives fall short:**
--
+| Persona | Role | Cares About | Key Challenge | Value We Promise |
+|---------|------|------------|---------------|-----------------|
+| Developer Champion | Sr. Engineer, Frontend Lead | API simplicity, integration speed, performance | Spending time on image pipeline instead of product features | "Add URL parameters and you're done. Zero infrastructure to maintain." |
+| Engineering Manager | EM, VP Engineering | TCO, team velocity, reliability | Image infra costs growing, team stretched thin on maintenance | "Reduce image costs by 30-50% and free your team to build product." |
+| CTO / Decision Maker | CTO, VP Eng | Scale, security, vendor lock-in | Enterprise requirements (SSO, SLA) + needs proof at scale | "8B+ images/day. Porsche, Unsplash, Skims trust Imgix in production. BYOS means no lock-in." |
+
+---
+
+## Problems and Pain Points
+
+**Core problem:** Images are the #1 cause of poor web performance, but building and maintaining an image processing pipeline is expensive, fragile, and not a core competency.
+
+**Why current solutions fall short:**
+- Self-hosted (ImageMagick/Sharp): Maintenance burden, scaling challenges, no edge delivery
+- Cloudinary: Complex credit-based pricing, vendor lock-in on storage, overwhelming API surface
+- Cloudflare Images: Limited transformation capabilities, no BYOS
+- Doing nothing: Slow pages, wasted bandwidth, poor Core Web Vitals
+
 **What it costs them:**
+- Developer time maintaining image pipelines (often 1-2 engineers part-time)
+- Infrastructure costs for processing + storage + delivery
+- Conversion loss from slow page loads (every second of delay reduces conversions ~10%)
+- Failed performance audits and poor Core Web Vitals scores
+
 **Emotional tension:**
+- Frustration: "I'm writing image processing code instead of building features"
+- Anxiety: "What happens if our image pipeline goes down during a traffic spike?"
+- Relief (after switching): "It just works. I add a URL parameter and move on."
+
+---
 
 ## Competitive Landscape
-**Direct:** [Competitor] — falls short because...
-**Secondary:** [Approach] — falls short because...
-**Indirect:** [Alternative] — falls short because...
+
+### Direct Competitors
+
+**Cloudinary (Primary)**
+- Largest competitor. Most feature-rich. Dominant in search and marketing presence.
+- Falls short: Complex credit-based pricing (confusing and expensive at scale), vendor lock-in on storage (must upload to their system), overwhelming API surface for simple use cases
+- Imgix wins on: URL simplicity, BYOS, developer experience, predictable pricing
+
+**ImageKit**
+- Growing competitor. Similar URL-based approach. Competitive pricing.
+- Falls short: Not proven at enterprise scale, limited enterprise customer base
+- Imgix wins on: Scale (8B+ images/day), 96 PoPs, enterprise maturity, reliability track record
+
+### Adjacent Competitors
+
+**Cloudflare Images**
+- Bundled with Cloudflare CDN. Simple feature set.
+- Falls short: Very limited transformation capabilities, no BYOS, image hosting only (not processing)
+- Imgix wins on: Transformation depth, BYOS, dedicated platform vs. bundled feature
+
+**BunnyCDN**
+- Budget CDN with image optimization features.
+- Falls short: Limited advanced features, trailing on format support
+- Imgix wins on: Feature depth, enterprise reliability, AI transforms
+
+### Self-Hosted (ImageMagick, Sharp, Thumbor)
+
+Many potential Imgix customers process images themselves.
+- Falls short: Maintenance burden, no edge delivery, scaling challenges, no real-time transforms
+- Imgix wins on: Zero maintenance, real-time processing, 96 PoPs, URL-based simplicity
+
+---
 
 ## Differentiation
+
 **Key differentiators:**
--
-**How we do it differently:**
-**Why that's better:**
-**Why customers choose us:**
+1. **URL-based transforms:** One URL does everything — resize, crop, format, quality. No complex API calls, no SDK required for basic usage.
+2. **BYOS (Bring Your Own Storage):** Connect S3, GCS, or Azure. Images stay in your infrastructure. No vendor lock-in on asset storage.
+3. **Real-time processing:** No pre-generation or batch jobs. Change a URL parameter, get a different output instantly.
+4. **Scale and reliability:** 8B+ images processed daily. 96 global PoPs. 99.99%+ uptime.
+5. **Developer experience:** Clean API surface, comprehensive SDKs, excellent documentation.
+
+**Why customers choose Imgix over alternatives:**
+- Simpler than Cloudinary (cleaner API, predictable pricing, no credit confusion)
+- More capable than Cloudflare Images (deeper transformations, BYOS, AI features)
+- More reliable than ImageKit (proven at massive scale)
+- Less work than self-hosted (zero maintenance, edge delivery included)
+
+---
 
 ## Objections
-| Objection | Response |
-|-----------|----------|
-| | |
 
-**Anti-persona:**
+| Objection | Response | Evidence |
+|-----------|----------|---------|
+| "Too expensive" | Compare full TCO: developer time + infrastructure + bandwidth. Imgix typically saves 30-50% on total image delivery costs. | Customer case studies with cost comparisons |
+| "Cloudinary is cheaper" | Compare apples-to-apples on credits. Factor in storage lock-in costs and credit system complexity overhead. | Direct pricing comparison at their volume |
+| "We can build it ourselves" | Calculate: engineer salary × hours/month on pipeline maintenance + infra costs + opportunity cost of not building product features | TCO calculator |
+| "Will it scale?" | 8B+ images/day. Porsche, Unsplash, Skims run in production. | Customer logos + uptime data |
+| "Vendor lock-in concern" | BYOS = your images never leave your storage. If you leave Imgix, your assets are exactly where they started. | Architecture diagram |
+| "What about video?" | Video processing is available and growing. For image-heavy use cases, Imgix is the right tool. | Be honest about video maturity vs. Cloudinary |
 
-## Switching Dynamics
-**Push:**
-**Pull:**
-**Habit:**
-**Anxiety:**
+**Anti-persona (who is NOT a good fit):**
+- Hobbyists or personal projects with <1K images/month (free tools are fine)
+- Teams that need extensive video-first capabilities (Cloudinary or Mux may be better today)
+- Organizations that can't use cloud storage (fully on-premise environments)
+
+---
+
+## Switching Dynamics (Four Forces)
+
+**Push (away from current solution):**
+- Performance audit reveals images are the LCP bottleneck
+- Image pipeline maintenance is consuming engineering time
+- Current solution pricing becomes unpredictable at scale
+- Self-hosted solution fails during traffic spikes
+
+**Pull (toward Imgix):**
+- URL-based simplicity ("just add parameters")
+- BYOS eliminates migration anxiety
+- Free tier allows risk-free evaluation
+- Customer proof points at massive scale
+
+**Habit (keeping them stuck):**
+- Existing image URLs hardcoded across the codebase
+- Team familiarity with current tool
+- "It works well enough" inertia
+- Contracts and committed spend with current vendor
+
+**Anxiety (about switching):**
+- "What if something breaks during migration?"
+- "How long will the migration take?"
+- "Will my team need to learn a new system?"
+- "What happens to our images if Imgix has an outage?"
+
+---
 
 ## Customer Language
+
 **How they describe the problem:**
-- "[verbatim]"
-**How they describe us:**
-- "[verbatim]"
-**Words to use:**
-**Words to avoid:**
+- "Our images are massive and killing our page speed"
+- "LCP is always images and I don't have time to optimize each one"
+- "I'm spending more time on the image pipeline than on actual product features"
+- "Our Cloudinary bill keeps going up and I can't figure out the credit system"
+
+**How they describe Imgix:**
+- "It just works — add URL parameters and you're done"
+- "The URL-based API is genius"
+- "I love that my images stay in S3"
+- "We set it up in an afternoon and never think about it"
+
+**Words to use:** URL-based, real-time, transforms, processing, delivery, BYOS, PoPs, auto-format, optimization, CDN, performance
+
+**Words to avoid:** Seamless, leverage, robust, cutting-edge, revolutionary, game-changing, next-gen, harness, elevate, delve
+
 **Glossary:**
+
 | Term | Meaning |
 |------|---------|
-| | |
+| BYOS | Bring Your Own Storage — connect existing S3/GCS/Azure |
+| PoPs | Points of Presence — 96 global CDN edge locations |
+| Transform | Image operation applied via URL parameter |
+| Source | Connected storage bucket (S3, GCS, Azure) |
+| Auto-format | `?auto=format` — serves WebP/AVIF based on browser support |
+| PQL | Product-Qualified Lead — signup showing enterprise buying signals |
+| Activation | First image served through Imgix CDN |
+
+---
 
 ## Brand Voice
-**Tone:**
-**Style:**
-**Personality:**
+
+**Tone:** Confident, direct, technically credible, warm without being casual
+
+**Style:** Benefit-first, short declarative sentences, show don't tell, code over claims
+
+**Personality:** Smart colleague who respects your time. Knowledgeable but never condescending. Honest about limitations.
+
+**Critical rule:** "Imgix" is always capitalized with a capital "I." Never "imgix" or "IMGIX." (Exception: technical identifiers like email addresses and domain names.)
+
+*For complete brand voice guidelines, see the imgix-brand-voice skill.*
+
+---
 
 ## Proof Points
-**Metrics:**
-**Customers:**
-**Testimonials:**
-> "[quote]" — [who]
+
+**Scale metrics:**
+- 8B+ images processed daily
+- 96 global PoPs
+- 60,000+ customers
+- 99.99%+ uptime
+
+**Notable customers:** Porsche, Unsplash, Skims, Nikkei, Ikyu, Eventbrite
+
+**Key results:**
+- Ikyu: 16ms response time, 6B+ images served
+- Nikkei: 1-second faster loading, 37% image size reduction
+- Unsplash: 2B+ images/month served through Imgix
+
 **Value themes:**
+
 | Theme | Proof |
 |-------|-------|
-| | |
+| Performance | 96 PoPs, real-time processing, auto-format for WebP/AVIF |
+| Simplicity | URL-based API, one-line integration, comprehensive SDKs |
+| Scale | 8B+ daily, Porsche/Unsplash/Skims in production |
+| No lock-in | BYOS, your images never leave your storage |
+| Developer experience | Clean API, great docs, open-source SDKs |
+
+---
 
 ## Goals
-**Business goal:**
-**Conversion action:**
-**Current metrics:**
-```
+
+**Primary business goal:** Grow self-serve PLG revenue while building enterprise pipeline
+
+**Key conversion actions:**
+1. Free signup (no credit card)
+2. Connect first source (activation)
+3. Serve first image (value realization)
+4. Upgrade to paid plan (monetization)
+
+**PLG funnel targets:**
+- Signup → activation rate: Track and improve
+- Free → paid conversion: 5-10%
+- Net revenue retention: 110%+
+- Self-serve revenue: 70%+ of total
 
 ---
 
-## Step 4: Confirm and Save
+## How Other Skills Use This Document
 
-- Show the completed document
-- Ask if anything needs adjustment
-- Save to `.agents/product-marketing-context.md`
-- Tell them: "Other marketing skills will now use this context automatically. Run `/product-marketing-context` anytime to update it."
+Every marketing skill references this context for:
+- **ICP and personas** — Who we're writing for
+- **Positioning and differentiation** — What makes Imgix different
+- **Competitive landscape** — Who we're up against and how we compare
+- **Customer language** — How to write copy that resonates
+- **Proof points** — Evidence to support claims
+- **Brand voice** — Tone and style guidelines (detailed in imgix-brand-voice)
+
+When this document is updated (new competitors, changed positioning, new proof points), all downstream skills automatically benefit.
 
 ---
-
-## Tips
-
-- **Be specific**: Ask "What's the #1 frustration that brings them to you?" not "What problem do they solve?"
-- **Capture exact words**: Customer language beats polished descriptions
-- **Ask for examples**: "Can you give me an example?" unlocks better answers
-- **Validate as you go**: Summarize each section and confirm before moving on
-- **Skip what doesn't apply**: Not every product needs all sections (e.g., Personas for B2C)
 
 ## Related Skills
 
-This is a **global skill** — it provides the foundational context (ICP, positioning, value props) that every system references.
+This is a **global skill** — it provides the foundational context that every system references.
 
 Key relationships:
 - **imgix-brand-voice** (global) — Context defines what we say; voice defines how

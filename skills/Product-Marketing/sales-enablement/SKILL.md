@@ -1,359 +1,223 @@
 ---
 name: sales-enablement
-description: "When the user wants to create sales collateral, pitch decks, one-pagers, objection handling docs, or demo scripts. Also use when the user mentions 'sales deck,' 'pitch deck,' 'one-pager,' 'leave-behind,' 'objection handling,' 'deal-specific ROI analysis,' 'demo script,' 'talk track,' 'sales playbook,' 'proposal template,' 'buyer persona card,' 'help my sales team,' 'sales materials,' or 'what should I give my sales reps.' Use this for any document or asset that helps a sales team close deals. For competitor comparison pages and battle cards, see competitor-alternatives. For marketing website copy, see copywriting. For cold outreach emails, see cold-email."
+description: |
+  Create sales collateral for Imgix's enterprise sales motion — pitch decks, one-pagers, battle cards, objection handling docs, demo scripts, and ROI calculators. Imgix is primarily PLG, so sales enablement focuses on enterprise deals where a developer champion needs help selling internally. Also use when the user mentions "sales deck," "pitch deck," "one-pager," "objection handling," "battle card," "demo script," "help sales," or "enterprise materials." For public comparison pages, see competitor-alternatives.
 metadata:
-  version: 1.1.0
+  version: 2.0.0
 ---
 
-# Sales Enablement
+# Sales Enablement for Imgix
 
-You are an expert in B2B sales enablement. Your goal is to create sales collateral that reps actually use — decks, one-pagers, objection docs, demo scripts, and playbooks that help close deals.
+You are an expert in sales enablement for developer-focused B2B SaaS. Your goal is to create collateral that helps Imgix close enterprise deals, primarily by arming developer champions to sell internally.
 
-## Before Starting
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **Motion:** PLG primary + sales-assisted for enterprise
+- **Enterprise ICP:** Companies with 500+ employees, high image volume (ecommerce, media, real estate, travel)
+- **Buyer personas:** Developer champion (evaluator), Engineering Manager (budget), CTO/VP Eng (final approval)
+- **Key differentiators:** URL-based transforms, BYOS, real-time processing, 96 PoPs, 8B+ images/day
+- **Proof points:** Porsche, Unsplash, Skims, Nikkei, Ikyu
+- **Competitors:** Cloudinary (primary), self-hosted (ImageMagick/Sharp), ImageKit, Cloudflare Images
 
-Gather this context (ask if not provided):
+## Connected Tools
 
-1. **Value Proposition & Differentiators**
-   - What do you sell and who is it for?
-   - What makes you different from the next best alternative?
-   - What outcomes can you prove?
+- **HubSpot MCP** — Deal context, contact info, competitive intel from deal notes
+- **Slack MCP** — Share collateral drafts, get feedback
+- **Jira MCP** — Track enablement tasks (MKTG project)
 
-2. **Sales Motion**
-   - How do you sell? (self-serve, inside sales, field sales, hybrid)
-   - Average deal size and sales cycle length
-   - Key personas involved in the buying decision
+## Global Dependencies
 
-3. **Collateral Needs**
-   - What specific assets do you need?
-   - What stage of the funnel are they for?
-   - Who will use them? (AE, SDR, champion, prospect)
-
-4. **Current State**
-   - What materials exist today?
-   - What's working and what's not?
-   - What do reps ask for most?
+Always load before creating sales materials:
+- **imgix-brand-voice** — Tone, terminology, visual style
+- **imgix-brand-deck** — Slide design and brand guidelines for decks
+- **product-marketing-context** — ICP, positioning, competitive landscape
 
 ---
 
-## Core Principles
+## Imgix Sales Motion
 
-### Sales Uses What Sales Trusts
-Involve reps in creation. Use their language, not marketing's. If reps rewrite your deck before sending it, you wrote the wrong deck. Test drafts with your top performers first.
+### How Enterprise Deals Work at Imgix (PLG-Led)
 
-### Situation-Specific, Not Generic
-Tailor to persona, deal stage, and use case. A deck for a CTO should look different from one for a VP of Sales. A one-pager for post-meeting follow-up serves a different purpose than one for a trade show.
+1. Developer signs up for free, evaluates Imgix for a project
+2. Developer likes it, starts using it in production
+3. Usage grows, developer needs enterprise features (SSO, SLA, custom domain)
+4. Developer becomes champion, needs help convincing Engineering Manager / CTO
+5. Sales gets involved to close enterprise deal
 
-### Scannable Over Comprehensive
-Reps need information in 3 seconds, not 30. Use bold headers, short bullets, and visual hierarchy. If a rep can't find the answer mid-call, the doc has failed.
-
-### Tie Back to Business Outcomes
-Every claim connects to revenue, efficiency, or risk reduction. Features mean nothing without the "so what." Replace "AI-powered analytics" with "cut reporting time by 80%."
+**Key implication:** Sales collateral at Imgix primarily serves the developer champion, not the salesperson. The champion needs ammunition to sell internally.
 
 ---
 
-## Sales Deck / Pitch Deck
+## Enterprise Sales Deck (10 Slides)
 
-### 10-12 Slide Framework
+### Slide-by-Slide
 
-1. **Current World Problem** — The pain your buyer lives with today
-2. **Cost of the Problem** — What inaction costs (time, money, risk)
-3. **The Shift Happening** — Market or technology change creating urgency
-4. **Your Approach** — How you solve it differently
-5. **Product Walkthrough** — 3-4 key workflows, not a feature tour
-6. **Proof Points** — Metrics, logos, analyst recognition
-7. **Case Study** — One customer story told well
-8. **Implementation / Timeline** — How they get from here to live
-9. **ROI / Value** — Expected return and payback period
-10. **Pricing Overview** — Transparent, tiered if applicable
-11. **Next Steps / CTA** — Clear action with timeline
+1. **The Problem:** Your images are slowing down your product. Unoptimized images are the #1 cause of poor LCP scores and wasted bandwidth.
 
-### Deck Principles
+2. **The Cost:** [Quantified: bandwidth costs, developer time maintaining image pipelines, conversion impact of slow pages]
 
-- **Story arc, not feature tour.** Every deck tells a story: the world has a problem, there's a better way, here's proof, here's how to get there.
-- **One idea per slide.** If you need two points, use two slides.
-- **Design for presenting, not reading.** Slides support the conversation — they don't replace it. Minimal text, strong visuals.
+3. **The Shift:** Modern apps serve images from the edge, transformed in real-time via URL parameters. No build step, no server code, no pre-generation.
 
-### Customization by Buyer Type
+4. **Imgix's Approach:**
+   - URL-based transforms: `?w=800&auto=format` does resize + format negotiation
+   - BYOS: Your images stay in your S3/GCS. No vendor lock-in.
+   - Real-time: Change a parameter, see the result immediately.
 
-| Buyer | Emphasize | De-emphasize |
-|-------|-----------|--------------|
-| Technical buyer | Architecture, security, integrations, API | ROI calculations, business metrics |
-| Economic buyer | ROI, payback period, total cost, risk | Technical details, implementation specifics |
-| Champion | Internal selling points, quick wins, peer proof | Deep technical or financial detail |
+5. **How It Works:** Connect storage → Transform via URL → Deliver from 96 global PoPs. [Live code example]
 
-**For full slide-by-slide guidance**: See [references/deck-frameworks.md](references/deck-frameworks.md)
+6. **Scale & Reliability:** 8B+ images processed daily. 99.99%+ uptime. Porsche, Unsplash, Skims trust Imgix in production.
 
----
+7. **Case Study:** [Most relevant customer for this deal's industry]
+   - Challenge → Solution → Results (with specific metrics)
 
-## One-Pagers / Leave-Behinds
+8. **vs. Alternatives:**
+   - vs. Self-hosted: Eliminate infrastructure, gain 96 PoPs, reduce maintenance burden
+   - vs. Cloudinary: Simpler URL API, BYOS, no complex credit system
+   - vs. Cloudflare Images: Dedicated platform vs. bundled feature, deeper transformations
 
-### When to Use
+9. **Pricing & Plans:** Usage-based pricing that scales with your growth. Enterprise tier includes SSO, SLA, dedicated support, custom domains.
 
-- **Post-meeting recap** — Reinforce what you discussed, keep momentum
-- **Champion internal selling** — Arm your champion to sell for you
-- **Trade show handout** — Quick intro that drives follow-up
+10. **Next Steps:** Start free → enterprise evaluation → custom contract
 
-### Structure
+### Customization Guide
 
-1. **Problem statement** — The pain in one sentence
-2. **Your solution** — What you do and how
-3. **3 differentiators** — Why you vs. alternatives
-4. **Proof point** — One strong metric or customer quote
-5. **CTA** — Clear next step with contact info
-
-### Design Principles
-
-- One page, literally. Front only, or front and back maximum.
-- Scannable in 30 seconds. Bold headers, short bullets, whitespace.
-- Include your logo, website, and a specific contact (not info@).
-- Match your brand but keep it clean — this is a sales tool, not a brand piece.
-
-**For templates by use case**: See [references/one-pager-templates.md](references/one-pager-templates.md)
+| Buyer | Emphasize Slides | De-emphasize |
+|-------|-----------------|-------------|
+| Developer champion | #4 (How it works), #5 (Code), #8 (vs. alternatives) | #2 (Cost), #9 (Pricing) |
+| Engineering Manager | #2 (Cost), #6 (Scale), #7 (Case study) | #4 (Technical details) |
+| CTO / VP Engineering | #6 (Scale), #7 (Case study), #8 (vs. alternatives) | #5 (Code details) |
 
 ---
 
-## Objection Handling Docs
+## Battle Cards (Internal)
 
-### Objection Categories
+### vs. Cloudinary
 
-| Category | Examples |
-|----------|----------|
-| Price | "Too expensive," "No budget this quarter," "Competitor is cheaper" |
-| Timing | "Not the right time," "Maybe next quarter," "Too busy to implement" |
-| Competition | "We already use X," "What makes you different?" |
-| Authority | "I need to check with my boss," "The committee decides" |
-| Status quo | "What we have works fine," "Not broken, don't fix it" |
-| Technical | "Does it integrate with X?," "Security concerns," "Can it scale?" |
+**When they say:** "We already use Cloudinary" or "Why not Cloudinary?"
 
-### Response Framework
+**Quick positioning:** Imgix is the simpler, developer-friendly alternative with no vendor lock-in on storage.
 
-For each objection, document:
+| Dimension | Imgix Advantage | Cloudinary Advantage |
+|-----------|----------------|---------------------|
+| API design | Clean URL params, one URL does everything | More API endpoints for complex workflows |
+| Storage | BYOS — keep your S3/GCS | Built-in storage (simpler for some) |
+| Pricing | Per-image, predictable | Credit-based (can be confusing) |
+| Video | Growing | Mature |
+| AI features | Focused | Extensive |
 
-1. **Objection statement** — Exactly how reps hear it
-2. **Why they say it** — The real concern behind the words
-3. **Response approach** — How to acknowledge and redirect
-4. **Proof point** — Specific evidence that addresses the concern
-5. **Follow-up question** — Keep the conversation moving forward
+**Killer question to ask:** "How much time does your team spend understanding Cloudinary's credit system and optimizing around it?"
 
-### Two Formats
+### vs. Self-Hosted (ImageMagick/Sharp)
 
-- **Quick-reference table** for live calls — objection, one-line response, proof point. Fits on one screen.
-- **Detailed doc** for prep and training — full context, talk tracks, role-play scenarios.
+**When they say:** "We built our own" or "We use Sharp on Lambda"
 
-**For the full objection library**: See [references/objection-library.md](references/objection-library.md)
+**Quick positioning:** Imgix does what your custom pipeline does, but at the edge, with zero maintenance, and with a URL-based API.
 
----
+**Killer questions:**
+- "How many hours per month does your team spend maintaining the image pipeline?"
+- "What happens to your image processing during a traffic spike?"
+- "How many image sizes do you pre-generate vs. serve on demand?"
 
-## ROI Calculators & Value Props
+### vs. "Do Nothing"
 
-### Calculator Design
+**When they say:** "Our images are fine" or "It's not a priority"
 
-**Inputs** (current state metrics the prospect provides):
-- Time spent on manual processes
-- Current tool costs
-- Error rates or inefficiency metrics
-- Team size
-
-**Calculations** (your formula for value):
-- Time saved per week/month/year
-- Cost reduction (tools, headcount, errors)
-- Revenue impact (faster deals, higher conversion)
-
-**Outputs** (what the prospect sees):
-- Annual ROI percentage
-- Payback period in months
-- Total 3-year value
-
-### Value Prop by Persona
-
-| Persona | Cares About | Lead With |
-|---------|-------------|-----------|
-| CTO / VP Eng | Architecture, scale, security, team velocity | Technical superiority, integration depth |
-| VP Sales | Pipeline, quota attainment, rep productivity | Revenue impact, time savings per rep |
-| CFO | Total cost, payback period, risk | ROI, cost reduction, financial predictability |
-| End user | Ease of use, daily workflow, learning curve | Time saved, frustration eliminated |
-
-### Implementation Options
-
-- **Spreadsheet** — Fastest to build, easy to customize per deal. Works for inside sales.
-- **Web tool** — More polished, captures leads, scales better. Worth building if deal volume is high.
-- **Slide-based** — ROI story embedded in the deck. Good for executive presentations.
+**Approach:** Don't push. Show the data.
+- Run their site through PageSpeed Insights (focus on LCP)
+- Calculate bandwidth savings from auto-format alone
+- Show cost comparison: current S3/CloudFront serving costs vs. Imgix
 
 ---
 
-## Demo Scripts & Talk Tracks
+## Objection Handling
 
-### Script Structure
+### Price Objections
 
-1. **Opening** (2 min) — Context setting, agenda, confirm goals for the call
-2. **Discovery recap** (3 min) — Summarize what you learned, confirm priorities
-3. **Solution walkthrough** (15-20 min) — 3-4 key workflows mapped to their pain
-4. **Interaction points** — Questions to ask during the demo, not just at the end
-5. **Close** (5 min) — Summarize value, propose next steps with timeline
+| Objection | Response | Proof |
+|-----------|----------|-------|
+| "Too expensive" | Compare to full cost: developer time + infrastructure + bandwidth. Imgix typically saves 30-50% on image delivery alone. | [Customer] reduced total image costs by X% after switching |
+| "Cloudinary is cheaper" | Compare apples-to-apples: Cloudinary credits include storage and transforms together. Factor in credit complexity overhead. | Direct pricing comparison for their volume |
+| "We can do it ourselves for free" | Calculate: engineer salary × hours/month on image pipeline maintenance + infrastructure costs + opportunity cost | TCO calculator |
 
-### Talk Track Types
+### Technical Objections
 
-| Type | Duration | Focus |
-|------|----------|-------|
-| Discovery call | 30 min | Qualify, understand pain, map buying process |
-| First demo | 30-45 min | Show 3-4 workflows tied to their pain |
-| Technical deep-dive | 45-60 min | Architecture, security, integrations, API |
-| Executive overview | 20-30 min | Business outcomes, ROI, strategic alignment |
+| Objection | Response | Proof |
+|-----------|----------|-------|
+| "Will it scale?" | 8B+ images/day. Porsche, Unsplash, Skims are in production. | Customer logos + uptime data |
+| "What about video?" | Video processing is available and growing. For image-heavy use cases, Imgix is the right tool. | Be honest about video maturity |
+| "Vendor lock-in" | BYOS = your images stay in your storage. If you leave, your assets are exactly where they started. | Architecture diagram showing BYOS |
+| "Security concerns" | SOC 2 compliance (if applicable), data in transit encrypted, no access to actual image files (just serves them) | Security documentation |
 
-### Key Principles
+### Timing Objections
 
-- **Demo after discovery, not before.** If you don't know their pain, you're guessing which features matter.
-- **Customize to their use case.** Use their terminology, their data (if possible), their workflow.
-- **Leave time for questions.** A demo where the prospect doesn't talk is a demo that doesn't close.
-
-**For full script templates**: See [references/demo-scripts.md](references/demo-scripts.md)
-
----
-
-## Case Study Briefs (Sales Format)
-
-### How Sales Case Studies Differ
-
-Marketing case studies tell a story. Sales case studies arm reps with fast-access proof. Keep them short, outcome-focused, and tagged for retrieval.
-
-### Structure
-
-1. **Customer profile** — Industry, company size, buyer role
-2. **Challenge** — What they were struggling with (2-3 sentences)
-3. **Solution** — What they implemented (1-2 sentences)
-4. **Results** — 3 specific metrics (before/after)
-5. **Pull quote** — One sentence from the customer
-6. **Tags** — Industry, use case, company size, persona
-
-### Organization
-
-Organize case studies so reps can find the right one instantly:
-- **By industry** — "Show me a case study for healthcare"
-- **By use case** — "Show me someone who used us for X"
-- **By company size** — "Show me an enterprise example"
+| Objection | Response |
+|-----------|----------|
+| "Not the right time" | "What would need to change for this to become a priority?" + Leave with free tier signup |
+| "Maybe next quarter" | "Start evaluating now with the free tier. No commitment, no credit card." |
 
 ---
 
-## Proposal Templates
+## Champion Enablement Kit
 
-### Structure
+The developer champion needs to sell internally. Give them:
 
-1. **Executive summary** — Their challenge, your solution, expected outcome (1 page max)
-2. **Proposed solution** — What you'll deliver, mapped to their requirements
-3. **Implementation plan** — Timeline, milestones, responsibilities
-4. **Investment** — Pricing, payment terms, what's included
-5. **Next steps** — How to move forward, decision timeline
+1. **One-pager** — Problem, solution, results, pricing overview (PDF, one page)
+2. **ROI calculator** — Spreadsheet or web tool: input their volume → see savings
+3. **Technical architecture doc** — How Imgix integrates with their stack
+4. **Case study** — Most relevant customer (same industry or similar scale)
+5. **Security/compliance doc** — For IT/security review
+6. **Migration plan** — Steps and timeline to switch from current solution
 
-### Customization Guidance
+### One-Pager Structure
 
-- Mirror their language from discovery calls
-- Reference specific pain points they mentioned
-- Include only relevant case studies (same industry or use case)
-- Name the stakeholders you've spoken with
+```
+[Imgix logo]
 
-### Common Mistakes
+Your images, optimized and delivered fast.
 
-- **Too long** — If it's over 10 pages, it won't get read. Aim for 5-7.
-- **Too generic** — Templated proposals signal low effort. Customize the exec summary at minimum.
-- **Burying the price** — Don't make them hunt for it. Be transparent and confident.
+THE PROBLEM
+[One sentence about image performance challenges at scale]
 
----
+THE SOLUTION
+URL-based image optimization. Connect your storage, add URL parameters, deliver from 96 global PoPs.
 
-## Sales Playbooks
+[Code example]
 
-### What Goes in a Playbook
+WHY IMGIX
+• BYOS — No vendor lock-in on your image storage
+• 8B+ images/day — Enterprise scale and reliability
+• URL-based — One URL handles resize, crop, format, and delivery
 
-- **Buyer profile** — Who you're selling to, their goals and pains
-- **Qualification criteria** — BANT, MEDDIC, or your framework
-- **Discovery questions** — Organized by topic, not a script
-- **Objection handling** — Top 10 objections with responses
-- **Competitive positioning** — How you win against each competitor
-- **Demo flow** — Recommended sequence for each persona
-- **Email templates** — Follow-up, proposal, check-in, breakup
+RESULTS
+[Customer]: [Metric improvement]
 
-### When to Build
+PRICING
+Usage-based. Free tier available. Enterprise plans with SSO, SLA, and dedicated support.
 
-- **New product launch** — Reps need a single source of truth
-- **New market segment** — Different buyers need different approaches
-- **New hire ramp** — Playbooks cut ramp time significantly
-
-### Keeping It Living
-
-Playbooks die when they're not updated. Review quarterly, get input from top reps, and remove anything outdated. Assign an owner — if nobody owns it, it rots.
+[Start free — imgix.com]
+```
 
 ---
 
-## Buyer Persona Cards
+## Metrics
 
-### Card Structure
-
-| Field | Description |
-|-------|-------------|
-| Role / title | Common titles and reporting structure |
-| Goals | What success looks like for them |
-| Pains | What frustrates them daily |
-| Top objections | The 3-5 objections you'll hear from this role |
-| Evaluation criteria | How they judge solutions |
-| Buying process | Their role in the decision, who they influence |
-| Messaging angle | The one sentence that resonates most |
-
-### Persona Types
-
-- **Economic buyer** — Signs the check. Cares about ROI and risk.
-- **Technical buyer** — Evaluates the product. Cares about capabilities and integration.
-- **End user** — Uses it daily. Cares about ease and workflow fit.
-- **Champion** — Advocates internally. Needs ammunition to sell for you.
-- **Blocker** — Opposes the purchase. Understand their concern to neutralize it.
-
----
-
-## Output Format
-
-Deliver the right format for each asset type:
-
-| Asset | Deliverable |
-|-------|-------------|
-| Sales deck | Slide-by-slide outline with headline, body copy, and speaker notes |
-| One-pager | Full copy with layout guidance (visual hierarchy, sections) |
-| Objection doc | Table format: objection, response, proof point, follow-up |
-| Demo script | Scene-by-scene with timing, talk track, and interaction points |
-| ROI calculator | Input fields, formulas, output display with sample data |
-| Playbook | Structured document with table of contents and sections |
-| Persona card | One-page card format per persona |
-| Proposal | Section-by-section copy with customization notes |
-
----
-
-## Task-Specific Questions
-
-If context is missing, ask:
-
-1. What collateral do you need? (deck, one-pager, objection doc, etc.)
-2. Who will use it? (AE, SDR, champion, prospect)
-3. What sales stage is it for? (prospecting, discovery, demo, negotiation, close)
-4. Who is the target persona? (title, seniority, department)
-5. What are the top 3 objections you hear most?
-
----
-
-## Tool Integrations
-
-For partner sales enablement, see the [tools registry](../../tools/REGISTRY.md):
-
-| Tool | What It Does | Guide |
-|------|-------------|-------|
-| **Introw** | Partner engagement tracking, deal registration, mutual action plans | [introw.md](../../tools/integrations/introw.md) |
+| Metric | Target |
+|--------|:------:|
+| Enterprise deal close rate | 25-35% |
+| Time from PQL to close | Track & reduce |
+| Collateral usage rate | Track (are sales/champions using it?) |
+| Win rate vs. Cloudinary | Track & improve |
+| Champion engagement | Track (do they use the enablement kit?) |
 
 ---
 
 ## Related Skills
 
-- **competitor-alternatives**: For public-facing comparison and alternative pages
-- **copywriting**: For marketing website copy
-- **cold-email**: For outbound prospecting emails
-- **revops**: For lead lifecycle, scoring, routing, and pipeline management
-- **pricing-strategy**: For pricing decisions and packaging
-- **product-marketing-context**: For foundational positioning and messaging
+- **Product-Marketing/competitor-alternatives** — Public comparison pages
+- **Product-Marketing/positioning** — Core messaging that sales builds on
+- **Product-Marketing/win-loss-analysis** — Insights from actual deal outcomes
+- **Product-Marketing/customer-research** — VOC for objection handling
+- **Product-Marketing/revops** — Lead scoring and pipeline management
+- **Content/imgix-brand-deck** — Slide design and brand guidelines
+- **imgix-brand-voice** (global) — All sales copy follows brand guidelines

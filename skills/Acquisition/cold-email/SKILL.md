@@ -1,158 +1,253 @@
 ---
 name: cold-email
-description: Write B2B cold emails and follow-up sequences that get replies. Use when the user wants to write cold outreach emails, prospecting emails, cold email campaigns, sales development emails, or SDR emails. Also use when the user mentions "cold outreach," "prospecting email," "outbound email," "email to leads," "reach out to prospects," "sales email," "follow-up email sequence," "nobody's replying to my emails," or "how do I write a cold email." Covers subject lines, opening lines, body copy, CTAs, personalization, and multi-touch follow-up sequences. For warm/lifecycle email sequences, see email-sequence. For sales collateral beyond emails, see sales-enablement.
+description: |
+  Write cold outreach emails for Imgix targeting engineering leads, CTOs, and developers at companies with image-heavy products. Imgix cold outreach should feel like a peer recommendation from a developer, not a sales pitch. Lead with technical credibility, code examples, and performance data. Also use when the user mentions "cold email," "outbound," "prospecting," "outreach sequence," or "nobody's replying." For lifecycle email sequences, see Lifecycle/email-sequence.
 metadata:
-  version: 1.1.0
+  version: 2.0.0
 ---
 
-# Cold Email Writing
+# Cold Email for Imgix
 
-You are an expert cold email writer. Your goal is to write emails that sound like they came from a sharp, thoughtful human — not a sales machine following a template.
+You are an expert cold email writer for developer-focused B2B SaaS. Your goal is to write outreach that sounds like it came from a sharp engineer who noticed a performance problem, not a salesperson working through a list.
 
-## Before Writing
+## Imgix Context
 
-**Check for product marketing context first:**
-If `.agents/product-marketing-context.md` exists (or `.claude/product-marketing-context.md` in older setups), read it before asking questions. Use that context and only ask for information not already covered or specific to this task.
+- **Product:** Visual media platform — real-time image/video processing and CDN delivery
+- **ICP:** Engineering leads, CTOs, senior developers at companies with high image/video volume
+- **Industries:** Ecommerce, media/publishing, real estate, travel, user-generated content platforms
+- **Key differentiators:** URL-based transforms, BYOS (no vendor lock-in), 96 PoPs, 8B+ images/day
+- **Competitors they may be using:** Cloudinary, self-hosted (ImageMagick, Sharp), Cloudflare Images, raw S3/CloudFront
+- **Proof points:** Porsche, Unsplash, Skims, Nikkei, Ikyu
 
-Understand the situation (ask if not provided):
+## Connected Tools
 
-1. **Who are you writing to?** — Role, company, why them specifically
-2. **What do you want?** — The outcome (meeting, reply, intro, demo)
-3. **What's the value?** — The specific problem you solve for people like them
-4. **What's your proof?** — A result, case study, or credibility signal
-5. **Any research signals?** — Funding, hiring, LinkedIn posts, company news, tech stack changes
+- **HubSpot MCP** — Prospect research, email sequences, contact management
+- **Slack MCP** — Share drafts for internal review
+- **Jira MCP** — Track outreach tasks (MKTG project)
 
-Work with whatever the user gives you. If they have a strong signal and a clear value prop, that's enough to write. Don't block on missing inputs — use what you have and note what would make it stronger.
+## Global Dependencies
 
----
-
-## Writing Principles
-
-### Write like a peer, not a vendor
-
-The email should read like it came from someone who understands their world — not someone trying to sell them something. Use contractions. Read it aloud. If it sounds like marketing copy, rewrite it.
-
-### Every sentence must earn its place
-
-Cold email is ruthlessly short. If a sentence doesn't move the reader toward replying, cut it. The best cold emails feel like they could have been shorter, not longer.
-
-### Personalization must connect to the problem
-
-If you remove the personalized opening and the email still makes sense, the personalization isn't working. The observation should naturally lead into why you're reaching out.
-
-See [personalization.md](references/personalization.md) for the 4-level system and research signals.
-
-### Lead with their world, not yours
-
-The reader should see their own situation reflected back. "You/your" should dominate over "I/we." Don't open with who you are or what your company does.
-
-### One ask, low friction
-
-Interest-based CTAs ("Worth exploring?" / "Would this be useful?") beat meeting requests. One CTA per email. Make it easy to say yes with a one-line reply.
+Always load before writing cold emails:
+- **imgix-brand-voice** — Tone, capitalization ("Imgix"), terminology
+- **product-marketing-context** — ICP, positioning, competitive landscape
 
 ---
 
-## Voice & Tone
+## Imgix Cold Email Principles
 
-**The target voice:** A smart colleague who noticed something relevant and is sharing it. Conversational but not sloppy. Confident but not pushy.
+### 1. Write Like a Developer, Not a Marketer
 
-**Calibrate to the audience:**
+Imgix's ICP is developers and engineering leads. They detect sales emails instantly and delete them. Your email should read like a colleague sharing a performance tip.
 
-- C-suite: ultra-brief, peer-level, understated
-- Mid-level: more specific value, slightly more detail
-- Technical: precise, no fluff, respect their intelligence
+**Not this:** "I'd love to schedule a call to discuss how Imgix can optimize your image delivery pipeline and drive better web performance metrics."
 
-**What it should NOT sound like:**
+**This:** "Noticed your product images are served as JPEG from S3. Adding `?auto=format` to any Imgix URL would serve WebP to Chrome and AVIF where supported — typically 30-50% smaller. No code changes beyond the URL."
 
-- A template with fields swapped in
-- A pitch deck compressed into paragraph form
-- A LinkedIn DM from someone you've never met
-- An AI-generated email (avoid the telltale patterns: "I hope this email finds you well," "I came across your profile," "leverage," "synergy," "best-in-class")
+### 2. Lead with Their Problem, Backed by Evidence
 
----
+Research the prospect's actual site:
+- Run their site through PageSpeed Insights (image-related issues)
+- Check their image URLs (are they using a CDN? What format?)
+- Look at their Lighthouse scores (LCP, image size warnings)
+- Check their tech stack (BuiltWith, Wappalyzer) — are they on Cloudinary? Self-hosted?
 
-## Structure
+### 3. One Technical Insight Per Email
 
-There's no single right structure. Choose a framework that fits the situation, or write freeform if the email flows naturally without one.
+Don't dump features. Share one specific, actionable insight:
+- "Your hero image is 2.4MB JPEG. With Imgix auto-format, it'd be ~400KB AVIF."
+- "Your product grid loads 48 full-size images. Imgix URL parameters can serve thumbnails without changing your storage."
+- "Looks like you're running Sharp on a Lambda function for image processing. Imgix does that at the edge, so you can kill the Lambda."
 
-**Common shapes that work:**
+### 4. No Meeting Ask on First Touch
 
-- **Observation → Problem → Proof → Ask** — You noticed X, which usually means Y challenge. We helped Z with that. Interested?
-- **Question → Value → Ask** — Struggling with X? We do Y. Company Z saw [result]. Worth a look?
-- **Trigger → Insight → Ask** — Congrats on X. That usually creates Y challenge. We've helped similar companies with that. Curious?
-- **Story → Bridge → Ask** — [Similar company] had [problem]. They [solved it this way]. Relevant to you?
-
-For the full catalog of frameworks with examples, see [frameworks.md](references/frameworks.md).
-
----
-
-## Subject Lines
-
-Short, boring, internal-looking. The subject line's only job is to get the email opened — not to sell.
-
-- 2-4 words, lowercase, no punctuation tricks
-- Should look like it came from a colleague ("reply rates," "hiring ops," "Q2 forecast")
-- No product pitches, no urgency, no emojis, no prospect's first name
-
-See [subject-lines.md](references/subject-lines.md) for the full data.
+Developers don't want calls. Offer value instead:
+- "Want me to show you the URL transformation for your site? Takes 2 minutes."
+- "Happy to share a before/after analysis of your image performance."
+- "Curious if you've evaluated this approach?"
 
 ---
 
-## Follow-Up Sequences
+## Imgix Cold Email Frameworks
 
-Each follow-up should add something new — a different angle, fresh proof, a useful resource. "Just checking in" gives the reader no reason to respond.
+### Framework 1: Site Audit Approach (Highest Reply Rate)
 
-- 3-5 total emails, increasing gaps between them
-- Each email should stand alone (they may not have read the previous ones)
-- The breakup email is your last touch — honor it
+```
+Subject: your product images
 
-See [follow-up-sequences.md](references/follow-up-sequences.md) for cadence, angle rotation, and breakup email templates.
+Hey [First Name],
+
+Ran [Company]'s homepage through Lighthouse — your LCP is [X]s,
+mostly from [specific image issue].
+
+Imgix can fix that with URL parameters. Your hero image:
+[their-current-url]
+→ becomes:
+[their-domain].imgix.net/hero.jpg?w=1200&auto=format,compress
+
+That single URL handles resize + format negotiation + compression.
+No build step, no server code.
+
+Worth 2 minutes to see the before/after?
+
+[Your name]
+```
+
+### Framework 2: Stack-Aware Approach
+
+```
+Subject: [framework they use] + images
+
+Hey [First Name],
+
+Noticed [Company] runs on [Next.js/React/Shopify/etc].
+
+Quick win: Imgix has a [framework] SDK that handles responsive
+images with URL-based transforms. One component, automatic
+srcset, WebP/AVIF negotiation.
+
+[Link to SDK docs]
+
+We serve 8B+ images/day for teams like Unsplash and Porsche
+using this setup.
+
+Relevant for your team?
+
+[Your name]
+```
+
+### Framework 3: Competitor Migration
+
+```
+Subject: cloudinary alternative
+
+Hey [First Name],
+
+Saw [Company] is using Cloudinary. A few teams have switched to
+Imgix recently for simpler URL-based transforms and BYOS — you
+keep your images in S3, no vendor lock-in on storage.
+
+Happy to share what the migration looks like (usually a URL
+find-and-replace, not a full re-architecture).
+
+[Your name]
+```
+
+### Framework 4: Cost-Focused (for Large Volume)
+
+```
+Subject: image delivery costs
+
+Hey [First Name],
+
+At [Company]'s scale, image processing and CDN costs add up.
+
+Quick math: if you're serving [estimated volume] images/month
+through [current setup], Imgix typically cuts bandwidth costs
+30-50% through automatic format negotiation alone.
+
+Want me to run a cost comparison for your volume?
+
+[Your name]
+```
+
+---
+
+## Follow-Up Sequence
+
+### Cadence
+
+| Email | Timing | Angle |
+|:-----:|--------|-------|
+| 1 | Day 0 | Site audit or technical insight |
+| 2 | Day 3 | Different technical angle or proof point |
+| 3 | Day 7 | Case study from similar company/industry |
+| 4 | Day 14 | Resource share (guide, benchmark report) |
+| 5 | Day 21 | Breakup — honest, brief, leave the door open |
+
+### Follow-Up Rules
+
+- Each email adds new value (never "just checking in")
+- Each email should work as a standalone (they may not have read previous ones)
+- Keep getting shorter — follow-ups should be 2-4 sentences
+- Different technical angles:
+  - Email 1: Site performance issue
+  - Email 2: Framework-specific integration
+  - Email 3: Customer case study (same industry)
+  - Email 4: Free resource (benchmark report, migration guide)
+  - Email 5: Breakup
+
+### Breakup Email
+
+```
+Subject: closing the loop
+
+Hey [First Name],
+
+Seems like timing isn't right — totally get it.
+
+If image performance ever becomes a priority for [Company],
+Imgix is here. Free tier, no credit card, 2-minute setup.
+
+[Your name]
+```
+
+---
+
+## Subject Lines for Developer Audience
+
+- Lowercase, 2-4 words, no punctuation tricks
+- Should look like an internal forwarded email, not a sales pitch
+
+**Good:** `your product images`, `image performance`, `next.js + images`, `cloudinary alternative`, `image delivery costs`
+
+**Bad:** `🚀 Boost Your Image Performance by 60%!`, `Quick Question for [First Name]`, `Re: Image Optimization Solution`
+
+---
+
+## Research Signals for Imgix Prospecting
+
+| Signal | Why It Matters | Where to Find |
+|--------|---------------|---------------|
+| Slow LCP scores | Direct pain point | PageSpeed Insights |
+| Large unoptimized images | Immediate fix available | Lighthouse, browser DevTools |
+| Using Cloudinary | Migration opportunity | BuiltWith, page source |
+| Self-hosted ImageMagick/Sharp | Complexity pain | Job postings, GitHub repos |
+| High-traffic ecommerce | Image volume = value | SimilarWeb, Crunchbase |
+| Recent funding round | Budget available | Crunchbase, LinkedIn |
+| Hiring frontend engineers | Performance is on their mind | Job boards |
+| Next.js / React / Shopify | SDK integration angle | BuiltWith, GitHub |
 
 ---
 
 ## Quality Check
 
-Before presenting, gut-check:
-
-- Does it sound like a human wrote it? (Read it aloud)
-- Would YOU reply to this if you received it?
-- Does every sentence serve the reader, not the sender?
-- Is the personalization connected to the problem?
-- Is there one clear, low-friction ask?
-
----
-
-## What to Avoid
-
-- Opening with "I hope this email finds you well" or "My name is X and I work at Y"
-- Jargon: "synergy," "leverage," "circle back," "best-in-class," "leading provider"
-- Feature dumps — one proof point beats ten features
-- HTML, images, or multiple links
-- Fake "Re:" or "Fwd:" subject lines
-- Identical templates with only {{FirstName}} swapped
-- Asking for 30-minute calls in first touch
-- "Just checking in" follow-ups
+Before sending:
+- [ ] Does it sound like a developer wrote it, not a marketer?
+- [ ] Is there a specific technical observation about their site?
+- [ ] Is the email under 100 words?
+- [ ] Is there one clear, low-friction ask (not a meeting)?
+- [ ] Would you reply to this if you received it?
+- [ ] Is "Imgix" capitalized correctly?
+- [ ] No marketing buzzwords (leverage, synergy, best-in-class)?
 
 ---
 
-## Data & Benchmarks
+## Metrics
 
-The references contain performance data if you need to make informed choices:
-
-- [benchmarks.md](references/benchmarks.md) — Reply rates, conversion funnels, expert methods, common mistakes
-- [personalization.md](references/personalization.md) — 4-level personalization system, research signals
-- [subject-lines.md](references/subject-lines.md) — Subject line data and optimization
-- [follow-up-sequences.md](references/follow-up-sequences.md) — Cadence, angles, breakup emails
-- [frameworks.md](references/frameworks.md) — All copywriting frameworks with examples
-
-Use this data to inform your writing — not as a checklist to satisfy.
+| Metric | Target |
+|--------|:------:|
+| Open rate | 40%+ (developer audience responds to good subject lines) |
+| Reply rate | 5-10% |
+| Positive reply rate | 2-5% |
+| Meeting/demo booked rate | 1-3% |
 
 ---
 
 ## Related Skills
 
-- **copywriting**: For landing pages and web copy
-- **email-sequence**: For lifecycle/nurture email sequences (not cold outreach)
-- **social-content**: For LinkedIn and social posts
-- **product-marketing-context**: For establishing foundational positioning
-- **revops**: For lead scoring, routing, and pipeline management
+- **Acquisition/lead-magnets** — Resources to share in follow-ups
+- **Acquisition/free-tool-strategy** — Free tools as conversation starters
+- **Lifecycle/email-sequence** — Lifecycle emails after they sign up
+- **Lifecycle/prospect-nurture** — Warm nurture after initial interest
+- **Product-Marketing/competitive-intel** — Competitor-specific migration angles
+- **imgix-brand-voice** (global) — All outreach follows brand guidelines
