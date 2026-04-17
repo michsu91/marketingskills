@@ -1,0 +1,67 @@
+# imgix Discoverability System
+
+**Owner:** Michelle Su
+**Created:** March 23, 2026
+**Last Updated:** March 23, 2026
+
+## What This Is
+
+This folder is a self-executing system for improving imgix's discoverability — across both traditional search engines (SEO) and AI answer engines (AEO). Any Claude session that opens this folder should read this manifest first, check the STATUS.md in each subfolder, and pick up the highest-priority incomplete work.
+
+## How It Works
+
+1. **Read this MANIFEST.md** to understand the project and current priorities
+2. **Read MEMORY.md** for accumulated context, decisions, and lessons from previous sessions
+3. **Check each subfolder's STATUS.md** to see what's been done and what's next
+4. **Execute the highest-priority incomplete work** using the SKILL.md instructions in that subfolder
+5. **Update the STATUS.md** when work is completed
+6. **Update MEMORY.md** with any new learnings, decisions, or context changes
+7. **Report results** via Slack to Michelle
+
+## Connected Tools (MCP)
+
+This system is wired into imgix's actual infrastructure:
+
+- **Webflow** — Read and modify imgix.com pages, meta tags, content, and structure directly
+  - Site ID: `6705f4b15aee7ca914fff083`
+  - Domains: imgix.com, www.imgix.com, blog.imgix.com
+- **Jira** — Create tickets for work requiring human review, track progress
+- **Slack** — Post updates when workflows complete or need attention
+- **HubSpot** — Pull CRM data to understand which content converts leads
+- **Google Calendar** — Schedule content publication and review cycles
+- **Gmail** — Send outreach for backlink campaigns or partnership content
+
+## Subfolders (Priority Order)
+
+### 1. `technical-seo/` — HIGH PRIORITY
+Fix on-site technical SEO issues that are hurting crawlability and rankings. These are usually quick wins with outsized impact.
+
+### 2. `content-gaps/` — HIGH PRIORITY
+Identify and fill keyword gaps where imgix should rank but doesn't. Create content briefs and draft content targeting high-intent terms.
+
+### 3. `aeo/` — MEDIUM-HIGH PRIORITY
+Optimize imgix's presence in AI-generated answers (ChatGPT, Perplexity, Gemini, Claude). This is the emerging frontier — most competitors aren't doing this yet.
+
+### 4. `competitive-intel/` — MEDIUM PRIORITY
+Monitor competitor positioning, content strategy, and search visibility. Update battlecards and identify opportunities they're missing.
+
+### 5. `reporting/` — ONGOING
+Track progress against the baseline. Generate weekly and monthly reports on ranking changes, traffic, and AEO citations.
+
+## Brand Voice Reference
+
+When creating any content, reference the imgix brand voice guidelines. Key rules:
+- Always lowercase "imgix" (use "Imgix" only at sentence start if unavoidable)
+- We are a "visual media platform" not an "image CDN" or "image optimizer"
+- Lead with performance metrics and business outcomes
+- Developer-first language, marketer-friendly tone
+- Action verbs: transform, optimize, deliver (in that order)
+- Never disparage competitors — be fact-based and confident
+
+## Definition of Done
+
+This system is successful when:
+- imgix ranks page 1 for 15+ high-intent keywords (up from current baseline)
+- imgix appears in AI answer engine responses for "best image optimization" and related queries
+- Organic traffic increases 30%+ from baseline within 6 months
+- All key landing pages have optimized meta titles, descriptions, and structured data
