@@ -41,6 +41,28 @@ Lead with what the reader gets, not what the feature is. The reader's mental que
 **Yes:** "Turn existing images into short-form videos that bring motion to your visuals."
 **No:** "Our new image-to-video feature uses generative AI models to convert static files into MP4 format."
 
+Value props must always describe a benefit to the reader. Internal metrics like adoption numbers ("X accounts are using this feature") don't help the reader and should never appear in customer-facing content. Every stat should answer: "How does this help me?"
+
+### 1b. Lead broad, then get specific
+When opening a feature section, don't start with a narrow use case that excludes most of the audience. Lead with the universal problem, then bring in specific examples. Imgix serves a broad audience. If a section opener only resonates with e-commerce or only with media companies, it's too narrow.
+
+**Yes:** "When your audience spans multiple countries and languages, reaching them in their own language used to mean managing separate localization workflows for every piece of content."
+**No:** "Most video on social media is watched without sound." (Too specific to one channel; excludes enterprise, e-commerce, media, and other use cases.)
+
+### 1c. Ground abstract claims
+Don't make abstract statements without grounding them. If you say "the bar keeps rising," explain what that means concretely. Vague claims feel like filler and don't earn the reader's trust.
+
+**Yes:** "Your team ships visual content to more channels, more devices, and more markets than it did a year ago. The quality expectations for each keep going up."
+**No:** "The bar for quality keeps rising while the time to ship keeps shrinking." (What bar? What quality? Be specific.)
+
+### 1d. Don't name underlying models or tech in public content
+Customers care about what Imgix does for them, not which open-source model powers it. Never name specific AI models (e.g., Whisper, MADLAD-400, Gemini Flash, Stable Diffusion) in customer-facing content. Describe the capability and the result instead.
+
+**Yes:** "Imgix generates captions from your video's audio and translates them into 100+ languages."
+**No:** "Powered by OpenAI's Whisper model running on GPU-accelerated infrastructure, Imgix uses MADLAD-400 for translation."
+
+Internal docs, engineering specs, and Confluence pages can reference models. Blog posts, emails, social posts, and sales materials should not.
+
 ### 2. Direct, clean, and brief
 Short declarative sentences. No filler words, no throat-clearing, no "in order to" when "to" works fine. Medium-length sentences that are well-constructed but never bloated. If a sentence doesn't earn its place, cut it.
 
@@ -117,11 +139,17 @@ One per page is plenty. If you've already used one, don't use another.
 ### 10. Warm and human (the "updated" part)
 This is where we evolve beyond purely editorial tone. Add moments of genuine connection. Acknowledge the reader's challenges, use conversational bridges, and let personality come through in openings and closings. This doesn't mean being casual or cute. It means being the kind of expert who actually cares about the person they're helping.
 
+**Empathy bridges:** Short sentences that acknowledge the reader's reality before pivoting to the solution. "We get it." is the prototype. These work best between a problem setup paragraph and the solution paragraph. They're earned, not sprinkled. Use one per post, maybe two. They land because they're rare.
+
+**Simple transitions between sections:** Don't over-engineer the bridge from intro to features. "Here's a look at what's new." is perfect. No thesis statement, no "let's dive in," no "without further ado." Just a clean hand-off.
+
 **Warm connectors to use naturally (not in every paragraph):**
 - "Here's what that looks like in practice"
+- "Here's a look at what's new."
 - "The short version:" / "Here's what changed:"
 - "If you're already using X, here's the good news"
-- "Perfect timing." / "You're in the right place."
+- "We get it." (empathy bridge, use sparingly)
+- "That changes with this release."
 
 **What warmth is NOT:**
 - Exclamation points everywhere
@@ -129,10 +157,41 @@ This is where we evolve beyond purely editorial tone. Add moments of genuine con
 - Forced humor or puns
 - Starting sentences with "So..." or "Basically..."
 - Rhetorical questions as a crutch
+- "Let's dive in" or "without further ado" (filler transitions)
+
+### 11. Closings must add value
+Don't end a blog post or email with a soft restatement of the "one platform" narrative or a vague summary of what was already said. If the closing doesn't give the reader something new (a concrete next step, a specific CTA, a forward-looking insight), it's wasted space. Cut the summary and end on an action.
+
+**The best pattern: split by audience.** One short paragraph for existing customers (check the docs, reach out to your AM). One short paragraph for new visitors (start a free trial). Each gets a single action. Done.
+
+**Yes:**
+> "Already an Imgix customer? Check the docs or reach out to your account manager if you need support getting started with these features today."
+> "New here? Start a free trial and see what changes when your images and video run through one platform."
+
+**No:** Restate everything the post already said: "Every update in this release builds on the same idea: one platform for your entire visual workflow. Your images get smarter..." (The reader just read the whole post. They know.)
+
+A single sentence tying back to the platform narrative before the CTA split is fine. A whole paragraph restating it is filler.
+
+### 12. Feature recap sections: keep them tight
+When a blog post includes a section reminding readers of existing features (e.g., "The Full Imgix Video Toolkit"), use one-liner descriptions, not full paragraphs. Each feature gets its name in bold, one sentence describing what it does, and a "Docs →" link. This section is a quick scan, not a deep dive.
+
+**Yes:**
+> **Video previews** auto-generate short highlight clips from longer videos for product listings and thumbnails. Docs →
+> **Smart cropping** keeps the most important content framed correctly across vertical, square, and widescreen formats. Docs →
+
+**No:** Full paragraphs per feature, problem-solution structure, or detailed use cases. Save that energy for the new features.
+
+### 13. "Right from the URL" over "Built into the URL"
+When describing URL-based features, prefer "right from the URL" or "from the URL" over "built into the URL." The former emphasizes simplicity and immediacy. The latter sounds like an engineering description. This is a small distinction but it affects tone.
+
+### 14. Blog subtitles
+Blog posts should have a subtitle beneath the title. The subtitle is conversational and gives the reader a quick preview of what's in the post. It can be slightly informal in a way the title isn't.
+
+**Example:** "Our biggest video release yet. Check out what you can do with longer video, adaptive streaming, global captions, and smarter upscaling."
 
 ## The "One Platform" Narrative
 
-A core messaging thread in everything Imgix writes: unification. We consistently reinforce that Imgix replaces a patchwork of tools with a single platform. Work this into content naturally, don't force it, but look for opportunities to highlight it.
+A core messaging thread in everything Imgix writes: unification. We consistently reinforce that Imgix replaces a patchwork of tools with a single platform. Work this into content naturally, don't force it, but look for opportunities to highlight it. But don't overdo it in closings; a single sentence that ties back to the platform narrative is fine, but a whole paragraph restating it is filler.
 
 **Example:** "Imgix Video runs on the same powerful foundation as your images, giving you a unified workflow for every visual asset."
 
@@ -225,14 +284,3 @@ Before finalizing any piece of content, verify:
 8. Are there zero filler adverbs (seamlessly, effortlessly, etc.)?
 9. Are em dashes used with extreme discretion? (One per page max, and only if it truly enhances the sentence.)
 10. Do all CTA links include properly formatted UTM parameters?
-
-## Related Skills
-
-This is a **global skill** — it applies to every system and every piece of content. All system MANIFESTs reference it as a dependency.
-
-Key relationships:
-- **product-marketing-context** (global) — Positioning informs what we say; brand voice governs how we say it
-- **Content/** — Every content skill uses brand voice for writing
-- **Product-Marketing/positioning** — Positioning framework defines messaging; brand voice defines tone
-- **Discoverability/imgix-aeo** — AEO content must follow brand voice while being structured for AI extraction
-- **Lifecycle/** — All lifecycle emails follow brand voice
