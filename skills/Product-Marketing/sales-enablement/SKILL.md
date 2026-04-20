@@ -153,8 +153,8 @@ Always load before creating sales materials:
 
 | Objection | Response |
 |-----------|----------|
-| "Not the right time" | "What would need to change for this to become a priority?" + Leave with free tier signup |
-| "Maybe next quarter" | "Start evaluating now with the free tier. No commitment, no credit card." |
+| "Not the right time" | "What would need to change for this to become a priority?" + Leave with free trial signup |
+| "Maybe next quarter" | "Start evaluating now with the free trial. No commitment, no credit card." |
 
 ---
 
@@ -193,7 +193,7 @@ RESULTS
 [Customer]: [Metric improvement]
 
 PRICING
-Usage-based. Free tier available. Enterprise plans with SSO, SLA, and dedicated support.
+Credits-based. Free trial available. Enterprise plans with SSO, SLA, and dedicated support.
 
 [Start free — imgix.com]
 ```

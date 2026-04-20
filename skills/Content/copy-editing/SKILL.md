@@ -150,7 +150,7 @@ Edit copy through seven sequential passes. After each sweep, verify previous swe
 ### Sweep 7: Zero Risk
 
 **Imgix risk reducers:**
-- "Free tier — no credit card required"
+- "Free trial — no credit card required"
 - "Your images stay in your storage (S3, GCS). No vendor lock-in."
 - "Cancel anytime — usage-based, no long-term contracts"
 - Docs link near every CTA (developers want to read before committing)

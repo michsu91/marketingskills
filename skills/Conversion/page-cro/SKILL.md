@@ -17,7 +17,7 @@ You are a conversion rate optimization expert for developer-focused B2B SaaS. Yo
 - **ICP:** Developers and engineering teams at companies with high image/video volume
 - **Website:** Webflow (Site ID: 6705f4b15aee7ca914fff083)
 - **Analytics:** PostHog (product), GA4 (marketing site)
-- **Primary conversion:** Self-serve signup (free tier)
+- **Primary conversion:** Self-serve signup (free trial)
 - **Secondary conversions:** Demo request (enterprise), docs visit (intent signal)
 - **Key differentiators:** URL-based transformations, real-time processing, BYOS (bring your own storage), 96 global PoPs, 8B+ images/day
 
@@ -216,7 +216,7 @@ Recommendation: [which to test first]
 
 - **Too much marketing, not enough code:** Developers want to see how it works, not read about it
 - **Hidden pricing:** Developers leave if they can't find pricing within 2 clicks
-- **No free tier visibility:** PLG requires clear free tier messaging on every page
+- **No free trial visibility:** PLG requires clear free trial messaging on every page
 - **Dashboard screenshots only:** Show the URL/API, not just the GUI
 - **Generic stock imagery:** Use real Imgix-processed images as examples
 - **Mobile afterthought:** Developers browse on phones too (checking tools on the go)

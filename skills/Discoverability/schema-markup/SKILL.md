@@ -74,7 +74,7 @@ Enables rich product information in search results.
     "@type": "Offer",
     "price": "0",
     "priceCurrency": "USD",
-    "description": "Free tier available. Usage-based pricing for Growth and Enterprise plans."
+    "description": "Free trial available. Credits-based pricing for Growth and Enterprise plans."
   },
   "aggregateRating": {
     "@type": "AggregateRating",

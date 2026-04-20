@@ -107,7 +107,7 @@ Start free — no credit card required.
 ```
 Cloudinary Alternative | Imgix
 URL-based transforms. Bring your own storage.
-No vendor lock-in. Free tier available.
+No vendor lock-in. Free trial available.
 See why teams switch to Imgix.
 ```
 
@@ -179,7 +179,7 @@ Use:
 
 | Segment | Window | Message | Bid |
 |---------|--------|---------|-----|
-| Pricing page visitors | 1-14 days | "Ready to start? Free tier, no credit card." | High |
+| Pricing page visitors | 1-14 days | "Ready to start? Free trial, no credit card." | High |
 | Docs visitors | 1-30 days | "Try Imgix with your own images" + sandbox link | High |
 | Blog readers (image topics) | 7-30 days | Educational content + free tool | Medium |
 | Homepage visitors | 7-30 days | Core value prop + signup CTA | Medium |

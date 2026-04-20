@@ -1,7 +1,13 @@
+---
+name: international-seo
+description: |
+  Optimize Imgix's presence in Japanese search engines and AI answer engines. Use when auditing Japanese locale content, researching Japanese keywords, verifying hreflang tags, or planning Japan-market content. Triggers: "Japanese SEO," "Japan market," "international SEO," "hreflang," "Japanese locale," "/jp/ pages."
+---
+
 # International SEO (Japan Focus)
 
 ## Goal
-Optimize imgix's presence in Japanese search engines and Japanese-language AI answer engines. imgix already has Japanese localization set up in Webflow — this workstream ensures that localization actually drives discoverability in the Japanese market.
+Optimize Imgix's presence in Japanese search engines and Japanese-language AI answer engines. Imgix already has Japanese localization set up in Webflow. This workstream ensures that localization actually drives discoverability in the Japanese market.
 
 ## Connected Tools
 - **Webflow MCP** — Read and update Japanese locale content
@@ -25,7 +31,7 @@ Assess what content currently exists in Japanese and what's missing.
 
 **How to execute:**
 1. Use Webflow MCP to list all pages, filtering by Japanese locale
-2. For each key page, check if Japanese content has been created or if it falls back to English
+2. For each key page, check if Japanese content has been created or if it falls back to English. Note: "Imgix" capitalization is the same in all locales.
 3. Document which priority pages have Japanese versions and which don't
 
 **Priority pages for Japanese localization:**
@@ -52,9 +58,9 @@ Identify what Japanese users search for when looking for image optimization tool
 
 **How to execute:**
 1. Search each Japanese query and note who ranks
-2. Check if imgix.com/jp/ pages appear in results
+2. Check if Imgix's /jp/ pages appear in results
 3. Note which competitors have Japanese-language content
-4. Identify gaps where imgix could rank with localized content
+4. Identify gaps where Imgix could rank with localized content
 
 ### Task 3: Japanese Meta Tag Optimization
 Ensure Japanese locale pages have proper Japanese SEO titles and descriptions — not just translations of English titles, but keyword-optimized Japanese copy.
@@ -78,13 +84,13 @@ Ensure proper hreflang tags connect English and Japanese pages so Google serves 
 Create content specifically targeting the Japanese market.
 
 **Opportunities:**
-- Feature Japanese customer case studies prominently in Japanese locale (Ikyu: 16ms response time, 6B+ images; Nikkei: 1-second faster loading, 37% size reduction; TV Tokyo; Qiita: 23MB→3.4 seconds)
+- Feature Japanese customer case studies prominently in Japanese locale (Ikyu: 16ms response time, 6B+ images delivered; Nikkei: 1-second faster loading, 37% size reduction; TV Tokyo; Qiita: 23MB to 3.4 seconds)
 - Create Japanese-language comparison content targeting Japanese competitors
 - Localize the FAQ page for Japanese-specific questions
 - Consider Japanese developer community outreach (Qiita is huge for Japanese developers)
 
 ### Task 6: Japanese AEO
-Check imgix's presence in Japanese AI answer engines and search AI features.
+Check Imgix's presence in Japanese AI answer engines and search AI features.
 
 **Queries to monitor:**
 - 「最適な画像CDNは？」(What's the best image CDN?)

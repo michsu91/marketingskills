@@ -1,7 +1,13 @@
+---
+name: content-refresh
+description: |
+  Keep existing Imgix content fresh, accurate, and competitive. Use when auditing blog posts, case studies, or product pages for staleness, when product features change and existing content needs syncing, or when rankings decay on important keywords. Triggers: "content audit," "refresh blog posts," "outdated content," "update old pages," "content decay."
+---
+
 # Content Refresh Strategy
 
 ## Goal
-Keep existing content fresh and accurate. Google rewards content freshness — pages that haven't been updated in 12+ months gradually lose rankings. This workstream audits existing content, identifies what needs updating, and refreshes it to maintain and improve rankings.
+Keep existing content on imgix.com fresh and accurate. Google rewards content freshness, and pages that haven't been updated in 12+ months gradually lose rankings. This is especially important for Imgix because the product evolves quickly (new AI features, video capabilities, pricing changes) and competitor content targets the same keywords.
 
 ## Connected Tools
 - **Webflow MCP** — Read and update blog posts and page content via CMS
@@ -52,17 +58,26 @@ For each piece of content being refreshed:
 ### Task 3: Case Study Freshness
 Case studies are high-value pages. Check each one for:
 - Are the customer metrics still current or have they improved?
-- Is the customer still using imgix? (Don't promote a churned customer)
+- Is the customer still using Imgix? (Don't promote a churned customer)
 - Can we add updated results or expanded scope?
 - Are the screenshots and visuals still accurate?
+- Priority case studies to keep current: Ikyu (16ms response time), Nikkei (37% size reduction), Porsche, Unsplash, Skims
 
 ### Task 4: Product Content Sync
-When imgix ships new features or changes pricing, existing content mentioning the old features/pricing needs updating.
+When Imgix ships new features or changes pricing, existing content mentioning old features or pricing needs updating. This is critical because Imgix has shifted from image-only to a full visual media platform (images + video + AI), and older content may still describe Imgix narrowly.
 
 **Process:**
 1. After any product update, search all site content for mentions of the changed feature
-2. Update all references
-3. This should eventually be triggered by product release notes (manual for now)
+2. Update all references (pay special attention to pricing/credit changes, as Imgix uses a credits-based model)
+3. Check that content reflects the full platform narrative (images + video + AI), not the older image-only positioning
+4. This should eventually be triggered by product release notes (manual for now)
+
+**Common content sync triggers at Imgix:**
+- New AI features (bg-remove, upscale, generative fill, object removal)
+- Video capability updates (HLS, DASH, closed captions, adaptive streaming)
+- Pricing or credit formula changes
+- New SDK releases or framework integrations
+- Dashboard UI changes that affect screenshots
 
 ### Task 5: Competitor Reference Updates
 Content that references competitors needs periodic updates as competitors change their products and pricing.

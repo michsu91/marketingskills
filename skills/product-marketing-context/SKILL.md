@@ -24,7 +24,7 @@ This is the foundational context document that all marketing skills reference. I
 
 **Product type:** B2B SaaS (developer tool)
 
-**Business model:** Usage-based pricing (images processed). Free tier available. Growth and Enterprise plans for higher volume and features.
+**Business model:** Credits-based consumption pricing. Free trial available (not a free tier). Growth and Enterprise plans for higher volume and features.
 
 ---
 
@@ -172,7 +172,7 @@ Many potential Imgix customers process images themselves.
 **Pull (toward Imgix):**
 - URL-based simplicity ("just add parameters")
 - BYOS eliminates migration anxiety
-- Free tier allows risk-free evaluation
+- Free trial allows risk-free evaluation
 - Customer proof points at massive scale
 
 **Habit (keeping them stuck):**

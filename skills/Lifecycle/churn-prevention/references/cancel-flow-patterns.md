@@ -63,18 +63,20 @@ Cancel button → Exit survey → Offer (or route to CS) → Confirm → Post-ca
 
 ### Freemium / Free-to-Paid
 
-Users cancelling paid to return to free tier. Different psychology — they're not leaving, they're downgrading.
+Users cancelling paid to downgrade. Different psychology — they're not leaving, they're reducing usage.
 
-**Flow structure:**
+**Note:** Imgix does not currently have a free tier. It has a free trial. If a freemium model is introduced in the future, this pattern applies. For now, the relevant cancel flow is the standard subscription cancel.
+
+**Flow structure (if freemium exists):**
 ```
-Cancel button → "Switch to Free?" prompt → Exit survey (if still cancelling) → Offer → Confirm
+Cancel button → "Switch to lower plan?" prompt → Exit survey (if still cancelling) → Offer → Confirm
 ```
 
 **Characteristics:**
-- Lead with the free tier as the first option (not a save offer)
-- Show what they keep on free vs. what they lose
-- The "save" is keeping them on free, not losing them entirely
-- Track free-tier users for future re-upgrade campaigns
+- Lead with the lower plan as the first option (not a save offer)
+- Show what they keep vs. what they lose
+- The "save" is keeping them on a smaller plan, not losing them entirely
+- Track downgraded users for future re-upgrade campaigns
 
 ---
 

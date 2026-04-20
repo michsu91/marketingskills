@@ -44,12 +44,12 @@ Before applying any model, understand how developers differ from typical B2C aud
 
 ## Models That Work Well for Imgix
 
-### 1. Endowment Effect (Free Tier Strategy)
+### 1. Endowment Effect (Free Trial Strategy)
 
-People value things more once they own them. Imgix's free tier lets developers "own" the product before paying.
+People value things more once they own them. Imgix's free trial lets developers "own" the product before paying.
 
 **Imgix application:**
-- Free tier with meaningful capabilities (not a crippled demo)
+- Free trial with meaningful capabilities (not a crippled demo)
 - Dashboard shows accumulated usage and value: "You've processed 12,400 images this month"
 - When approaching limits, frame the upgrade as keeping what they have: "Upgrade to keep your current setup running smoothly"
 
@@ -75,14 +75,14 @@ People resist change. For Imgix, this works both ways — it keeps existing cust
 - Once developers integrate Imgix URLs across their codebase, status-quo bias works in Imgix's favor
 - Each additional source connected increases switching resistance
 
-### 4. Zero-Price Effect (Free Tier Psychology)
+### 4. Zero-Price Effect (Free Trial Psychology)
 
 Free isn't just a low price — it's psychologically different. The jump from $1 to $0 is larger than $100 to $1.
 
 **Imgix application:**
-- "Free — no credit card required" removes all friction. This is more powerful than "starts at $5/month"
-- Developers evaluate tools by trying them. A free tier is table stakes for PLG developer products
-- Use "Start free" as the primary CTA. Not "Sign up" (implies commitment), not "Get started" (vague)
+- "Free trial — no credit card required" removes all friction. This is more powerful than "starts at $5/month"
+- Developers evaluate tools by trying them. A free trial is table stakes for PLG developer products
+- Use "Start free trial" as the primary CTA. Not "Sign up" (implies commitment), not "Get started" (vague)
 
 ### 5. Anchoring Effect (Pricing Presentation)
 

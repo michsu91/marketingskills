@@ -186,7 +186,7 @@ Hey [First Name],
 Seems like timing isn't right — totally get it.
 
 If image performance ever becomes a priority for [Company],
-Imgix is here. Free tier, no credit card, 2-minute setup.
+Imgix is here. Free trial, no credit card, 2-minute setup.
 
 [Your name]
 ```

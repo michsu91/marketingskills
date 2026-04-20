@@ -1,16 +1,22 @@
+---
+name: internal-linking
+description: |
+  Optimize internal links across imgix.com to distribute authority, improve crawlability, and reinforce the "one platform" narrative. Use when auditing link structure, fixing orphan pages, or ensuring new content links into the existing site. Triggers: "internal links," "orphan pages," "link audit," "fix linking," "hub and spoke."
+---
+
 # Internal Linking Strategy
 
 ## Goal
-Optimize how pages on imgix.com link to each other. Good internal linking helps search engines understand site hierarchy, distributes page authority, and helps users find related content. It's one of the most underrated SEO tactics because it's entirely within your control.
+Optimize how pages on imgix.com link to each other. Good internal linking helps search engines understand site hierarchy, distributes page authority, and helps users find related content. For Imgix, internal links also reinforce the "one platform" narrative by connecting image, video, and AI content so visitors (and search engines) see the full breadth of the platform.
 
 ## Connected Tools
 - **Webflow MCP** — Read page content to audit current internal links, update content to add new links
 - **Claude in Chrome** — Crawl pages and map internal link structure visually
 - **Jira MCP** — Create tickets for internal linking improvements
 
-## Why This Matters for imgix
+## Why This Matters for Imgix
 
-imgix has ~100 pages including blog posts, case studies, solution pages, API docs, and resources. If these pages don't link to each other strategically, Google treats them as isolated islands instead of a connected authority on image optimization.
+Imgix has ~100 pages including blog posts, case studies, solution pages, API docs, and resources. If these pages don't link to each other strategically, Google treats them as isolated islands instead of a connected authority on visual media optimization. This is especially important as Imgix expands from image-only to a full visual media platform (images + video + AI). Internal links need to reinforce this broader positioning.
 
 The key principle: **every page should link to related pages, and your most important pages should receive the most internal links.**
 
@@ -51,7 +57,7 @@ Crawl key pages and document which pages link to which.
 - Use descriptive anchor text, not "click here" or "learn more"
 - Include target keywords in anchor text naturally
 - Vary anchor text (don't use the exact same text for every link to the same page)
-- Example: link to /solutions/ecommerce with text like "ecommerce image optimization," "product image performance," or "how imgix boosts ecommerce conversions"
+- Example: link to /solutions/ecommerce with text like "ecommerce image optimization," "product image performance," or "how Imgix boosts ecommerce conversions"
 
 ### Task 3: Fix Orphan Pages
 Any published page that receives zero internal links is an orphan. Search engines have a harder time finding and valuing orphan pages.
@@ -84,7 +90,15 @@ For each solution page and blog post, define what related content should be surf
 - Link to the most relevant solution page
 - Link to 1-2 related blog posts
 - Link to a relevant case study
-- Link to free trial at the end (CTA)
+- Link to free trial at the end (CTA). Note: Imgix offers a free trial, not a free tier.
+
+### Imgix-Specific Linking Priorities
+These high-value connections should always exist:
+- Every video-related page should link to image-related pages (and vice versa) to reinforce "one platform"
+- AI feature pages (bg-remove, upscale, generative fill) should link to the main product page and to relevant use-case pages
+- Comparison pages (Imgix vs Cloudinary, etc.) should link to the relevant feature pages that demonstrate advantages
+- Case studies should link to the specific features the customer uses
+- Blog post feature announcements should link to the relevant docs pages
 
 ## Execution Cadence
 - **One-time:** Map current internal link structure (Task 1)

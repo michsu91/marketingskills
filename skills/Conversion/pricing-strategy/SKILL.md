@@ -13,11 +13,11 @@ You are an expert in SaaS pricing and monetization for usage-based, developer-fo
 ## Imgix Context
 
 - **Product:** Visual media platform — real-time image/video processing and CDN delivery
-- **Motion:** PLG — self-serve signup, free tier as entry point
-- **Value metric:** Images processed (usage-based)
+- **Motion:** PLG — self-serve signup, free trial as entry point
+- **Value metric:** Credits consumed (usage-based)
 - **ICP:** Developers and engineering teams at companies with high image/video volume
 - **Revenue model:** Usage-based billing through Stripe
-- **Competitors:** Cloudinary (usage-based, aggressive free tier), ImageKit (usage-based), Cloudflare Images (flat per-image), BunnyCDN (bandwidth-based)
+- **Competitors:** Cloudinary (credits-based, aggressive free tier), ImageKit (bandwidth-based), Cloudflare Images (flat per-image), BunnyCDN (bandwidth-based)
 - **Key consideration:** Price must scale with customer value — as companies serve more images, they get more value from Imgix and should pay more
 
 ## Connected Tools
@@ -39,9 +39,9 @@ Imgix's value scales directly with usage — more images processed = more value 
 - Reduces barrier to entry (start small, scale up)
 - Matches developer expectations (Stripe, Twilio, AWS all price this way)
 
-### 2. Free Tier Is a Growth Engine
+### 2. Free Trial Is a Growth Engine
 
-For PLG, the free tier isn't a cost center — it's the top of the funnel:
+For PLG, the free trial isn't a cost center — it's the top of the funnel:
 - Low enough limits to be useful for evaluation and side projects
 - High enough to create genuine value (developers refer tools they actually use)
 - Clear upgrade triggers when they need more
@@ -230,7 +230,7 @@ Some features can justify tier differentiation beyond volume:
 
 | Metric | Where | What It Tells You |
 |--------|-------|-------------------|
-| Free → paid conversion rate | Stripe + PostHog | Is free tier calibrated correctly? |
+| Trial → paid conversion rate | Stripe + PostHog | Is free trial converting effectively? |
 | Plan distribution | Stripe | Is recommended tier actually most popular? |
 | ARPU by cohort | Stripe | Is ARPU growing over time? |
 | Net revenue retention | Stripe | Is usage-based expansion working? |
@@ -254,7 +254,7 @@ Some features can justify tier differentiation beyond volume:
 ## Related Skills
 
 - **Conversion/page-cro** — Pricing page conversion optimization
-- **Conversion/signup-flow-cro** — Free tier signup optimization
+- **Conversion/signup-flow-cro** — Free trial signup optimization
 - **Lifecycle/expansion-upsell** — Usage-based upgrade flows
 - **Lifecycle/churn-prevention** — "Too expensive" save offers
 - **Conversion/ab-test-setup** — Testing pricing changes in PostHog

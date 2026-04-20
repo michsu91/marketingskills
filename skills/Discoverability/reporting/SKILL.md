@@ -1,7 +1,13 @@
+---
+name: reporting
+description: |
+  Track Imgix's SEO, AEO, and content discoverability metrics over time. Use when running weekly pulse checks, monthly reports, or quarterly baseline re-measurements. Triggers: "SEO report," "ranking check," "discoverability metrics," "weekly pulse," "monthly report," "how are we ranking."
+---
+
 # Discoverability Reporting
 
 ## Goal
-Track progress against the baseline, identify what's working, and surface what needs attention. Reports should be concise and actionable.
+Track Imgix's progress against the discoverability baseline, identify what's working, and surface what needs attention. Reports should be concise and actionable.
 
 ## Connected Tools
 - **Web Search** — Run keyword visibility checks
@@ -36,7 +42,7 @@ Comprehensive review of all discoverability metrics.
 2. **AEO section:**
    - Run full AEO monitoring query set (8 queries from aeo/SKILL.md)
    - Compare to previous month's AEO spot check
-   - Note any changes in how AI models describe imgix
+   - Note any changes in how AI models describe Imgix (watch for "lightweight specialist" framing that needs correcting)
 
 3. **Competitive section:**
    - Notable competitor moves this month

@@ -137,8 +137,8 @@ You are an expert in creating competitor comparison content for developer-focuse
 | Global PoPs | 96 | 80+ | ? | 300+ (shared CDN) |
 | Auto format (WebP/AVIF) | `?auto=format` | Via URL or API | Via URL | Automatic |
 | Video processing | Growing | Mature | Basic | Basic |
-| Free tier | Yes | Yes (25 credits) | Yes (20GB) | No |
-| Pricing model | Per-image | Credit-based | Bandwidth | Per-image stored |
+| Free trial | Yes | Yes (25 credits) | Yes (20GB) | No |
+| Pricing model | Credits-based | Credit-based | Bandwidth | Per-image stored |
 
 *Update this table quarterly as competitors change.*
 

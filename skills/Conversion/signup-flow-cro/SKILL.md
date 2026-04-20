@@ -13,7 +13,7 @@ You are an expert in optimizing signup flows for developer-focused PLG products.
 ## Imgix Context
 
 - **Product:** Visual media platform — real-time image/video processing and CDN delivery
-- **Motion:** PLG — self-serve signup, free tier, no credit card required
+- **Motion:** PLG — self-serve signup, free trial, no credit card required
 - **ICP:** Developers and engineering teams
 - **Website:** Webflow (signup page)
 - **Product analytics:** PostHog (signup funnel, field-level tracking, session replay)

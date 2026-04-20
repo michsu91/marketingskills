@@ -1,7 +1,13 @@
+---
+name: distribution
+description: |
+  Distribute Imgix content across owned, earned, and paid channels to drive initial engagement and support SEO. Use when publishing new content, planning distribution for a launch, or auditing which channels drive traffic. Triggers: "distribute this," "promote blog post," "share content," "distribution checklist," "amplification plan."
+---
+
 # Content Distribution Strategy
 
 ## Goal
-Content doesn't rank if nobody sees it initially. This workstream ensures every piece of content published on imgix.com gets distributed across channels to generate initial traffic, engagement, and social signals that support SEO performance.
+Content doesn't rank if nobody sees it initially. This workstream ensures every piece of content published on imgix.com gets distributed across channels to generate initial traffic, engagement, and social signals that support SEO performance. Imgix's developer audience lives in specific communities (Hacker News, Reddit r/webdev, Dev.to, GitHub) that require authentic, value-first sharing rather than promotional posts.
 
 ## Connected Tools
 - **Slack MCP** — Post content internally for team amplification
@@ -22,8 +28,8 @@ For AEO, distribution matters because AI models are more likely to learn about a
 | Channel | Action | Timing |
 |---------|--------|--------|
 | Email newsletter | Include in next newsletter or send dedicated email | Within 1 week of publish |
-| LinkedIn (imgix company page) | Share with commentary, tag relevant people | Day of publish |
-| Twitter/X (imgix account) | Share with key insight or stat pulled from the content | Day of publish |
+| LinkedIn (Imgix company page) | Share with commentary, tag relevant people | Day of publish |
+| Twitter/X (Imgix account) | Share with key insight or stat pulled from the content | Day of publish |
 | Slack (internal) | Share with team, ask for personal reshares | Day of publish |
 
 ### Tier 2: Earned/Community Channels (For high-value content)
@@ -45,11 +51,19 @@ For AEO, distribution matters because AI models are more likely to learn about a
 
 ## Distribution Playbook by Content Type
 
-### Comparison Pages (imgix vs Cloudinary, etc.)
-1. Share on LinkedIn with a neutral, helpful framing: "We put together an honest comparison of imgix and Cloudinary to help teams make the right choice"
+### Comparison Pages (Imgix vs Cloudinary, etc.)
+1. Share on LinkedIn with a neutral, helpful framing: "We put together an honest comparison of Imgix and Cloudinary to help teams make the right choice"
 2. Submit to relevant Reddit threads when people ask "which image CDN should I use"
-3. Consider paid promotion on Google Ads for the exact comparison keyword
+3. Consider paid promotion on Google Ads for the exact comparison keyword ("imgix vs cloudinary")
 4. Email to prospects in HubSpot who are evaluating competitors
+
+### Developer Community Distribution (Imgix-Specific)
+Imgix's primary audience is developers. Developer communities require a different approach than traditional marketing distribution:
+- **Hacker News:** Only submit genuinely technical or interesting content (benchmarks, architecture deep-dives, open-source tools). Never submit product announcements here.
+- **Reddit (r/webdev, r/frontend, r/nextjs):** Share as a helpful answer to someone's question, not as a promotional post. Link to the content when it genuinely helps.
+- **Dev.to:** Cross-post technical tutorials with a canonical URL pointing to imgix.com.
+- **GitHub:** Create repos for code examples, SDKs, and integration demos. Link to relevant content from README files.
+- **Stack Overflow:** Answer image optimization questions and reference Imgix docs when relevant (not promotional, genuinely helpful).
 
 ### Case Studies
 1. Tag the customer on LinkedIn when sharing
