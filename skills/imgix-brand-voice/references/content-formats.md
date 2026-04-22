@@ -45,8 +45,18 @@ Warm, direct, and action-oriented. Examples:
 - One primary CTA per email. Don't dilute with multiple asks.
 - Keep paragraphs to 1-2 sentences for mobile readability
 - Total body copy: aim for 3-5 sentences max. Seriously, shorter than you think. If it feels too short, it's probably right.
-- Sign off warmly but briefly: "The Imgix team" or a specific person's name
+- Sign off: "The Imgix Team" (capital T) for launch/product emails. Use a specific person's name only for 1:1 or personal outreach, not brand announcements.
 - All CTA links must include UTM parameters with `utm_source=email` and `utm_medium=email`
+
+### Tone calibration for launch/release emails
+
+Launch emails need a specific tone: **confident and forward-looking.** Not flat (status update), not overly warm (personal note from a friend). The excitement comes from the strength of what shipped, not from adjectives or exclamation points.
+
+- Open with the capability and its value, not "We're excited to announce" or "Here's an update"
+- Use bold feature names with one-line benefit descriptions in the body
+- Close forward ("here's what this unlocks") not backward ("we've been working on this for months")
+- First person plural ("we") is fine. First person singular ("I'm so thrilled") is too personal for brand emails.
+- Sign off as "The Imgix Team" for announcements. Reserve individual names for personal outreach.
 
 **Nurture sequences:**
 - Each email should deliver standalone value with a clear "why should I care" message

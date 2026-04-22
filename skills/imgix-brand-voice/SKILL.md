@@ -158,6 +158,7 @@ This is where we evolve beyond purely editorial tone. Add moments of genuine con
 - Starting sentences with "So..." or "Basically..."
 - Rhetorical questions as a crutch
 - "Let's dive in" or "without further ado" (filler transitions)
+- First-person enthusiasm in brand emails ("I'm so thrilled to share..."). This tone is too personal for product announcements sent from Imgix as a company. Save it for genuinely personal 1:1 emails.
 
 ### 11. Closings must add value
 Don't end a blog post or email with a soft restatement of the "one platform" narrative or a vague summary of what was already said. If the closing doesn't give the reader something new (a concrete next step, a specific CTA, a forward-looking insight), it's wasted space. Cut the summary and end on an action.
