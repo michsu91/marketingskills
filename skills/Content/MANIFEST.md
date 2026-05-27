@@ -1,12 +1,46 @@
-# imgix Content System
+# Imgix Content System
 
 **Owner:** Michelle Su
 **Created:** April 17, 2026
-**Last Updated:** April 17, 2026
+**Last Updated:** May 27, 2026
 
 ## What This Is
 
 This folder is a coordinated system for creating, editing, and distributing marketing content across all channels. Any Claude session that opens this folder should read this manifest first, check the STATUS.md in each subfolder (where available), and pick up the highest-priority incomplete work.
+
+## How to Use This Folder
+
+**When to invoke this folder:** You have a content output to produce (blog post, landing page copy, social post, deck) or you need to plan what to produce. If you don't yet know what to write, start here with content-strategy. If you're editing existing copy, jump straight to copy-editing.
+
+**Context to bring:**
+- The audience (developer, engineering manager, marketer mix)
+- The channel (blog, landing page, social, deck, internal doc)
+- Constraints (word count, deadline, target keyword, brand voice exceptions)
+- Source material if it exists (outline, feature spec, customer quote, Gong call)
+
+**How the sub-skills fit together:**
+- This folder is a **pipeline more than a menu.** Most real work chains skills.
+- **Plan:** content-strategy figures out what to write and why
+- **Write:** copywriting drafts new copy
+- **Edit:** copy-editing tightens existing copy via Seven Sweeps
+- **Distribute:** social-content repurposes long-form for LinkedIn and Twitter
+- **Present:** imgix-brand-deck turns content into slides
+- You don't have to use them all. For a single edit pass, invoke copy-editing directly.
+
+**Typical prompts:**
+- "Draft a blog post on [topic] for our developer audience targeting [keyword]. Run content-strategy first to confirm angle, then copywriting."
+- "Edit this homepage hero copy using copy-editing with Seven Sweeps."
+- "Plan next quarter's content calendar. Use content-strategy and pull from marketing-ideas for inspiration."
+- "Repurpose this blog post into a LinkedIn thread using social-content."
+
+**Output to expect:** A draft (markdown, optionally pushed to Webflow CMS), an edit pass with rationale, a content calendar in a table, a social post variant set, or a `.pptx` file.
+
+**When NOT to use this folder (and where to go instead):**
+- Technical API docs or integration tutorials → Content/technical-writing (planned)
+- Email sequences and lifecycle copy → Lifecycle/email-sequence
+- Cold outbound emails → Acquisition/cold-email
+- SEO briefs from gap analysis → start with Discoverability/content-gaps, then come back here
+- Pure brand voice questions → imgix-brand-voice (global)
 
 ## How It Works
 
