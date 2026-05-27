@@ -1,12 +1,43 @@
-# imgix Lifecycle System
+# Imgix Lifecycle System
 
 **Owner:** Michelle Su
 **Created:** April 17, 2026
-**Last Updated:** April 17, 2026
+**Last Updated:** May 27, 2026
 
 ## What This Is
 
 This folder is a coordinated system for the full customer lifecycle — from prospect nurture through trial activation, expansion, retention, and advocacy. Covers every automated touchpoint after someone enters the funnel.
+
+## How to Use This Folder
+
+**When to invoke this folder:** You're building or optimizing an automated touchpoint for someone already in the funnel: prospect nurture, trial activation, expansion, churn prevention, referrals, or advocacy. Anything that's an automated email or in-product nudge for a known user belongs here.
+
+**Context to bring:**
+- The lifecycle stage (prospect, trial, active, expansion-ready, at-risk, advocate)
+- The trigger event (signup, usage threshold, days since last login, failed payment)
+- The audience size and segment
+- The success metric (activation rate, MQL conversion, save rate, NRR)
+- HubSpot access confirmed; PostHog access if the trigger is usage-based
+
+**How the sub-skills fit together:**
+- This folder has an **underlying framework + stage-specific applications.**
+- email-sequence is the foundational framework. It defines how to build any multi-email automated flow in HubSpot. Other sub-skills lean on it.
+- Always start with the stage-specific sub-skill (churn-prevention, referral-program, prospect-nurture, etc.). It will pull email-sequence as needed for the email mechanics.
+- *Note: 4 of 7 sub-skills in this folder are planned but not built (prospect-nurture, trial-activation, expansion-upsell, customer-advocacy). For those stages today, use email-sequence directly and apply the framework manually.*
+
+**Typical prompts:**
+- "Design a churn prevention sequence for accounts that hit 50% credit usage and then went idle for 14 days."
+- "Build a referral program for developer customers. Focus on code-community sharing mechanics, not 'share a link' buttons."
+- "Draft a welcome sequence for new free trial users. Map emails to the activation milestones."
+- "Use email-sequence to build an NPS request flow that goes to all paid accounts at 60 days."
+
+**Output to expect:** Sequence briefs with subject lines, timing, trigger logic, audience segments, copy drafts for each email, and a HubSpot workflow spec ready for implementation.
+
+**When NOT to use this folder (and where to go instead):**
+- Cold outbound to people who haven't signed up → Acquisition/cold-email
+- In-product onboarding UI (not email) → Conversion/onboarding-cro
+- Marketing campaign emails (newsletters, launches) → Content + Acquisition
+- Brand voice and tone questions → imgix-brand-voice (global)
 
 ## How It Works
 
