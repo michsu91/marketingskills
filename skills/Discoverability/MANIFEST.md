@@ -46,28 +46,46 @@ These skills apply to ALL content this system produces:
 ## Subfolders (Priority Order)
 
 ### 1. `technical-seo/` — HIGH PRIORITY
-Fix on-site technical SEO issues that are hurting crawlability and rankings. These are usually quick wins with outsized impact.
+Fix on-site technical SEO issues that are hurting crawlability and rankings. Quick wins with outsized impact.
 
 ### 2. `content-gaps/` — HIGH PRIORITY
-Identify and fill keyword gaps where imgix should rank but doesn't. Create content briefs and draft content targeting high-intent terms.
+Identify and fill keyword gaps where Imgix should rank but doesn't. Create content briefs and draft content targeting high-intent terms.
 
-### 3. `imgix-aeo/` — MEDIUM-HIGH PRIORITY
-Answer Engine Optimization — ensure imgix is cited accurately across AI answer engines (ChatGPT, Perplexity, Gemini, Claude, Google AI Overviews). Enhanced with platform-specific optimization, content patterns, and monitoring. This is the emerging frontier — most competitors aren't doing this yet.
+### 3. `technical-performance/` — HIGH PRIORITY
+Monitor and improve imgix.com's Core Web Vitals (LCP, INP, CLS). Brand-critical for an image optimization platform: a slow marketing site undermines the product narrative.
 
-### 4. `imgix-programmatic-seo/` — MEDIUM-HIGH PRIORITY
-Build SEO-optimized pages at scale using templates and data. Four playbooks: comparison pages, integration pages, persona/vertical pages, and glossary pages. Coordinates with content-gaps for what to build.
+### 4. `imgix-aeo/` — MEDIUM-HIGH PRIORITY
+Answer Engine Optimization. Ensure Imgix is cited accurately across AI answer engines (ChatGPT, Perplexity, Gemini, Claude, Google AI Overviews) with platform-specific optimization, content patterns, and monitoring. The emerging frontier where most competitors aren't yet playing.
 
-### 5. `competitive-intel/` — MEDIUM PRIORITY
-Monitor competitor positioning, content strategy, and search visibility. Update battlecards and identify opportunities they're missing.
+### 5. `imgix-programmatic-seo/` — MEDIUM-HIGH PRIORITY
+Build SEO-optimized pages at scale using templates and data. Five playbooks: comparison, integration, persona/vertical, glossary, and alternatives pages. Coordinates with content-gaps on what to build.
 
-### 6. `schema-markup/` — MEDIUM PRIORITY
-Structured data implementation (JSON-LD) across key pages. FAQ schema, product schema, organization schema. Coordinates with imgix-aeo for AI visibility.
+### 6. `content-refresh/` — MEDIUM-HIGH PRIORITY
+Audit and update existing content as products change or rankings decay. Prevents loss of ranking on terms Imgix already wins.
 
-### 7. `site-architecture/` — MEDIUM PRIORITY
-Website page hierarchy, URL structure, navigation, and information architecture. Hub-and-spoke model coordinated with internal-linking.
+### 7. `schema-markup/` — MEDIUM-HIGH PRIORITY
+Structured data implementation (JSON-LD) across key pages. Organization, FAQ, HowTo, Article, BreadcrumbList. Supports rich results and AEO citation accuracy.
 
-### 8. `reporting/` — ONGOING
-Track progress against the baseline. Generate weekly and monthly reports on ranking changes, traffic, and AEO citations.
+### 8. `site-architecture/` — MEDIUM PRIORITY
+Page hierarchy, URL structure, navigation, and information architecture. Hub-and-spoke model coordinated with internal-linking.
+
+### 9. `internal-linking/` — MEDIUM PRIORITY
+Fix orphan pages, audit link distribution, reinforce the "one platform" narrative through linking. Tactical execution of site-architecture decisions.
+
+### 10. `competitive-intel/` — MEDIUM PRIORITY
+Monitor competitor positioning (Cloudinary, ImageKit, Cloudflare Images, BunnyCDN), content strategy, and search visibility. Update battlecards and identify opportunities competitors are missing.
+
+### 11. `reporting/` — MEDIUM PRIORITY
+Track progress against the baseline. Generate weekly pulses, monthly reports, and quarterly re-measurements on ranking changes, traffic, and AEO citations. Supports every other skill.
+
+### 12. `distribution/` — LOWER PRIORITY
+Distribute Imgix content across owned, earned, and paid channels to drive initial engagement and support SEO. Owned/earned/paid playbook for new content.
+
+### 13. `backlinks/` — LOWER PRIORITY
+Build domain authority and referral traffic by earning high-quality backlinks. Competitor backlink gap analysis and outreach. Slow compound build that requires consistent outreach capacity.
+
+### 14. `international-seo/` — LOWER PRIORITY
+Japanese locale optimization, hreflang tags, and `/jp/` pages. Defer unless Imgix is actively investing in the Japan market.
 
 ## Brand Voice Reference
 
