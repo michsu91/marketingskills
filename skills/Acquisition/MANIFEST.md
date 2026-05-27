@@ -1,4 +1,4 @@
-# imgix Acquisition System
+# Imgix Acquisition System
 
 **Owner:** Michelle Su
 **Created:** April 17, 2026
