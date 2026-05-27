@@ -6,7 +6,7 @@ If you're new to this repo or picking it up from Michelle, read this first.
 
 A coordinated system of marketing skills that Claude sessions can run autonomously for Imgix. Six system folders (Acquisition, Content, Conversion, Discoverability, Lifecycle, Product-Marketing), one Data folder, two global skills loaded into every system run (imgix-brand-voice, product-marketing-context), and two reference skills invoked on demand (marketing-ideas, marketing-psychology).
 
-It's a strong skeleton with a few well-developed muscles, not a turnkey system. This onramp hardens the parts that matter most.
+It's a strong skeleton with a few well-developed muscles, not a turnkey system. The 30-day plan below walks you through how to get going with it.
 
 ## Who runs what
 
