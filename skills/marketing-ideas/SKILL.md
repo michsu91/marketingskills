@@ -1,9 +1,7 @@
 ---
-name: marketing-ideas
+name: growth-marketing-ideas
 description: |
   Marketing ideas and growth strategies specifically for Imgix's PLG developer-focused motion. Use when stuck on what to try next, need inspiration for growth experiments, or want to brainstorm new marketing tactics. Also use when the user asks for "marketing ideas," "growth ideas," "what else can I try," "brainstorm marketing," or "what marketing should I do." For specific channel execution, see the relevant skill (paid-ads, social-content, email-sequence, etc.).
-metadata:
-  version: 2.0.0
 ---
 
 # Marketing Ideas for Imgix
