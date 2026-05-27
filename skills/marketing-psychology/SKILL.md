@@ -211,7 +211,7 @@ Admitting a weakness makes strengths more credible. Especially effective with sk
 | Aggressive exit popups | Interrupts workflow, causes irritation | Helpful in-app messaging when stuck |
 | Hiding pricing | Developers will leave and find a competitor with transparent pricing | Show pricing upfront |
 | Requiring phone number | Developers despise sales calls | Email-only signup |
-| Gated technical docs | Developers will use a competitor with open docs | Make all docs public |
+| Gated technical docs | Developers will use a competitor with open docs | Make all docs public | 
 | Fake urgency ("Offer expires!") | Instant credibility destruction | Real signals: "You're at 80% of your plan limit" |
 
 ---
