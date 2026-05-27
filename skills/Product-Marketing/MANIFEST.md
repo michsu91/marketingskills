@@ -40,7 +40,7 @@ This folder is a coordinated system for product marketing — understanding the 
 - Brand voice and tone → imgix-brand-voice (global)
 - ICP, positioning fundamentals, proof points → product-marketing-context (global)
 
-## How It Works
+## How Claude Runs this Folder
 
 1. **Read this MANIFEST.md** to understand the system and current priorities
 2. **Read MEMORY.md** for accumulated context from previous sessions
