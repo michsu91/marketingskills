@@ -42,7 +42,7 @@ This folder is a coordinated system for creating, editing, and distributing mark
 - SEO briefs from gap analysis → start with Discoverability/content-gaps, then come back here
 - Pure brand voice questions → imgix-brand-voice (global)
 
-## How It Works
+## How Claude Runs this Folder
 
 1. **Read this MANIFEST.md** to understand the system and current priorities
 2. **Read MEMORY.md** for accumulated context from previous sessions
