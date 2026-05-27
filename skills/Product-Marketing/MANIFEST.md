@@ -8,6 +8,38 @@
 
 This folder is a coordinated system for product marketing — understanding the market, positioning Imgix, enabling sales, and launching features. These skills inform every other system's messaging and targeting.
 
+## How to Use This Folder
+
+**When to invoke this folder:** A feature is going to launch, sales asks for new collateral, positioning needs a refresh, you want to mine customer research for insights, or a competitor moved. This folder informs how Imgix shows up to the market.
+
+**Context to bring:**
+- The product or feature in question (one-pager, spec, dates)
+- The audience (which persona, internal vs. external)
+- Current positioning and where it might need to shift
+- Sales context if relevant (deal stage, objection, competitor in deal)
+- Access to Gong (for customer research) and Drive (for collateral storage) confirmed
+
+**How the sub-skills fit together:**
+- This folder has an **orchestrator + specialists.**
+- launch-strategy is the orchestrator. It pulls from sales-enablement (collateral), Content/copywriting (blog and email), customer-research (proof points), competitor-alternatives (comparison angle), and Discoverability/imgix-aeo (search and AEO setup).
+- The other sub-skills work standalone too. Use customer-research for ongoing voice-of-customer work. Use competitor-alternatives whenever a vs. page or battle card is needed. Use revops when lead routing or scoring needs attention.
+- *Note: positioning and win-loss-analysis are planned but not built. For positioning work today, use product-marketing-context (global) directly. For win-loss, pull Gong calls into customer-research manually.*
+
+**Typical prompts:**
+- "Plan the launch for [feature]. Use launch-strategy. Target date is [date]."
+- "Build a battle card against Cloudinary. Focus on the URL-based API simplicity angle and BYOS."
+- "Analyze the last 10 Gong calls for objection patterns. What are we hearing most often?"
+- "Update sales-enablement collateral with the new pricing and the AI features added in Q1."
+
+**Output to expect:** Launch plans with checklists and full content packages, public-facing comparison pages, sales decks and one-pagers, objection handling docs, customer research syntheses, lead scoring proposals.
+
+**When NOT to use this folder (and where to go instead):**
+- Writing the actual launch blog or email copy → Content/copywriting (launch-strategy will direct you there)
+- Paid promotion for the launch → Acquisition/paid-ads
+- Post-launch lifecycle emails to customers → Lifecycle/email-sequence
+- Brand voice and tone → imgix-brand-voice (global)
+- ICP, positioning fundamentals, proof points → product-marketing-context (global)
+
 ## How It Works
 
 1. **Read this MANIFEST.md** to understand the system and current priorities
