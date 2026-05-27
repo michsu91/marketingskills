@@ -39,7 +39,7 @@ This folder is a coordinated system for optimizing the full conversion funnel �
 - Top-of-funnel traffic generation → Acquisition or Discoverability
 - Sales enablement and enterprise objection handling → Product-Marketing/sales-enablement
 
-## How It Works
+## How Claude Runs this Folder
 
 1. **Read this MANIFEST.md** to understand the system and current priorities
 2. **Read MEMORY.md** for accumulated context from previous sessions
