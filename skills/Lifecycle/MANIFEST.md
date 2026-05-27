@@ -39,7 +39,7 @@ This folder is a coordinated system for the full customer lifecycle — from pro
 - Marketing campaign emails (newsletters, launches) → Content + Acquisition
 - Brand voice and tone questions → imgix-brand-voice (global)
 
-## How It Works
+## How Claude Runs this Folder
 
 1. **Read this MANIFEST.md** to understand the system and current priorities
 2. **Read MEMORY.md** for accumulated context from previous sessions
