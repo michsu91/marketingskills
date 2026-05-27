@@ -1,8 +1,7 @@
-# imgix Discoverability System
+# Imgix Discoverability System
 
 **Owner:** Michelle Su
 **Created:** March 23, 2026
-**Last Updated:** March 23, 2026
 
 ## What This Is
 
