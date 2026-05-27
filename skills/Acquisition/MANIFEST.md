@@ -39,7 +39,7 @@ This folder is a coordinated system for acquiring new users and leads through pa
 - Email sequences for existing leads or customers → Lifecycle/email-sequence
 - Brand or messaging foundation → product-marketing-context (global)
 
-## How It Works
+## How Claude Runs this Folder
 
 1. **Read this MANIFEST.md** to understand the system and current priorities
 2. **Read MEMORY.md** for accumulated context from previous sessions
