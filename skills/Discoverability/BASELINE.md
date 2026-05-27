@@ -1,4 +1,4 @@
-# imgix Discoverability Baseline
+# Imgix Discoverability Baseline
 
 **Captured:** March 23, 2026
 **Method:** Web search visibility checks, AI answer engine spot checks, Webflow site audit (100 pages)
