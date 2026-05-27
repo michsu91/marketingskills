@@ -1,8 +1,8 @@
-# imgix Product Marketing System
+# Imgix Product Marketing System
 
 **Owner:** Michelle Su
 **Created:** April 17, 2026
-**Last Updated:** April 17, 2026
+**Last Updated:** May 27, 2026
 
 ## What This Is
 
