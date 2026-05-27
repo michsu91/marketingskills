@@ -39,7 +39,7 @@ This folder is a self-executing system for improving imgix's discoverability —
 - Brand voice and messaging → imgix-brand-voice (global), product-marketing-context (global)
 - Sales-facing competitive battle cards → Product-Marketing/competitor-alternatives (public comparison pages live here; sales battle cards live there)
 
-## How It Works
+## How Claude Runs this Folder
 
 1. **Read this MANIFEST.md** to understand the project and current priorities
 2. **Read MEMORY.md** for accumulated context, decisions, and lessons from previous sessions
