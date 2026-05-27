@@ -73,7 +73,7 @@ Track progress against the baseline. Generate weekly and monthly reports on rank
 ## Brand Voice Reference
 
 When creating any content, reference the imgix brand voice guidelines. Key rules:
-- Always lowercase "imgix" (use "Imgix" only at sentence start if unavoidable)
+- Always capitalize "Imgix"
 - We are a "visual media platform" not an "image CDN" or "image optimizer"
 - Lead with performance metrics and business outcomes
 - Developer-first language, marketer-friendly tone
