@@ -2,11 +2,42 @@
 
 **Owner:** Michelle Su
 **Created:** April 17, 2026
-**Last Updated:** April 17, 2026
+**Last Updated:** May 27, 2026
 
 ## What This Is
 
 This folder is a coordinated system for acquiring new users and leads through paid and organic channels beyond search. Covers paid advertising, cold outreach, lead generation, referrals, free tools, and events.
+
+## How to Use This Folder
+
+**When to invoke this folder:** You're planning or executing a non-search acquisition channel: paid ads, cold outreach, gated content, free tools, or events. If you're not sure which channel to invest in, check `marketing-ideas` first for the prioritized list, then pick the right sub-skill here.
+
+**Context to bring:**
+- Target audience and segment (which persona, which vertical)
+- Budget and timeline (campaign window, monthly spend ceiling)
+- Channel choice (paid ads vs. cold email vs. lead magnet vs. tool)
+- What success looks like (signups, qualified leads, downloads)
+- Existing campaign performance if iterating
+
+**How the sub-skills fit together:**
+- This folder is a **menu, not a pipeline.** Each sub-skill is a discrete channel.
+- Pick the sub-skill that matches your channel and execute it.
+- Skills don't chain in a fixed sequence. They're independent disciplines.
+- Cross-cutting work (a lead magnet that drives paid ad traffic) uses two sub-skills in parallel, not sequentially.
+
+**Typical prompts:**
+- "Draft a cold email sequence to engineering leads at e-commerce companies with high image volume."
+- "Plan a Google Ads test targeting 'Cloudinary alternative.' Define keywords, budget, ad copy, and landing page."
+- "Brainstorm a lead magnet developers will actually download. Should be technical and immediately useful."
+- "Evaluate whether to build a free image performance analyzer. Score effort, lead potential, and engineering ask."
+
+**Output to expect:** Campaign briefs with targeting and budget, ad copy and headline sets, cold email sequence drafts, lead magnet outlines, free tool specs. Often produces a Jira ticket in MKTG for the execution work.
+
+**When NOT to use this folder (and where to go instead):**
+- Organic search and AEO → Discoverability
+- Organic social (LinkedIn, Twitter) → Content/social-content
+- Email sequences for existing leads or customers → Lifecycle/email-sequence
+- Brand or messaging foundation → product-marketing-context (global)
 
 ## How It Works
 
