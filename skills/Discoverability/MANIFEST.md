@@ -2,10 +2,42 @@
 
 **Owner:** Michelle Su
 **Created:** March 23, 2026
+**Last Updated:** May 27, 2026
 
 ## What This Is
 
 This folder is a self-executing system for improving imgix's discoverability — across both traditional search engines (SEO) and AI answer engines (AEO). Any Claude session that opens this folder should read this manifest first, check the STATUS.md in each subfolder, and pick up the highest-priority incomplete work.
+
+## How to Use This Folder
+
+**When to invoke this folder:** You want to improve how Imgix shows up in search engines and AI answer engines, audit imgix.com for technical SEO issues, find new keyword opportunities, or run the weekly Discoverability pulse. This is the most continuous discipline in the repo and should be invoked at least weekly.
+
+**Context to bring:**
+- The activity (audit, content brief, refresh, monitoring, fix)
+- Specific target if any (a keyword, a page, a competitor, a Core Web Vital)
+- Current data if iterating (ranking position, traffic trend, citation status)
+- Webflow access and Jira (MKTG) access confirmed
+
+**How the sub-skills fit together:**
+- This folder is **hybrid.** Some sub-skills run standalone (technical-seo audits, content-refresh, technical-performance, reporting). Others chain.
+- The main chain: content-gaps identifies a keyword opportunity, then either imgix-programmatic-seo (for scalable templated pages) or hand-off to Content/copywriting (for one-off long-form), then schema-markup to optimize for AEO.
+- reporting supports every other skill by tracking impact over time.
+- The Tier 4 sub-skills (distribution, backlinks, international-seo) are specialized. Don't try to do all 14 every week.
+
+**Typical prompts:**
+- "Run a weekly Discoverability pulse. Check ranking changes, AEO citation status, and any technical issues on imgix.com."
+- "Audit imgix.com for technical SEO issues that are hurting crawlability or rankings."
+- "Find content gaps where Cloudinary ranks page 1 but Imgix doesn't. Prioritize by intent and traffic potential."
+- "Refresh the 10 oldest blog posts. Flag outdated product mentions and propose updates."
+- "Add FAQ schema to the top 5 traffic pages and measure AEO impact at 4 weeks."
+
+**Output to expect:** Audit reports with prioritized fixes, content briefs (often handed to Content), Jira tickets for engineering fixes, ranking and AEO citation summaries, schema markup JSON, refreshed copy diffs.
+
+**When NOT to use this folder (and where to go instead):**
+- Writing the content itself → Content/copywriting after a brief is produced here
+- Paid traffic and channel diversification → Acquisition
+- Brand voice and messaging → imgix-brand-voice (global), product-marketing-context (global)
+- Sales-facing competitive battle cards → Product-Marketing/competitor-alternatives (public comparison pages live here; sales battle cards live there)
 
 ## How It Works
 
